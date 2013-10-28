@@ -9,6 +9,7 @@
     "express": "3.4.3",
     "jade": "*",
     "mongodb": "*",
-    "mongoose": "*"
+    "mongoose": "*",
+    "jasmine-node": "1.11.0"
   }
 } 
