@@ -28,4 +28,6 @@ $(document).ready(function() {
 		}, 100000);
 	};
 
+	jumpNotification($('.notificar'));
+
 });

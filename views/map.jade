@@ -1,13 +1,12 @@
 extends layout
-	block content
+block head
+	script(src='http://maps.google.com/maps/api/js?sensor=true&.js')
+	script(src='js/gmaps.js')
+	script(src='js/map.js')
+
+
+block content
 
 	h1= title
-
+		
 	div#map
-
-script(src='js/gmaps.js')
-script (src='js/map.js')
-
-
-
-

@@ -5,9 +5,7 @@
  *
  */
  $(document).ready(function() {
-
-	var map;
-	function(position) {
+console.log("map lib loaded");
 		var map = new GMaps({
 			div: '#map',
 			lat: 9.9340573930128,
@@ -15,6 +13,7 @@
 		});
 		GMaps.geolocate({
 			success: function(position) {
+				console.log("gmaps geolocate worked");
 				map.setCenter(position.coords.latitude, position.coords.longitude);
 				map.addMarker({
 					lat: position.coords.latitude,
@@ -25,7 +24,7 @@
 					}
 
 				});
-				notifMsg = "Location: lat= " + position.coords.latitude + ", lon= " + position.coords.longitude;
+			notifMsg = "Location: lat= " + position.coords.latitude + ", lon= " + position.coords.longitude;
 			},
 			error: function(error) {
 				notifMsg = 'Geolocation failed: ' + error.message;
@@ -34,8 +33,7 @@
 				notifMsg = "Your browser does not support geolocation";
 			},
 			always: function() {
-				jumpNotification($('.notificar'));
+				//jumpNotification($('.notificar'));
 			}
 		});
-	};
-
+});

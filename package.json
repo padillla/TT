@@ -1,5 +1,5 @@
 {
-  "name": "application-name",
+  "name": "TT",
   "version": "0.0.1",
   "private": true,
   "scripts": {
@@ -10,6 +10,8 @@
     "jade": "*",
     "mongodb": "*",
     "mongoose": "*",
-    "jasmine-node": "1.11.0"
+    "jasmine-node": "1.11.0",
+    "geoloqi":"0.0.3"
+
   }
-} 
+}
