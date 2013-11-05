@@ -1,12 +1,20 @@
 extends layout
 block head
-	script(src='http://maps.google.com/maps/api/js?sensor=true&.js')
-	script(src='js/gmaps.js')
-	script(src='js/map.js')
+	link(href="http://cdn.leafletjs.com/leaflet-0.4/leaflet.css", rel="stylesheet")
 
 
 block content
 
 	h1= title
 		
-	div#map
+	div.app
+		div.loading
+		div#infobox.infobox
+		div#map Necesito usar su localizacion para poder funcionar!
+
+block footer
+	script(src="./js/leaflet.js")
+	script(src="//netdna.bootstrapcdn.com/bootstrap/3.0.1/js/bootstrap.min.js")
+	script(src="./js/socket.io.js")
+	script(src="./js/map.js")
+	script(src='js/main.js')

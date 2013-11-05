@@ -3,16 +3,14 @@
  * Module dependencies.
  */
 
-var express = require('express'),
-    routes = require('./routes'),
-    map = require('./routes/map'),
-    http = require('http'),
-    path = require('path'),
-    app = express(),
-    io= require("socket.io"),
-    messages = [],
-    sockets =  [];
-    
+var express =   require('express'),
+    routes =    require('./routes'),
+    map =       require('./routes/map'),
+    http =      require('http'),
+    path =      require('path'),
+    io=         require("socket.io")
+                .listen(app),
+    app =       express();
     
 // all environments
 app.set('port', process.env.PORT || 3000);
@@ -37,6 +35,17 @@ app.get('/map', map.map);
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
+});
+
+//listening for connections
+io.sockets.on('connection', function (socket) {
+ 
+  // start listening for coords
+  socket.on('send:coords', function (data) {
+ 
+    // broadcast your coordinates to everyone except you
+    socket.broadcast.emit('load:coords', data);
+  });
 });
 
 
