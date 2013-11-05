@@ -11,7 +11,7 @@
 $(document).ready(function() {
 	//************************************ Notification
 
-	$('body').append('<div id="notificacion"><span></span></div>');
+	$('body').append('<div id="notificacion"></div>');
 
 	var notifMsg;
 	var jumpNotification = function() {
@@ -28,6 +28,6 @@ $(document).ready(function() {
 		}, 100000);
 	};
 
-	jumpNotification($('.notificar'));
+	jumpNotification($('#notificacion'));
 
 });

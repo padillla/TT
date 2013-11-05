@@ -11,7 +11,8 @@
     "mongodb": "*",
     "mongoose": "*",
     "jasmine-node": "1.11.0",
-    "geoloqi":"0.0.3"
-
+    "geoloqi":"0.0.3",
+    "socket.io":"0.9.16",
+    ""
   }
 }
