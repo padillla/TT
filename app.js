@@ -8,8 +8,8 @@ var express =   require('express'),
     map =       require('./routes/map'),
     http =      require('http'),
     path =      require('path'),
-    io=         require("socket.io")
-                .listen(app),
+    io=         require('socket.io'),
+    prettyjson = require('prettyjson'),
     app =       express();
     
 // all environments
@@ -29,27 +29,31 @@ app.use(express.static(path.join(__dirname, 'public')));
 if ('development' == app.get('env')) {
   app.use(express.errorHandler());
 }
-
+//routes
 app.get('/', routes.index);
 app.get('/map', map.map);
 
-http.createServer(app).listen(app.get('port'), function(){
+
+//http server
+var server = http.createServer(app);
+server.listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
 });
 
 //listening for connections
-io.sockets.on('connection', function (socket) {
+
+// Bind socket.io to server
+var serv_io = io.listen(server);
+serv_io.sockets.on('connection', function (socket) {
  
   // start listening for coords
   socket.on('send:coords', function (data) {
- 
-    // broadcast your coordinates to everyone except you
+    console.log(prettyjson.render(data));
+    // broadcast coordinates to everyone except you
     socket.broadcast.emit('load:coords', data);
+    
   });
 });
-
-
-
 
 
 

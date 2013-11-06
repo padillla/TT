@@ -21,11 +21,10 @@ $(function() {
     var redIcon = new tinyIcon({ iconUrl: "../img/marker-red.png" });
     var yellowIcon = new tinyIcon({ iconUrl: "../img/marker-yellow.png" });
  
-    var sentData = {}
- 
-    var connects = {};
-    var markers = {};
-    var active = false;
+    var sentData = {},
+     connects = {},
+     markers = {},
+     active = false;
  
     socket.on("load:coords", function(data) {
         // remember users id to show marker only once
@@ -58,7 +57,7 @@ $(function() {
         map = L.map("map");
  
         // leaflet API key tiler
-        L.tileLayer("http://{s}.tile.cloudmade.com/BC9A493B41014CAABB98F0471D759707/997/256/{z}/{x}/{y}.png", { maxZoom: 18, detectRetina: true }).addTo(map);
+        L.tileLayer("http://{s}.tile.cloudmade.com/5f60f5a8fd1f447b926d50284ef5397c/997/256/{z}/{x}/{y}.png", { maxZoom: 18, detectRetina: true }).addTo(map);
          
         // set map bounds
         map.fitWorld();
@@ -75,9 +74,9 @@ $(function() {
                 coords: [{
                     lat: lat,
                     lng: lng,
-                    acr: acr
+                    acur: acr
                 }]
-            }
+            };
             socket.emit("send:coords", sentData);
         });
     }
@@ -111,7 +110,7 @@ $(function() {
  
     // delete inactive users every 15 sec
     setInterval(function() {
-        for (ident in connects){
+        for (var ident in connects){
             if ($.now() - connects[ident].updated > 15000) {
                 delete connects[ident];
                 map.removeLayer(markers[ident]);
