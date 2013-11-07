@@ -52,7 +52,8 @@ $(function() {
         var userMarker = L.marker([lat, lng], {
             icon: redIcon
         });
- 
+        
+        
         // load leaflet map
         map = L.map("map");
  
@@ -62,7 +63,14 @@ $(function() {
         // set map bounds
         map.fitWorld();
         userMarker.addTo(map);
-        userMarker.bindPopup("<p>You are there! Your ID is " + userId + "</p>").openPopup();
+        userMarker.bindPopup(   "<p> ID :" + userId + "</p>\n" +
+                                "<p> Latitude: " + lat + " </p>\n" + 
+                                "<p> Longitude: "+ lng +"</p>\n" +
+                                "<p> Acc: " + acr +"</p>")
+                                .openPopup();
+        //zoom map -test 2
+        map.setView([lat, lng], 16);
+        
  
         // send coords on when user is active
         doc.on("mousemove", function() {
@@ -74,7 +82,7 @@ $(function() {
                 coords: [{
                     lat: lat,
                     lng: lng,
-                    acur: acr
+                    acr: acr
                 }]
             };
             socket.emit("send:coords", sentData);
@@ -93,6 +101,8 @@ $(function() {
             markers[data.id] = marker;
         }
     }
+    //set map to zoom on location
+        //map.locate({setView: true, maxZoom: 16});
  
     // handle geolocation api errors
     function positionError(error) {
@@ -108,13 +118,15 @@ $(function() {
         info.addClass("error").text(msg);
     }
  
-    // delete inactive users every 15 sec
+    // delete inactive users every 60 sec
     setInterval(function() {
         for (var ident in connects){
-            if ($.now() - connects[ident].updated > 15000) {
+            if ($.now() - connects[ident].updated > 60000) {
                 delete connects[ident];
                 map.removeLayer(markers[ident]);
             }
         }
-    }, 15000);
+    }, 60000);
+
+	
 });
