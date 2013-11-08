@@ -101,9 +101,7 @@ $(function() {
             markers[data.id] = marker;
         }
     }
-    //set map to zoom on location
-        //map.locate({setView: true, maxZoom: 16});
- 
+    
     // handle geolocation api errors
     function positionError(error) {
         var errors = {

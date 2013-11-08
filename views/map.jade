@@ -1,18 +1,18 @@
 extends layout
 block head
-	link(href="./css/leaflet.css", rel="stylesheet")
+    link(href="./css/leaflet.css", rel="stylesheet")
 
 
 block content
-	header
-		h1= title
-	div.app
-		div.loading
-		div#infobox.infobox
-		div#map
+    header
+        h1= title
+    div.app
+        div.loading
+        div#infobox.infobox
+        div#map
 
 block footer
 
-	script(src='./js/leaflet.js')
-	script(src="./js/socket.io.js")
-	script(src='./js/main.js')
+    script(src='./js/leaflet.js')
+    script(src="./js/socket.io.js")
+    script(src='./js/main.js')
