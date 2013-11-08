@@ -45,8 +45,8 @@ $(function() {
  
     function positionSuccess(position) {
         var lat = position.coords.latitude,
-        	lng = position.coords.longitude,
-        	acr = position.coords.accuracy;
+            lng = position.coords.longitude,
+            acr = position.coords.accuracy;
  
         // mark user's position
         var userMarker = L.marker([lat, lng], {
@@ -70,6 +70,13 @@ $(function() {
                                 .openPopup();
         //zoom map -test 2
         map.setView([lat, lng], 16);
+        //Adds a KML file according to clicked route *explosive
+        var kmlLayer = new L.KML("belensj.kml", {async: true});
+        kmlLayer.on("loaded", function(e) { 
+            map.fitBounds(e.target.getBounds());
+         });
+                                                
+         map.addLayer(kmlLayer);
         
  
         // send coords on when user is active
@@ -95,7 +102,7 @@ $(function() {
  
     // showing markers for connections
     function setMarker(data) {
-        for (i = 0; i < data.coords.length; i++) {
+        for (var i = 0; i < data.coords.length; i++) {
             var marker = L.marker([data.coords[i].lat, data.coords[i].lng], { icon: yellowIcon }).addTo(map);
             marker.bindPopup("<p>One more external user is here!</p>");
             markers[data.id] = marker;
@@ -109,19 +116,21 @@ $(function() {
             2: "Can\'t detect your location", //position unavailable
             3: "Connection timeout" // timeout
         };
-        showError("Error:" + errors[error.code]);
+        showError("Error: " + errors[error.code] );
     }
  
     function showError(msg) {
         info.addClass("error").text(msg);
     }
- 
+    
+    
     // delete inactive users every 60 sec
     setInterval(function() {
         for (var ident in connects){
             if ($.now() - connects[ident].updated > 60000) {
                 delete connects[ident];
                 map.removeLayer(markers[ident]);
+                console.log("Deleted User: - " + userId + " - due to inactivity during 60 seconds");
             }
         }
     }, 60000);
