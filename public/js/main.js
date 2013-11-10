@@ -38,7 +38,7 @@ $(function() {
  
     // check whether browser supports geolocation api
     if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(positionSuccess, positionError, { enableHighAccuracy: true });
+        navigator.geolocation.getCurrentPosition(positionSuccess, positionError, { enableHighAccuracy: true, watch : true  });
     } else {
         $(".map").text("Your browser is out of fashion, there\'s no geolocation!");
     }
@@ -68,7 +68,7 @@ $(function() {
                                 "<p> Longitude: "+ lng +"</p>\n" +
                                 "<p> Acc: " + acr +"</p>")
                                 .openPopup();
-        //zoom map -test 2
+        //zoom map to 
         map.setView([lat, lng], 16);
         //Adds a KML file according to clicked route *explosive
         var kmlLayer = new L.KML("belensj.kml", {async: true});
@@ -80,7 +80,7 @@ $(function() {
         
  
         // send coords on when user is active
-        doc.on("mousemove", function() {
+        doc.on("click", function() {
             active = true; 
  
             sentData = {
@@ -104,7 +104,7 @@ $(function() {
     function setMarker(data) {
         for (var i = 0; i < data.coords.length; i++) {
             var marker = L.marker([data.coords[i].lat, data.coords[i].lng], { icon: yellowIcon }).addTo(map);
-            marker.bindPopup("<p>One more external user is here!</p>");
+            marker.bindPopup("<p>One more external user is here!</p>" + data.coords[i].userId);
             markers[data.id] = marker;
         }
     }

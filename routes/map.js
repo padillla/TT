@@ -1,8 +1,5 @@
+//maps routing, changes KML aacording to request
 
-/*
- * GET users listing.
- */
-
-exports.map = function(req, res){
-  res.render('map', { title: 'Ruta' });
+exports.map = function(req, res , trainroute){
+  res.render('map', { title: 'Ruta' }); 
 };
