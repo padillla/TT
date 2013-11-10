@@ -31,31 +31,23 @@ if ('development' == app.get('env')) {
 //routes
 app.get('/', routes.index);
 app.get('/map', map.map);
+app.get('/belensj.kml',  function(req, res) {
+  res.sendfile('models/belensj.kml');
+  })
 
 //map routes for KMLs
-app.get('/map/heredia', function(req, res) {
-  res.send('Hello from route handler 1');
-});
-app.get('/map/belen', function(req, res) {
-res.send('Hello from route handler 2');
-});
-app.get('/map/cartago', function(req, res) {
-  var trainRoute= req.params.trainRoute;
-  
-});
-app.get('/map/pavas', function(req, res) {
-res.send('Hello from route handler 4');
-});
-
-// GET /shoes?order=desc&shoe[color]=blue&shoe[type]=converse
-req.query.order
-// => "desc"
-
-req.query.shoe.color
-// => "blue"
-
-req.query.shoe.type
-// => "converse"
+app.get('/belensj.kml',  function(req, res) {
+  res.sendfile('models/belensj.kml');
+  });
+app.get('/heredia.kml',  function(req, res) {
+  res.sendfile('models/heredia.kml');
+  });
+app.get('/cartago.kml',  function(req, res) {
+  res.sendfile('models/cartago.kml');
+  });
+app.get('/pavas.kml',  function(req, res) {
+  res.sendfile('models/pavas.kml');
+  });
 
 
 //http server 

@@ -1,10 +1,9 @@
 $(function() {
     // generate unique user id
-    var userId = Math.random().toString(16).substring(2,15);
-    var socket = io.connect("/");
-    var map;
- 
-    var info = $("#infobox");
+    var userId = Math.random().toString(16).substring(2,15),
+    socket = io.connect("/"),
+    map;
+    info = $("#infobox");
     var doc = $(document);
  
     // custom marker's icon styles
@@ -68,10 +67,10 @@ $(function() {
                                 "<p> Longitude: "+ lng +"</p>\n" +
                                 "<p> Acc: " + acr +"</p>")
                                 .openPopup();
-        //zoom map to 
+        //zoom map to current location
         map.setView([lat, lng], 16);
         //Adds a KML file according to clicked route *explosive
-        var kmlLayer = new L.KML("belensj.kml", {async: true});
+        var kmlLayer = new L.KML("heredia.kml", {async: true});
         kmlLayer.on("loaded", function(e) { 
             map.fitBounds(e.target.getBounds());
          });
