@@ -4,9 +4,22 @@ block head
 
 
 block content
-        header
-                h1= title
-        div.app
+   header
+        h1= title
+        h3 Seleccione su ruta
+    
+        nav
+                ul
+                        li.route
+                                a(href='#')#heredia Heredia
+                        li.route
+                                a(href='#')#belensj Belen
+                        li.route
+                                a(href='#')#cartago Cartago
+                        li.route
+                                a(href='#')#pavas Pavas Curridabat
+        
+   div.app
                 div.loading
                 div#infobox.infobox
                 div#map
@@ -15,4 +28,5 @@ block footer
                 script(src='./js/leaflet.js')
                 script(src='./js/KML.js')
                 script(src="./js/socket.io.js")
-                script(src='./js/main.js')
+
+

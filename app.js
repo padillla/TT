@@ -28,14 +28,12 @@ app.use(express.static(path.join(__dirname, 'public')));
 if ('development' == app.get('env')) {
   app.use(express.errorHandler());
 }
-//routes
-app.get('/', routes.index);
-app.get('/map', map.map);
-app.get('/belensj.kml',  function(req, res) {
-  res.sendfile('models/belensj.kml');
-  })
 
-//map routes for KMLs
+//route
+
+app.get('/', map.map);
+
+//KMLs
 app.get('/belensj.kml',  function(req, res) {
   res.sendfile('models/belensj.kml');
   });
