@@ -2,9 +2,9 @@ $(function() {
     // generate unique user id
     var userId = Math.random().toString(16).substring(2,15),
     socket = io.connect("/"),
-    map;
-    info = $("#infobox");
-    var doc = $(document);
+    map,
+    info = $("#infobox"),
+    doc = $(document);
  
     // custom marker's icon styles
     var tinyIcon = L.Icon.extend({
@@ -69,12 +69,20 @@ $(function() {
                                 .openPopup();
         //zoom map to current location
         map.setView([lat, lng], 16);
+        
         //Adds a KML file according to clicked route *explosive
-        var kmlLayer = new L.KML("heredia.kml", {async: true});
+        var kmlLayer,
+            heredia = new L.KML("heredia.kml", {async: true}),
+            belen = new L.KML("belensj.kml", {async: true}),
+            cartago = new L.KML("cartago.kml", {async: true}),
+            pavas = new L.KML("pavas.kml", {async: true});
+        
+        $("#heredia").click( kmlLayer = heredia);
+        
         kmlLayer.on("loaded", function(e) { 
             map.fitBounds(e.target.getBounds());
          });
-                                                
+                                               
          map.addLayer(kmlLayer);
         
  
