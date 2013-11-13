@@ -107,10 +107,17 @@ $(function() {
         active = false;
     });
 
-  
+var heredia = L.marker([39.61, -105.02]).bindPopup('This is Littleton, CO.'),
+    belen   = L.marker([39.74, -104.99]).bindPopup('This is Denver, CO.'),
+    cartago = L.marker([39.73, -104.8]).bindPopup('This is Aurora, CO.'),
+    pavas   = L.marker([39.77, -105.23]).bindPopup('This is Golden, CO.');
 
-    $(".route").click(function() {
+var trainRoutes = L.layerGroup([heredia, belen, cartago, pavas]);
+
+
+  function showRoute() {
             var clickedRoute = $(this).children('a').attr('id') + ".kml";
+            
             var kmlLayer;
             console.log(kmlLayer);
             
@@ -121,9 +128,11 @@ $(function() {
                     map.fitBounds(e.target.getBounds());
                 });
                 map.addLayer(kmlLayer);
-            
-            
-        });
+    }
+
+
+
+    $(".route").click(showRoute);
 
     // showing markers for connections
     function setMarker(data) {
