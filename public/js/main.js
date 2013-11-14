@@ -107,32 +107,54 @@ $(function() {
         active = false;
     });
 
-var heredia = L.marker([39.61, -105.02]).bindPopup('This is Littleton, CO.'),
-    belen   = L.marker([39.74, -104.99]).bindPopup('This is Denver, CO.'),
-    cartago = L.marker([39.73, -104.8]).bindPopup('This is Aurora, CO.'),
-    pavas   = L.marker([39.77, -105.23]).bindPopup('This is Golden, CO.');
+var Heredia = new L.KML("/heredia.kml", {
+                 async: true
+                 }).bindPopup('This is Hellredia-San Jose'),
+    Belensj = new L.KML("/belensj.kml", {
+                 async: true
+                 }).bindPopup('This is belen'),
+    Cartago = new L.KML("/cartago.kml", {
+                 async: true
+                 }).bindPopup('This is Cartago, im pending KML'),
+    Pavas   = new L.KML("/pavas.kml", {
+                 async: true
+                 }).bindPopup('This is Pavas Curri, Im also pending KML');
 
-var trainRoutes = L.layerGroup([heredia, belen, cartago, pavas]);
+var trainRoutes = L.layerGroup([heredia, belensj, cartago, pavas]);
+
+//
+function isEmpty(obj) {
+    for(var key in obj) {
+        if(!obj.hasOwnProperty(key))
+            return false;
+    }
+    return true;
+}
 
 
-  function showRoute() {
-            var clickedRoute = $(this).children('a').attr('id') + ".kml";
-            
-            var kmlLayer;
-            console.log(kmlLayer);
-            
-                kmlLayer = new L.KML(clickedRoute, {
-                async: true
-                });
-                kmlLayer.on("loaded", function(e) {
+  //Display the selected kml
+
+    function showRoute(kmlLayer) {
+           
+                
+                    kmlLayer.on("loaded", function(e) {
                     map.fitBounds(e.target.getBounds());
                 });
                 map.addLayer(kmlLayer);
+                
+                // else{
+                //     map.removeLayer(kmlLayer);
+                //     kmlLayer.on("loaded", function(e) {
+                //     map.fitBounds(e.target.getBounds());
+                // });
+                // map.addLayer(kmlLayer);
+                // }       
     }
 
-
-
-    $(".route").click(showRoute);
+    $("a#heredia").click(showRoute(Heredia));
+    $("a#belensj").click(showRoute(Belensj));
+    $("a#cartago").click(showRoute(Cartago));
+    $("a#pavas").click(showRoute(Pavas));
 
     // showing markers for connections
     function setMarker(data) {
