@@ -390,12 +390,12 @@ width: auto;
     right:130px;
     top:84px;
   }
+
   #map{
 
-height: 600px;
-width: auto;
-
-}
+    height: 600px;
+    width: auto;
+    }
 }
 
 @media print, screen and (max-width: 720px) {

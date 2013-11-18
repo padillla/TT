@@ -150,12 +150,12 @@ $(function() {
     var Cartago = new L.KML("/cartago.kml");
     var Pavas = new L.KML("/pavas.kml");
 
-    $("#heredia").on("click", showRoute(Heredia, map));
-    $("#belen").on("click", showRoute(Belen, map));
-    $("#cartago").on("click", showRoute(Cartago, map));
-    $("#pavas").on("click", showRoute(Pavas, map));
+    $("#heredia").on("click", showRoute(Heredia));
+    $("#belen").on("click", showRoute(Belen));
+    $("#cartago").on("click", showRoute(Cartago));
+    $("#pavas").on("click", showRoute(Pavas));
 
-    function showRoute(route, map) {
+    function showRoute(route,) {
         //map = L.map("map");
         
         map.addLayer(route);
