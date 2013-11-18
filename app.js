@@ -34,8 +34,8 @@ if ('development' == app.get('env')) {
 app.get('/', map.map);
 
 //KMLs
-app.get('/belensj.kml',  function(req, res) {
-  res.sendfile('models/belensj.kml');
+app.get('/belen.kml',  function(req, res) {
+  res.sendfile('models/belen.kml');
   });
 app.get('/heredia.kml',  function(req, res) {
   res.sendfile('models/heredia.kml');
@@ -45,6 +45,12 @@ app.get('/cartago.kml',  function(req, res) {
   });
 app.get('/pavas.kml',  function(req, res) {
   res.sendfile('models/pavas.kml');
+  });
+app.get('/traindb',  function(req, res) {
+  res.sendfile('models/traindb.js');
+  });
+app.get('/methods.js',  function(req, res) {
+  res.sendfile('models/methods.js');
   });
 
 
