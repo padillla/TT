@@ -259,7 +259,7 @@ header li {
   height:100%;
 	margin-bottom: 12px;
 	line-height: 1em;
-	padding: 6px 6px 6px 7px;
+	padding: 1px;
 
 	background: #AF0011;
 	background: -moz-linear-gradient(top, #AF0011 0%, #820011 100%);
@@ -388,7 +388,8 @@ width: auto;
   header ul {
     position:absolute;
     right:130px;
-    top:84px;
+    top:45px;
+    width:180px;
   }
 
   #map{
