@@ -2,8 +2,10 @@
 
 //some sort of way of getting an API and duct-tape the existing models.
 
-//feel free to laugh at it, or letme know if something can be done better
-    var map = L.map('map');
+//feel free to laugh at it, or let me know if something can be done better
+    
+    var map = L.map('map');//< Leaflet map
+    
     // generate unique user id
     var userId = Math.random().toString(16).substring(2, 15),
         socket = io.connect("/"),
@@ -62,10 +64,6 @@
         var userMarker = L.marker([lat, lng], {
             icon: redIcon
         });
-
-
-        // load leaflet map
-      // Moved to top >> map = L.map("map");
     
 
         // leaflet API key tiler
@@ -83,7 +81,7 @@
             "<p> Acc: " + acr + "</p>")
             .openPopup();
         //zoom map to current location
-       // map.setView([lat, lng], 16);
+        map.setView([lat, lng], 16);
     
         // send coords on when user is active
         doc.on("click", function() {
@@ -159,10 +157,14 @@
 
   
 var showRoutes= function showRoutes(route) {
+
+    route.on("loaded", function(e) { 
+           map.fitBounds(e.route.getBounds());
+       });
+       map.setView(route.latLngs[0], 13); 
+
         map.addLayer(route);
-       /* route.onAdd( function zoomToFeature(e) {
-        map.fitBounds(e.target.getBounds());}
-    )*/};
+       };
 
       
       $(document).ready(function () {
