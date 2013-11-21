@@ -3,14 +3,6 @@
 	<Document>
 		<name>Pavas Curridabat</name>
 		<Placemark>
-			<styleUrl>#icon-503-FF8277</styleUrl>
-			<name>Metropolis</name>
-			<description><![CDATA["stop_lat": "9.95885",        "stop_lon": "-84.153"]]></description>
-			<Point>
-				<coordinates>-84.15300000000002,9.958849999999998,0.0</coordinates>
-			</Point>
-		</Placemark>
-		<Placemark>
 			<styleUrl>#line-F8971B-6</styleUrl>
 			<name>Pavas Estacion Atlantico</name>
 			<LineString>
@@ -26,13 +18,6 @@
 				<coordinates>-84.06911015510559,9.935003225688247,0.0 -84.06654596328735,9.933719217536904,0.0 -84.06546235084534,9.93350785768735,0.0 -84.06459331512451,9.933565981659596,0.0 -84.06345069408417,9.933930577249885,0.0 -84.05805945396423,9.93540480744991,0.0 -84.05755519866943,9.935447079185613,0.0 -84.05708312988281,9.935383671580004,0.0 -84.05607461929321,9.935119473091001,0.0 -84.05480861663818,9.934739026891963,0.0 -84.0528666973114,9.934200060685908,0.0 -84.04971241950989,9.933291213699869,0.0 -84.04699802398682,9.932688836980672,0.0 -84.04415488243103,9.932604292790996,0.0 -84.04370427131653,9.932540884634376,0.0 -84.04326438903809,9.932308387955036,0.0 -84.0427815914154,9.931980778717374,0.0 -84.04237389564514,9.931589760810795,0.0 -84.04211640357971,9.931177606295325,0.0 -84.04184818267822,9.930427272383175,0.0 -84.04170870780945,9.930025684512149,0.0 -84.04140830039978,9.929560687414272,0.0 -84.03892993927002,9.92710887361019,0.0</coordinates>
 			</LineString>
 		</Placemark>
-		<Placemark>
-			<styleUrl>#icon-503-FF8277</styleUrl>
-			<name>Point 7</name>
-			<Point>
-				<coordinates>-84.03892993927002,9.92710887361019,0.0</coordinates>
-			</Point>
-		</Placemark>
 		<Style id='line-F8971B-6'>
 			<LineStyle>
 				<color>ff1B97F8</color>
@@ -44,15 +29,6 @@
 				<color>ff00B4F4</color>
 				<width>3</width>
 			</LineStyle>
-		</Style>
-		<Style id='icon-503-FF8277'>
-			<IconStyle>
-				<color>ff7782FF</color>
-				<scale>1.1</scale>
-				<Icon>
-					<href>http://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
-				</Icon>
-			</IconStyle>
 		</Style>
 	</Document>
 </kml>

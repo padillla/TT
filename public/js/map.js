@@ -145,57 +145,56 @@
     
 
     //Adds a KML file according to clicked route *explosive
-
-    //I NEED TO KNOW WHY THIS CODE EXPLODES
   
     var Heredia = new L.KML("/heredia.kml", {async:true});
     var Belen = new L.KML("/belen.kml", {async:true});
     var Cartago = new L.KML("/cartago.kml", {async:true});
     var Pavas = new L.KML("/pavas.kml", {async:true});
 
- // var Routes = L.layerGroup([Heredia, Belen, Cartago, Pavas]);
-
   
-var showRoutes= function showRoutes(route) {
 
-    route.on("loaded", function(e) { 
-           map.fitBounds(e.route.getBounds());
-       });
-       map.setView(route.latLngs[0], 13); 
-
-        map.addLayer(route);
+  //Loads KML
+var showRoute= function(route) {
+    var firstMarker;
+    
+   map.setView(route.latLngs[0], 13); 
+   map.addLayer(route);
+        firstMarker = L.marker(route.latLngs[0], {
+                icon: yellowIcon
+            }).addTo(map);
+        firstMarker.bindPopup("<p>This is the initial point of the route</p>" );
+        
        };
-
+       
+/// removes all layers from map
+var clearRoutes= function(){
+    map.removeLayer(Belen);
+    map.removeLayer(Heredia);
+    map.removeLayer(Cartago);
+    map.removeLayer(Pavas);
+};
       
-      $(document).ready(function () {
+      ////Click handler for routes
+      
+     $(document).ready(function () {
   
     $("#heredia").click( function () {
-        console.log(' heredia Works!');
-        showRoutes(Heredia);});
+        console.log(' Heredia Works!');
+
+        clearRoutes();
+        showRoute(Heredia);});
   
     $("#belen").click(function () {
-        console.log('belen Works!');
-        showRoutes(Belen);});
+        console.log('Belen Works!');
+        clearRoutes();
+        showRoute(Belen);});
     //$("#cartago").click(showRoutes(Cartago));  <<I have to create this KML
     $("#pavas").click(function () {
-        console.log('pavas Works!');
-        showRoutes(Pavas);
+        clearRoutes();
+        console.log('Pavas Works!');
+        showRoute(Pavas);
 });});
     
-
-  
-// var baseMaps = {
-//     "Minimal": heredia,
-//     "Night View": midnight
-// };
-
-// var overlayMaps = {
-//     "Motorways": motorways,
-//     "Cities": cities
-// };
-    //END OF EXPLOSIVE CODE      
-    //>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-
 
 
 
