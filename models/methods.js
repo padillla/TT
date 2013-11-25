@@ -306,7 +306,8 @@ var moveData = function(){
       }
       newStops.push(Marker);
    }
-   return Marker;
+   console.log(Marker)
+   return newStops;
 }
 }
 
