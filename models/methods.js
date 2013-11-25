@@ -1,391 +1,344 @@
-<<<<<<< HEAD:public/js/main.js
-$(function() {
-    // generate unique user id
-    var userId = Math.random().toString(16).substring(2, 15),
-        socket = io.connect("/"),
-        map,
-        info = $("#infobox"),
-        doc = $(document);
-
-    // custom marker's icon styles
-    var tinyIcon = L.Icon.extend({
-        options: {
-            shadowUrl: "../img/marker-shadow.png",
-            iconSize: [25, 39],
-            iconAnchor: [12, 36],
-            shadowSize: [41, 41],
-            shadowAnchor: [12, 38],
-            popupAnchor: [0, -30]
+var train = {
+"stops": {
+        "101010": {
+            "name": "San José Atlántico",
+            "long_name": "San José Atlántico",
+            "locality": "Central, San José",
+            "search_words": "San José Atlántico",
+            "location": [
+                9.93517,
+                -84.06859
+            ]
+        },
+        "101030": {
+            "name": "Cementerio",
+            "long_name": "San José, Cementerio",
+            "locality": "Central, San José",
+            "search_words": "San José, Cementerio",
+            "location": [
+                9.92702,
+                -84.09178
+            ]
+        },
+        "101031": {
+            "name": "San José Pacífico",
+            "long_name": "San José Pacífico",
+            "locality": "Central, San José",
+            "search_words": "San José Pacífico",
+            "location": [
+                9.92559,
+                -84.08094
+            ]
+        },
+        "101040": {
+            "name": "Plaza González Víquez",
+            "long_name": "San José, Plaza González Víquez",
+            "locality": "Central, San José",
+            "search_words": "San José, Plaza González Víquez",
+            "location": [
+                9.92496,
+                -84.07436
+            ]
+        },
+        "101041": {
+            "name": "Procuradoría",
+            "long_name": "San José, Procuradoría",
+            "locality": "Central, San José",
+            "search_words": "San José, Procuradoría",
+            "location": [
+                9.9314,
+                -84.07217
+            ]
+        },
+        "101080": {
+            "name": "La Sabana-Contraloría",
+            "long_name": "San José, La Sabana-Contraloría",
+            "locality": "Central, San José",
+            "search_words": "San José, La Sabana-Contraloría",
+            "location": [
+                9.93265,
+                -84.10135
+            ]
+        },
+        "101081": {
+            "name": "La Sabana-Estadio",
+            "long_name": "San José, La Sabana-Estadio",
+            "locality": "Central, San José",
+            "search_words": "San José, La Sabana-Estadio",
+            "location": [
+                9.93352,
+                -84.11009
+            ]
+        },
+        "101090": {
+            "name": "Metrópolis",
+            "long_name": "Pavas, Metrópolis",
+            "locality": "Pavas, San José",
+            "search_words": "Pavas, Metrópolis",
+            "location": [
+                9.95885,
+                -84.153
+            ]
+        },
+        "101091": {
+            "name": "Demasa",
+            "long_name": "Pavas, Demasa",
+            "locality": "Pavas, San José",
+            "search_words": "Pavas, Demasa",
+            "location": [
+                9.95012,
+                -84.14411
+            ]
+        },
+        "101092": {
+            "name": "Pavas",
+            "long_name": "Pavas Centro",
+            "locality": "Pavas, San José",
+            "search_words": "Pavas Centro",
+            "location": [
+                9.93997,
+                -84.1338
+            ]
+        },
+        "101093": {
+            "name": "Jack's",
+            "long_name": "Pavas, Jack's",
+            "locality": "Pavas, San José",
+            "search_words": "Pavas, Jack's",
+            "location": [
+                9.9402,
+                -84.12382
+            ]
+        },
+        "101094": {
+            "name": "Rohrmoser",
+            "long_name": "Pavas, Rohrmoser",
+            "locality": "Pavas, San José",
+            "search_words": "Pavas, Rohrmoser",
+            "location": [
+                9.93794,
+                -84.11953
+            ]
+        },
+        "101095": {
+            "name": "Pecosa",
+            "long_name": "Pavas, Pecosa",
+            "locality": "Pavas, San José",
+            "search_words": "Pavas, Pecosa",
+            "location": [
+                9.94614,
+                -84.13763
+            ]
+        },
+        "113050": {
+            "name": "Cuatro Reinas",
+            "long_name": "Tibás, Cuatro Reinas",
+            "locality": "Tibás, San José",
+            "search_words": "Tibás, Cuatro Reinas",
+            "location": [
+                9.95557,
+                -84.08669
+            ]
+        },
+        "115050": {
+            "name": "San Pedro-UCR",
+            "long_name": "Montes de Oca, San Pedro-UCR",
+            "locality": "Montes de Oca, San José",
+            "search_words": "Montes de Oca, San Pedro-UCR",
+            "location": [
+                9.93469,
+                -84.05436
+            ]
+        },
+        "115051": {
+            "name": "Universidad Latina",
+            "long_name": "Montes de Oca, Universidad Latina",
+            "locality": "Montes de Oca, San José",
+            "search_words": "Montes de Oca, Universidad Latina",
+            "location": [
+                9.9326,
+                -84.04386
+            ]
+        },
+        "118010": {
+            "name": "Freses-CFIA",
+            "long_name": "Curridabat, Freses-CFIA",
+            "locality": "Curridabat, San José",
+            "search_words": "Curridabat, Freses-CFIA",
+            "location": [
+                9.92707,
+                -84.03885
+            ]
+        },
+        "118011": {
+            "name": "Cipreses-UACA",
+            "long_name": "Curridabat, Cipreses-UACA",
+            "locality": "Curridabat, San José",
+            "search_words": "Curridabat, Cipreses-UACA",
+            "location": [
+                9.91955,
+                -84.02433
+            ]
+        },
+        "301020": {
+            "name": "Cartago",
+            "long_name": "Cartago",
+            "locality": "Cartago, Cartago",
+            "search_words": "Cartago",
+            "location": [
+                9.86667,
+                -83.92216
+            ]
+        },
+        "303060": {
+            "name": "Tres Ríos",
+            "long_name": "La Unión, Tres Ríos",
+            "locality": "La Unión, Cartago",
+            "search_words": "La Unión, Tres Ríos",
+            "location": [
+                9.91054,
+                -83.98657
+            ]
+        },
+        "401010": {
+            "name": "Heredia",
+            "long_name": "Heredia",
+            "locality": "Heredia, Heredia",
+            "search_words": "Heredia",
+            "location": [
+                9.99467,
+                -84.11713
+            ]
+        },
+        "403060": {
+            "name": "Santa Rosa",
+            "long_name": "Santo Domingo, Santa Rosa",
+            "locality": "Santo Domingo, Heredia",
+            "search_words": "Santo Domingo, Santa Rosa",
+            "location": [
+                9.97213,
+                -84.09828
+            ]
+        },
+        "407010": {
+            "name": "San Antonio de Belén",
+            "long_name": "Belén, San Antonio",
+            "locality": "Belén, Heredia",
+            "search_words": "Belén, San Antonio",
+            "location": [
+                9.9785,
+                -84.18496
+            ]
+        },
+        "409020": {
+            "name": "Miraflores",
+            "long_name": "San Pablo, Miraflores",
+            "locality": "San Pablo, Heredia",
+            "search_words": "San Pablo, Miraflores",
+            "location": [
+                9.98734,
+                -84.10892
+            ]
         }
-    });
-    var redIcon = new tinyIcon({
-        iconUrl: "../img/marker-red.png"
-    });
-    var yellowIcon = new tinyIcon({
-        iconUrl: "../img/marker-yellow.png"
-    });
-
-    var sentData = {},
-        connects = {},
-        markers = {},
-        active = false;
-
-    socket.on("load:coords", function(data) {
-        // remember users id to show marker only once
-        if (!(data.id in connects)) {
-            setMarker(data);
+    }};
+//gets an array of stoptimes objects
+/*
+var getStopTimes  = function(trip) {
+        var tripStops = [],
+            len = train.stoptimes.length;
+        for (var i = 0, l = len, found = false; i < l; i++) {
+            if (train.stoptime[i].trip == trip) {
+                found = true;
+                tripStops.push(train.stoptime[i]);
+            }
         }
-
-        connects[data.id] = data;
-        connects[data.id].updated = $.now(); // shorthand for (new Date).getTime()
-    });
-
-    // check whether browser supports geolocation api
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(positionSuccess, positionError, {
-            enableHighAccuracy: true,
-            watch: true
-        });
-    } else {
-        $(".map").text("Your browser is out of fashion, there\'s no geolocation!");
+        if (found) {
+            //console.log(" this Trip is: " + stoptimes);
+            console.log(" Este viaje en tren tiene " + tripStops.length + " paradas");
+            console.log(tripStops);
+        } else {
+            console.log("no stops.");
+        };
     }
+getStopTimes(90);*/
 
-    function positionSuccess(position) {
-        var lat = position.coords.latitude,
-            lng = position.coords.longitude,
-            acr = position.coords.accuracy;
+//Transforming stops into geojson objects
 
-        // mark user's position
-        var userMarker = L.marker([lat, lng], {
-            icon: redIcon
-        });
-
-
-        // load leaflet map
-        map = L.map("map");
-
-        // leaflet API key tiler
-        L.tileLayer("http://{s}.tile.cloudmade.com/5f60f5a8fd1f447b926d50284ef5397c/997/256/{z}/{x}/{y}.png", {
-            maxZoom: 18,
-            detectRetina: true
-        }).addTo(map);
-
-        // set map bounds
-        map.fitWorld();
-        userMarker.addTo(map);
-        userMarker.bindPopup("<p> ID :" + userId + "</p>\n" +
-            "<p> Latitude: " + lat + " </p>\n" +
-            "<p> Longitude: " + lng + "</p>\n" +
-            "<p> Acc: " + acr + "</p>")
-            .openPopup();
-        //zoom map to current location
-        map.setView([lat, lng], 16);
-
-        //Adds a KML file according to clicked route *explosive
-            
-        
-
-
-
-        // send coords on when user is active
-        doc.on("click", function() {
-            active = true;
-
-            sentData = {
-                id: userId,
-                active: active,
-                coords: [{
-                    lat: lat,
-                    lng: lng,
-                    acr: acr
-                }]
-            };
-            socket.emit("send:coords", sentData);
-        });
+var stopMarker = {
+    "type": "Feature",
+    "properties": {
+        "id": null,
+        "name": "",
+        "long_name": "",
+        "locality": "",
+        "search_words": ""
+    },
+    "geometry": {
+        "type": "Point",
+        "coordinates": [
+        ]
     }
+};
 
-    doc.bind("mouseup mouseleave", function() {
-        active = false;
-    });
+console.log(stopMarker);
 
-var Heredia = new L.KML("/heredia.kml", {
-                 async: true
-                 }).bindPopup('This is Hellredia-San Jose'),
-    Belensj = new L.KML("/belensj.kml", {
-                 async: true
-                 }).bindPopup('This is belen'),
-    Cartago = new L.KML("/cartago.kml", {
-                 async: true
-                 }).bindPopup('This is Cartago, im pending KML'),
-    Pavas   = new L.KML("/pavas.kml", {
-                 async: true
-                 }).bindPopup('This is Pavas Curri, Im also pending KML');
+var moveData = function(){
+    var newStops =[];
+    var stops = train.stops;
+    var Marker = Object.create(stopMarker);
+    
+    for (var id in stops) {
+       var obj = stops[id];
+       console.log("Handling propertie of stop: "+ id);
+       Marker.properties.id = stops[id]
+       for (var prop in obj) {
+    
+      if(obj.hasOwnProperty(prop)){
+       console.log(">>>>  "+ prop + " = " + obj[prop]);
+       
+        Marker.properties.name = obj.name;
+        Marker.properties.long_name = obj.long_name;
+        Marker.properties.id = obj.locality;
+        Marker.properties.id = obj.search_words;
+        Marker.geometry.coordinates = obj.location;
 
-var trainRoutes = L.layerGroup([heredia, belensj, cartago, pavas]);
 
-//
-function isEmpty(obj) {
-    for(var key in obj) {
-        if(!obj.hasOwnProperty(key))
-            return false;
-    }
-    return true;
+      }
+      newStops.push(Marker);
+   }
+   return Marker;
+}
 }
 
 
-  //Display the selected kml
-
-    function showRoute(kmlLayer) {
-           
-                
-                    kmlLayer.on("loaded", function(e) {
-                    map.fitBounds(e.target.getBounds());
-                });
-                map.addLayer(kmlLayer);
-                
-                // else{
-                //     map.removeLayer(kmlLayer);
-                //     kmlLayer.on("loaded", function(e) {
-                //     map.fitBounds(e.target.getBounds());
-                // });
-                // map.addLayer(kmlLayer);
-                // }       
-    }
-
-    $("a#heredia").click(showRoute(Heredia));
-    $("a#belensj").click(showRoute(Belensj));
-    $("a#cartago").click(showRoute(Cartago));
-    $("a#pavas").click(showRoute(Pavas));
-
-    // showing markers for connections
-    function setMarker(data) {
-        for (var i = 0; i < data.coords.length; i++) {
-            var marker = L.marker([data.coords[i].lat, data.coords[i].lng], {
-                icon: yellowIcon
-            }).addTo(map);
-            marker.bindPopup("<p>One more external user is here!</p>" + data.coords[i].userId);
-            markers[data.id] = marker;
+//Current stop object
+"stops" :{
+    "101010": {
+        "name": "San José Atlántico",
+        "long_name": "San José Atlántico",
+        "locality": "Central, San José",
+        "search_words": "San José Atlántico",
+        "locaption": {
+            "lat": "9.93517",
+            "lon": "-84.06859"
         }
-    }
-
-    // handle geolocation api errors
-    function positionError(error) {
-        var errors = {
-            1: "Authorization fails", // permission denied
-            2: "Can\'t detect your location", //position unavailable
-            3: "Connection timeout" // timeout
-        };
-        showError("Error: " + errors[error.code]);
-    }
-
-    function showError(msg) {
-        info.addClass("error").text(msg);
-    }
-
-
-    // delete inactive users every 60 sec
-    setInterval(function() {
-        for (var ident in connects) {
-            if ($.now() - connects[ident].updated > 60000) {
-                delete connects[ident];
-                map.removeLayer(markers[ident]);
-                console.log("Deleted User: - " + userId + " - due to inactivity during 60 seconds");
-            }
-        }
-    }, 60000);
-
-
-});
-=======
-//some sort of way of getting an API and duct-tape the existing models.
-
-//feel free to laugh at it, or letme know if something can be done better
-
-$(function() {
-    // generate unique user id
-    var userId = Math.random().toString(16).substring(2, 15),
-        socket = io.connect("/"),
-        map,
-        info = $("#infobox"),
-        doc = $(document);
-
-    // custom marker's icon styles
-    var tinyIcon = L.Icon.extend({
-        options: {
-            shadowUrl: "../img/marker-shadow.png",
-            iconSize: [25, 39],
-            iconAnchor: [12, 36],
-            shadowSize: [41, 41],
-            shadowAnchor: [12, 38],
-            popupAnchor: [0, -30]
-        }
-    });
-    var redIcon = new tinyIcon({
-        iconUrl: "../img/marker-red.png"
-    });
-    var yellowIcon = new tinyIcon({
-        iconUrl: "../img/marker-yellow.png"
-    });
-
-    var sentData = {},
-        connects = {},
-        markers = {},
-        active = false;
-
-    socket.on("load:coords", function(data) {
-        // remember users id to show marker only once
-        if (!(data.id in connects)) {
-            setMarker(data);
-        }
-
-        connects[data.id] = data;
-        connects[data.id].updated = $.now(); // shorthand for (new Date).getTime()
-    });
-
-    // check whether browser supports geolocation api
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(positionSuccess, positionError, {
-            enableHighAccuracy: true,
-            watch: true
-        });
-    } else {
-        $(".map").text("Your browser is out of fashion, there\'s no geolocation!");
-    }
-
-    function positionSuccess(position) {
-        var lat = position.coords.latitude,
-            lng = position.coords.longitude,
-            acr = position.coords.accuracy;
-
-        // mark user's position
-        var userMarker = L.marker([lat, lng], {
-            icon: redIcon
-        });
-
-
-        // load leaflet map
-        map = L.map("map");
-
-        // leaflet API key tiler
-        L.tileLayer("http://{s}.tile.cloudmade.com/5f60f5a8fd1f447b926d50284ef5397c/997/256/{z}/{x}/{y}.png", {
-            maxZoom: 18,
-            detectRetina: true
-        }).addTo(map);
-
-        // set map bounds
-        map.fitWorld();
-        userMarker.addTo(map);
-        userMarker.bindPopup("<p> ID :" + userId + "</p>\n" +
-            "<p> Latitude: " + lat + " </p>\n" +
-            "<p> Longitude: " + lng + "</p>\n" +
-            "<p> Acc: " + acr + "</p>")
-            .openPopup();
-        //zoom map to current location
-        map.setView([lat, lng], 16);
-
-        // send coords on when user is active
-        doc.on("click", function() {
-            active = true;
-
-            sentData = {
-                id: userId,
-                active: active,
-                coords: [{
-                    lat: lat,
-                    lng: lng,
-                    acr: acr
-                }]
-            };
-            socket.emit("send:coords", sentData);
-        });
-    }
-
-    doc.bind("mouseup mouseleave", function() {
-        active = false;
-    });
-    // showing markers for connections
-
-    function setMarker(data) {
-        for (var i = 0; i < data.coords.length; i++) {
-            var marker = L.marker([data.coords[i].lat, data.coords[i].lng], {
-                icon: yellowIcon
-            }).addTo(map);
-            marker.bindPopup("<p>One more external user is here!</p>" + data.coords[i].userId);
-            markers[data.id] = marker;
-        }
-    }
-
-    // handle geolocation api errors
-    function positionError(error) {
-        var errors = {
-            1: "Authorization fails", // permission denied
-            2: "Can\'t detect your location", //position unavailable
-            3: "Connection timeout" // timeout
-        };
-        showError("Error: " + errors[error.code]);
-    }
-
-    function showError(msg) {
-        info.addClass("error").text(msg);
-    }
-
-
-    // delete inactive users every 60 sec
-    setInterval(function() {
-        for (var ident in connects) {
-            if ($.now() - connects[ident].updated > 60000) {
-                delete connects[ident];
-                map.removeLayer(markers[ident]);
-                console.log("Deleted User: - " + userId + " - due to inactivity during 60 seconds");
-            }
-        }
-    }, 60000);
-
-    //Adds a KML file according to clicked route *explosive
-
-    //I NEED TO KNOW WHY THIS CODE EXPLODES
-    var Heredia = new L.KML("/heredia.kml");
-    var Belen = new L.KML("/belen.kml");
-    var Cartago = new L.KML("/cartago.kml");
-    var Pavas = new L.KML("/pavas.kml");
-
-    $("#heredia").on("click", showRoute(Heredia));
-    $("#belen").on("click", showRoute(Belen));
-    $("#cartago").on("click", showRoute(Cartago));
-    $("#pavas").on("click", showRoute(Pavas));
-
-    function showRoute(route,) {
-        //map = L.map("map");
         
-        map.addLayer(route);
-        route.on("loaded", function(e) {
-            map.fitBounds(e.target.getBounds());
-        });
-    };
+        
+//Geojson format 
+var geojsonSample= {
+    "type": "Feature",
+    "properties": {
+        "Hello": "World"
+    },
+    "geometry": {
+        "type": "Point",
+        "coordinates": [
+            -84.16656017303465,
+            9.969104212901023
+        ]
+    }
+};
 
 
-    //END OF EXPLOSIVE CODE      
-    //>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
-});
-
-
-
-//Returns an array of  stoptime objects  for the current trip  
-// function getStopTimes(trip) {
-//     var tripStops = [];
-//     for (var i = 0, l = stoptimes.length, found = false; i < l; i++) {
-//         if (stoptimes[i].trip == tripid) {
-//             found = true;
-//             tripStops.push(stoptimes[i]);
-//         }
-//     }
-//     if (found) {
-//         console.log(" this Trip is: " + stoptimes);
-//         console.log(" Este viaje en tren tiene " + tripStops.length + " paradas");
-//         return tripStops;
-//     } else {
-//         console.log("no stops.");
-//     };
-//     }
->>>>>>> 88377565b582797f70ca9abde72671d82298db01:models/methods.js
+moveData();

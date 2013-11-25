@@ -4,7 +4,9 @@
 
 //feel free to laugh at it, or let me know if something can be done better
     
-    var map = L.map('map');//< Leaflet map
+    
+    //< Leaflet map
+    var map = L.map('map');
     
     // generate unique user id
     var userId = Math.random().toString(16).substring(2, 15),
@@ -159,7 +161,9 @@ var showRoute= function(route) {
     
    map.setView(route.latLngs[0], 13); 
    map.addLayer(route);
-        firstMarker = L.marker(route.latLngs[0], {
+   //added marker for a side of the route
+   //TODO: Make this load markers for every stop on the highlited route;
+   firstMarker = L.marker(route.latLngs[0], {
                 icon: yellowIcon
             }).addTo(map);
         firstMarker.bindPopup("<p>This is the initial point of the route</p>" );
@@ -194,26 +198,3 @@ var clearRoutes= function(){
         console.log('Pavas Works!');
         showRoute(Pavas);
 });});
-    
-
-
-
-
-//Returns an array of  stoptime objects  for the current trip  
-// function getStopTimes(trip) {
-//     var tripStops = [];
-//     for (var i = 0, l = stoptimes.length, found = false; i < l; i++) {
-//         if (stoptimes[i].trip == tripid) {
-//             found = true;
-//             tripStops.push(stoptimes[i]);
-//         }
-//     }
-//     if (found) {
-//         console.log(" this Trip is: " + stoptimes);
-//         console.log(" Este viaje en tren tiene " + tripStops.length + " paradas");
-//         return tripStops;
-//     } else {
-//         console.log("no stops.");
-//     };
-//     }
-
