@@ -1,6 +1,32 @@
 // Routes drawins in geojson format WIP
-//TODDO: Add Cartago
-
+/*
+TODO: Add these properties to the polylines
+Add Cartago
+             "id": "506110",
+            "name": "Pavas - Curridabat",
+            "code": "1",
+            "color": -620002,
+            
+             "id": "506130",
+            "name": "San José - Cartago",
+            "code": "4",
+            "color": -16752466
+   
+        
+            "id":"506410",
+            "name": "Belén - San José",
+            "code": "3",
+            "color": -13061047,
+            
+        
+            "id": "506411",
+            "name": "Heredia - San José",
+            "code": "2",
+            "color": -13564,
+            
+        
+  
+*/
 
 var routes ={
   "type": "FeatureCollection",
