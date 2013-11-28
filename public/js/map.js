@@ -146,35 +146,30 @@
    
     
 
-    //Adds a KML file according to clicked route *explosive
+    //Adds a geojson object according to clicked route *explosive
   
-    var Heredia = new L.KML("/heredia.kml", {async:true});
-    var Belen = new L.KML("/belen.kml", {async:true});
-    var Cartago = new L.KML("/cartago.kml", {async:true});
-    var Pavas = new L.KML("/pavas.kml", {async:true});
+    var Heredia = L.geoJson(routes.heredia)//.addTo(map);
+    var Belen = L.geoJson(routes.belen)//.addTo(map);
+    //var Cartago = L.geoJson(routes.cartago).addTo(map);;
+    var Pavas = L.geoJson(routes.pavas)//.addTo(map);
 
   
 
   //Loads KML
 var showRoute= function(route) {
-    var firstMarker;
+
     
-   map.setView(route.latLngs[0], 13); 
+   //map.setView(route.latLngs[0], 13); 
    map.addLayer(route);
-   //added marker for a side of the route
-   //TODO: Make this load markers for every stop on the highlited route;
-   firstMarker = L.marker(route.latLngs[0], {
-                icon: yellowIcon
-            }).addTo(map);
-        firstMarker.bindPopup("<p>This is the initial point of the route</p>" );
-        
+  
+  
        };
        
 /// removes all layers from map
 var clearRoutes= function(){
     map.removeLayer(Belen);
     map.removeLayer(Heredia);
-    map.removeLayer(Cartago);
+//   map.removeLayer(Cartago);
     map.removeLayer(Pavas);
 };
       
@@ -184,7 +179,6 @@ var clearRoutes= function(){
   
     $("#heredia").click( function () {
         console.log(' Heredia Works!');
-
         clearRoutes();
         showRoute(Heredia);});
   
