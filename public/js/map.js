@@ -148,10 +148,10 @@
 
     //Adds a geojson object according to clicked route *explosive
   
-    var Heredia = L.geoJson(routes.heredia)
-    var Belen = L.geoJson(routes.belen)
-    //var Cartago = L.geoJson(routes.cartago)
-    var Pavas = L.geoJson(routes.pavas)
+    var Heredia = L.geoJson(routes.heredia);
+    var Belen = L.geoJson(routes.belen);
+    var Cartago = L.geoJson(routes.cartago);
+    var Pavas = L.geoJson(routes.pavas);
 
 var routeMarkers = function(){
     
@@ -162,7 +162,8 @@ var routeMarkers = function(){
 
   //Loads routes and markers
 var showRoute= function(route) {
-   map.setView(bounds, 13); 
+   //Smap.setView(bounds, 13); 
+   debugger;
    map.addLayer(route);
   
        };
@@ -171,7 +172,7 @@ var showRoute= function(route) {
 var clearRoutes= function(){
     map.removeLayer(Belen);
     map.removeLayer(Heredia);
-//   map.removeLayer(Cartago);
+    map.removeLayer(Cartago);
     map.removeLayer(Pavas);
 };
       
@@ -188,7 +189,11 @@ var clearRoutes= function(){
         console.log('Belen Works!');
         clearRoutes();
         showRoute(Belen);});
-    //$("#cartago").click(showRoutes(Cartago));  <<I have to create this KML
+    $("#cartago").click(function(){
+        clearRoutes();
+        showRoute(Cartago);
+        console.log("Cartago works!");
+        });
     $("#pavas").click(function () {
         clearRoutes();
         console.log('Pavas Works!');
