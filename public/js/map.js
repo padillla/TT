@@ -144,24 +144,26 @@
         }
     }, 60000);
    
-    
+    var bounds = [9.9329,-84.0752];
 
     //Adds a geojson object according to clicked route *explosive
   
-    var Heredia = L.geoJson(routes.heredia)//.addTo(map);
-    var Belen = L.geoJson(routes.belen)//.addTo(map);
-    //var Cartago = L.geoJson(routes.cartago).addTo(map);;
-    var Pavas = L.geoJson(routes.pavas)//.addTo(map);
+    var Heredia = L.geoJson(routes.heredia)
+    var Belen = L.geoJson(routes.belen)
+    //var Cartago = L.geoJson(routes.cartago)
+    var Pavas = L.geoJson(routes.pavas)
 
-  
-
-  //Loads KML
-var showRoute= function(route) {
+var routeMarkers = function(){
+    
 
     
-   //map.setView(route.latLngs[0], 13); 
-   map.addLayer(route);
+};
   
+
+  //Loads routes and markers
+var showRoute= function(route) {
+   map.setView(bounds, 13); 
+   map.addLayer(route);
   
        };
        
