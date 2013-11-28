@@ -1,53 +1,49 @@
+//This  manipulate the model to be readable on the map 
+// WIP
+//TODO: Set markers on map for each trip.
+//      Use the time and dates on stoptimes.
 
-//gets an array of stoptimes objects
-//this is broke!!!!
-/*var stoptimes ={
-        
-        "id    ": 50641112,
-        "train_type": "Apolo",
-        "trip": 1,
-        "stop_sequence": 2,
-        "headsign": "San José Atlántico",
-        "arrival_time": "06:05",
-        "departure_time": "06:05",
-        "route_id": 506411,
-        "stop_id": 409020
-    };
-*/
+//defined models
 var trips = require('../public/models/trips'),
 	routes = require('../public/models/routes'),
 	stoptimes= require('../public/models/stoptimes'),
-	stops=require('../public/models/stops');
+	stops = require('../public/models/stops'),
+	prettyjson = require("prettyjson");
 
-
-var getStopTimes = function(trip) {
+//This array keeps stores the stoptimes objects for the current trip
 var tripStops = [],
-len = stoptimes.length,
-
-console.log(trips.length);
 found = false;
 
+//Filter stoptimes and give found a true when its trip property  match tthe trip number given
 var  filterStoptimes  =   function(stoptime, trip){
-    var  found = false;
-    if (stoptime.trip===trip.number){
-    found=true;
+    var l =trips.length,
+    j;
+    found = false;
+    for ( j=0; j<l; j++ ) {
+         if (stoptime.trip===trip){
+            found = true;
+         }
     }
-    else {
-    console.log("no stops. trip # is: "+ trips[trip] );
-    }
-
- };  
+ 
+ };
+ 
+ //Push each stoptime matching the trip to tripStops array
+ //receives a trip number as an argument
  
 var getStopTimes  = function( trip ) {
-    var  l =  trip.length;
-    for (var i = 0; i < len; i++) {
-    for( var j=0; j<l; j++ ) {
-        filterStoptimes(stoptimes[i], trip[j]);
-        if (found){
-            tripStops.push(stoptimes[i]};
-        }
-    }
-    return tripStops;
-}
+    var i,
+    len = stoptimes.length;
+    for (i = 0; i < len; i++) {
+         var current = stoptimes[i];
+         filterStoptimes(current, trip);
+         if (found){
+            tripStops.push(current);
+              }
+         }
+};
+getStopTimes(1);
+console.log(prettyjson.render(tripStops));
+console.log( "This route has : " + tripStops.length+ " Stops");
 
-console.log(getStopTimes(trips[1]));
+
+
