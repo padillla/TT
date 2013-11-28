@@ -3,7 +3,7 @@
 //some sort of way of getting an API and duct-tape the existing models.
 
 //feel free to laugh at it, or let me know if something can be done better
-    
+//off course this isnt production yet, Its as explosive as you can imagine and I dont need minification.Yet.    
     
     //< Leaflet map
     var map = L.map('map');
@@ -154,7 +154,7 @@
     var Pavas = L.geoJson(routes.pavas);
 
 var routeMarkers = function(){
-    
+    var trip= trips
 
     
 };

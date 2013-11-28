@@ -413,3 +413,4 @@ var stops = {
     }
   ]
 };
+module.exports.stops = stops;

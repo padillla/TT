@@ -1,4 +1,6 @@
-var stoptimes =[{
+var stoptimes =
+[
+{
         "id": 50641111,
         "train_type": "Apolo",
         "trip": 1,
@@ -6349,3 +6351,5 @@ var stoptimes =[{
         "route_id": 506110,
         "stop_id": 101031
     }];
+
+    module.exports = stoptimes;
