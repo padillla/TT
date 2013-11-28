@@ -1,7 +1,7 @@
 
 //gets an array of stoptimes objects
 //this is broke!!!!
-var stoptimes ={
+/*var stoptimes ={
         
         "id    ": 50641112,
         "train_type": "Apolo",
@@ -13,7 +13,7 @@ var stoptimes ={
         "route_id": 506411,
         "stop_id": 409020
     };
-
+*/
 var trips = require('../public/models/trips'),
 	routes = require('../public/models/routes'),
 	stoptimes= require('../public/models/stoptimes'),
