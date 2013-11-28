@@ -162,9 +162,8 @@ var routeMarkers = function(){
 
   //Loads routes and markers
 var showRoute= function(route) {
-   //Smap.setView(bounds, 13); 
-   debugger;
-   map.addLayer(route);
+    map.setView(bounds, 13); 
+    map.addLayer(route);
   
        };
        
