@@ -26,7 +26,8 @@ time, mark, audio, video {
 /* Base text styles */
 
 body {
-  padding:10px 50px 0 0;
+
+  padding:0;
   font-family:"Helvetica Neue", Helvetica, Arial, sans-serif;
 	font-size: 14px;
 	color: #232323;
@@ -327,12 +328,6 @@ footer {
 	padding-left: 50px;
 }
 
-/* Map without Media queries*/
- #map{
-
-height: 500px;
-width: auto;
-
 }
 
 .notificar:hover {
@@ -372,8 +367,7 @@ width: auto;
 	}
 
   header {
-    padding-right:300px;
-    margin:20px 20px 20px;
+    padding-right:100px;
   }
 
   section {
@@ -391,12 +385,6 @@ width: auto;
     top:45px;
     width:180px;
   }
-
-  #map{
-
-    height: 600px;
-    width: auto;
-    }
 }
 
 @media print, screen and (max-width: 720px) {
@@ -407,7 +395,7 @@ width: auto;
   header {
     padding:10px 20px 0;
 		margin-right: 0;
-		margin:20px 20px 20px 0;
+		/*margin:20px 20px 20px 0;*/
   }
 
 	section {
@@ -422,18 +410,9 @@ width: auto;
   header ul, header p.view {
     position:static;
   }
-  #map{
-
-height: 500px;
-width: auto;
-
-}
 }
 
 @media print, screen and (max-width: 480px) {
-  header{
-     margin:20px 20px 20px 0;
-  }
 
   header ul li.download {
     display:none;
@@ -446,9 +425,6 @@ width: auto;
 	footer a{
 		display:block;
 	}
-	#map{
-	height: 300px;
-	width: auto;
 }
 #notificacion {
     height: 20px;
@@ -468,9 +444,14 @@ width: auto;
     color:#444;
   }
   #map{
-
-height: 600px;
-width: 600px;
-
+    height: 600px;
+    width: 600px;
+      }
 }
+body {padding: 0, margin:0; }
+/*#app { width: 100%; height: 100% }
+#nav { z-index: 100; position: absolute; 
+        }*/
+html, body, #map {
+    height: 100%;
 }

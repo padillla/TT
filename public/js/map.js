@@ -83,7 +83,7 @@
             "<p> Acc: " + acr + "</p>")
             .openPopup();
         //zoom map to current location
-        map.setView([lat, lng], 16);
+        map.setView([lat, lng], 12);
     
         // send coords on when user is active
         doc.on("click", function() {
@@ -146,19 +146,29 @@
    
     var bounds = [9.9329,-84.0752];
 
-    //Adds a geojson object according to clicked route *explosive
+    //Routes geojson layers
   
-    var Heredia = L.geoJson(routes.heredia);
-    var Belen = L.geoJson(routes.belen);
-    var Cartago = L.geoJson(routes.cartago);
-    var Pavas = L.geoJson(routes.pavas);
+    var Heredia = L.geoJson(routes[0]);
+    var Belen = L.geoJson(routes[1]);
+    var Cartago = L.geoJson(routes[3]);
+    //testing var for stop marker loading *Explosive
+    var Pavas = L.geoJson(routes[2]);
 
-var routeMarkers = function(){
-    var trip= trips
 
-    
-};
-  
+var overlays = {
+            "Heredia": Heredia,
+            "Belen": Belen,
+            "Pavas": Pavas,
+            "Cartago":Cartago
+        };
+
+L.control.layers(overlays).addTo(map);
+
+
+
+
+
+//
 
   //Loads routes and markers
 var showRoute= function(route) {
@@ -172,15 +182,16 @@ var clearRoutes= function(){
     map.removeLayer(Belen);
     map.removeLayer(Heredia);
     map.removeLayer(Cartago);
-    map.removeLayer(Pavas);
+     map.removeLayer(Pavas);
 };
       
       ////Click handler for routes
       
      $(document).ready(function () {
   
-    $("#heredia").click( function () {
-        console.log(' Heredia Works!');
+    $("#heredia").click( function () 
+    {
+        console.log(Heredia);
         clearRoutes();
         showRoute(Heredia);});
   
@@ -198,3 +209,77 @@ var clearRoutes= function(){
         console.log('Pavas Works!');
         showRoute(Pavas);
 });});
+
+
+
+var TREN = {
+
+    stopMarkers: [],
+    found: false,
+
+    //Filter stoptimes and give found a true when its trip property  match the trip number given
+    filterStoptimes: function(stoptime, trip) {
+        var l = trips.length,
+            j;
+        this.found = false;
+        for (j = 0; j < l; j++) {
+            if (stoptime.trip === trip) {
+                this.found = true;
+            }
+        }
+
+    },
+    filterStops:function(stopId){
+        var l = AllStops.features.length,
+            j;
+        for (j = 0; j < l; j++) {
+            stop=AllStops.features[j];
+            if (stopId === stop.properties.id) {
+               return stop;
+            }
+        }
+    },
+    filterRoute : function(routeId){
+        var l = routes.length,
+            r;
+            for (r = 0; r < l; r++) {
+            route=routes[r];
+            if (routeID ===route[r].properties.id) {
+                return route;
+            }
+        }
+    },
+   
+//GETSTOPS
+    getStops :function(trip) {
+           var stops = this.stopMarkers,
+           len = stoptimes.length,
+            i;
+            
+        for (i = 0; i < len; i++){ 
+            var stoptime = stoptimes[i],
+                stop= this.filterStops(stoptime.stop_id),
+                stopMarkers=this.stopMarkers;
+                route = this.filterRoute(stoptime.route_id);
+                
+                this.filterStoptimes(stoptime, trip);
+            if (this.found) {
+                stop.properties.sequence = stoptime.stop_sequence;
+                stop.properties.arrival = stoptime.arrival_time;
+                stop.properties.depature = stoptime.arrival_time;
+                //stop.properties.route=route.properties.name;
+                stop.properties.headsign = stoptime.headsign;
+
+                stopMarkers.push(stop);
+                console.log("Found: "+ stop.properties.name )
+                
+            }
+        }
+        return stopMarkers;
+    }
+
+};
+
+var a = TREN.getStops(1);
+console.log(a);
+console.log("This route has : " +a.length + " Stops");

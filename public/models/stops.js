@@ -1,12 +1,12 @@
 //Geojson formatted stop markers. WIP
 
-var stops = {
+var AllStops = {
   "type": "FeatureCollection",
   "features": [
     {
       "type": "Feature",
       "properties": {
-        "id": "101010",
+        "id": 101010,
         "name": "San José Atlántico",
         "long_name": "San José Atlántico",
         "locality": "Central, San José",
@@ -23,7 +23,7 @@ var stops = {
     {
       "type": "Feature",
       "properties": {
-        "id": "101030",
+        "id": 101030,
         "name": "Cementerio",
         "long_name": "San José, Cementerio",
         "locality": "Central, San José",
@@ -40,7 +40,7 @@ var stops = {
     {
       "type": "Feature",
       "properties": {
-        "id": "101031",
+        "id": 101031,
         "name": "San José Pacífico",
         "long_name": "San José Pacífico",
         "locality": "Central, San José",
@@ -57,7 +57,7 @@ var stops = {
     {
       "type": "Feature",
       "properties": {
-        "id": "101040",
+        "id": 101040,
         "name": "Plaza González Víquez",
         "long_name": "San José, Plaza González Víquez",
         "locality": "Central, San José",
@@ -74,7 +74,7 @@ var stops = {
     {
       "type": "Feature",
       "properties": {
-        "id": "101041",
+        "id": 101041,
         "name": "Procuradoría",
         "long_name": "San José, Procuradoría",
         "locality": "Central, San José",
@@ -91,7 +91,7 @@ var stops = {
     {
       "type": "Feature",
       "properties": {
-        "id": "101080",
+        "id": 101080,
         "name": "La Sabana-Contraloría",
         "long_name": "San José, La Sabana-Contraloría",
         "locality": "Central, San José",
@@ -108,7 +108,7 @@ var stops = {
     {
       "type": "Feature",
       "properties": {
-        "id": "101081",
+        "id": 101081,
         "name": "La Sabana-Estadio",
         "long_name": "San José, La Sabana-Estadio",
         "locality": "Central, San José",
@@ -125,7 +125,7 @@ var stops = {
     {
       "type": "Feature",
       "properties": {
-        "id": "101090",
+        "id": 101090,
         "name": "Metrópolis",
         "long_name": "Pavas, Metrópolis",
         "locality": "Pavas, San José",
@@ -142,7 +142,7 @@ var stops = {
     {
       "type": "Feature",
       "properties": {
-        "id": "101091",
+        "id": 101091,
         "name": "Demasa",
         "long_name": "Pavas, Demasa",
         "locality": "Pavas, San José",
@@ -159,7 +159,7 @@ var stops = {
     {
       "type": "Feature",
       "properties": {
-        "id": "101092",
+        "id": 101092,
         "name": "Pavas",
         "long_name": "Pavas Centro",
         "locality": "Pavas, San José",
@@ -176,7 +176,7 @@ var stops = {
     {
       "type": "Feature",
       "properties": {
-        "id": "101093",
+        "id": 101093,
         "name": "Jack's",
         "long_name": "Pavas, Jack's",
         "locality": "Pavas, San José",
@@ -193,7 +193,7 @@ var stops = {
     {
       "type": "Feature",
       "properties": {
-        "id": "101094",
+        "id": 101094,
         "name": "Rohrmoser",
         "long_name": "Pavas, Rohrmoser",
         "locality": "Pavas, San José",
@@ -210,7 +210,7 @@ var stops = {
     {
       "type": "Feature",
       "properties": {
-        "id": "101095",
+        "id": 101095,
         "name": "Pecosa",
         "long_name": "Pavas, Pecosa",
         "locality": "Pavas, San José",
@@ -227,7 +227,7 @@ var stops = {
     {
       "type": "Feature",
       "properties": {
-        "id": "113050",
+        "id": 113050,
         "name": "Cuatro Reinas",
         "long_name": "Tibás, Cuatro Reinas",
         "locality": "Tibás, San José",
@@ -244,7 +244,7 @@ var stops = {
     {
       "type": "Feature",
       "properties": {
-        "id": "115050",
+        "id": 115050,
         "name": "San Pedro-UCR",
         "long_name": "Montes de Oca, San Pedro-UCR",
         "locality": "Montes de Oca, San José",
@@ -261,7 +261,7 @@ var stops = {
     {
       "type": "Feature",
       "properties": {
-        "id": "115051",
+        "id": 115051,
         "name": "Universidad Latina",
         "long_name": "Montes de Oca, Universidad Latina",
         "locality": "Montes de Oca, San José",
@@ -278,7 +278,7 @@ var stops = {
     {
       "type": "Feature",
       "properties": {
-        "id": "118010",
+        "id": 118010,
         "name": "Freses-CFIA",
         "long_name": "Curridabat, Freses-CFIA",
         "locality": "Curridabat, San José",
@@ -295,7 +295,7 @@ var stops = {
     {
       "type": "Feature",
       "properties": {
-        "id": "118011",
+        "id": 118011,
         "name": "Cipreses-UACA",
         "long_name": "Curridabat, Cipreses-UACA",
         "locality": "Curridabat, San José",
@@ -312,7 +312,7 @@ var stops = {
     {
       "type": "Feature",
       "properties": {
-        "id": "301020",
+        "id": 301020,
         "name": "Cartago",
         "long_name": "Cartago",
         "locality": "Cartago, Cartago",
@@ -329,7 +329,7 @@ var stops = {
     {
       "type": "Feature",
       "properties": {
-        "id": "303060",
+        "id": 303060,
         "name": "Tres Ríos",
         "long_name": "La Unión, Tres Ríos",
         "locality": "La Unión, Cartago",
@@ -346,7 +346,7 @@ var stops = {
     {
       "type": "Feature",
       "properties": {
-        "id": "401010",
+        "id": 401010,
         "name": "Heredia",
         "long_name": "Heredia",
         "locality": "Heredia, Heredia",
@@ -363,7 +363,7 @@ var stops = {
     {
       "type": "Feature",
       "properties": {
-        "id": "403060",
+        "id": 403060,
         "name": "Santa Rosa",
         "long_name": "Santo Domingo, Santa Rosa",
         "locality": "Santo Domingo, Heredia",
@@ -380,7 +380,7 @@ var stops = {
     {
       "type": "Feature",
       "properties": {
-        "id": "407010",
+        "id": 407010,
         "name": "San Antonio de Belén",
         "long_name": "Belén, San Antonio",
         "locality": "Belén, Heredia",
@@ -397,7 +397,7 @@ var stops = {
     {
       "type": "Feature",
       "properties": {
-        "id": "409020",
+        "id": 409020,
         "name": "Miraflores",
         "long_name": "San Pablo, Miraflores",
         "locality": "San Pablo, Heredia",
