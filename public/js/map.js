@@ -3,7 +3,7 @@
 //some sort of way of getting an API and duct-tape the existing models.
 
 //feel free to laugh at it, or let me know if something can be done better
-//off course this isnt production yet, Its as explosive as you can imagine and I dont need minification.Yet.    
+//off course this isnt production yet, Its as explosive as you can imagine.
     
     //< Leaflet map
     var map = L.map('map');
@@ -144,7 +144,7 @@
         }
     }, 60000);
    
-    var bounds = [9.9329,-84.0752];
+    //var bounds = [9.9329,-84.0752];
 
     //Routes geojson layers
   
@@ -219,6 +219,10 @@ var TREN = {
             "type": "FeatureCollection",
             "features": []
         },
+        
+    bounds:[],
+    //current train latlng. looking forward to add this to map.
+    location: [],
     
     found: false,
 
@@ -267,6 +271,26 @@ var TREN = {
             }
         }
     },
+    
+    filtertrip : function(tripNumber){
+        var l = trips.length,
+        trip,
+            i;
+           
+            for (i = 0; i < l; i++) {
+            trip=trips[i];
+           
+            if (trip){
+            
+            //this probably gets a number, so better no triple equals. I guess.
+                if (tripNumber == trip.number) {
+                   
+                return trip;
+                }
+                
+            }
+        }
+    },
    
 //GETSTOPS returns an array on geojson objects with the markers for the stop
     getStops :function(trip) {
@@ -293,22 +317,24 @@ var TREN = {
         }
         return stopMarkers;
     },
-    //merges markers with stops all over the map, alongside with the polyline of the trip  WIP* Explosive
+    //Fill GeoJSON with markers and stops for the given trip #,
+    // then adds GeoJSON to the map and set the bounds to its first object coordinates. EXPLOSIVE
     loadTrip: function(tripNumber){
-        var markers =this.getStops(tripNumber);
-        var road = this.filterRoute(markers[1].properties.id);
-        this.GeoJSON.features.concat.apply(markers, road);
-        debugger;
+        var trip= this.filterTrips(tripNumber),
+            stopMarkers =this.getStops(tripNumber),
+            route=this.filterRoutes(trip.route_id),
+            features=this.GeoJSON.features,
+            bounds= this.bounds;
         
+        features.push(route);
+        features.concat.apply(stopMarkers, route);
         
+        bounds= features.[0].properties.coordinates[0];
+        this.GeoJSON.addTo(map);
+        map.setView(bounds,16);
+        debugger;   
         
     }
-    
-    
-    
 
 };
-
-var a = TREN.getStops(1);
-console.log(a);
-console.log("This route has : " +a.length + " Stops");
+TREN.loadTrip(1);
