@@ -214,7 +214,12 @@ var clearRoutes= function(){
 
 var TREN = {
 
-    stopMarkers: [],
+    
+    GeoJSON:{
+            "type": "FeatureCollection",
+            "features": []
+        },
+    
     found: false,
 
     //Filter stoptimes and give found a true when its trip property  match the trip number given
@@ -229,54 +234,78 @@ var TREN = {
         }
 
     },
+    
+    //return al stops with the given ID
     filterStops:function(stopId){
         var l = AllStops.features.length,
+            stop,
             j;
         for (j = 0; j < l; j++) {
             stop=AllStops.features[j];
             if (stopId === stop.properties.id) {
+                
                return stop;
             }
         }
     },
+    
+    //returns route object with the given ID
     filterRoute : function(routeId){
         var l = routes.length,
+        route,
             r;
+           
             for (r = 0; r < l; r++) {
             route=routes[r];
-            if (routeID ===route[r].properties.id) {
+           
+            if (route){
+                if (routeId === route.properties.id) {
+                   
                 return route;
+                }
+                
             }
         }
     },
    
-//GETSTOPS
+//GETSTOPS returns an array on geojson objects with the markers for the stop
     getStops :function(trip) {
-           var stops = this.stopMarkers,
-           len = stoptimes.length,
+        var stopMarkers= [],
+            len = stoptimes.length,
             i;
             
         for (i = 0; i < len; i++){ 
             var stoptime = stoptimes[i],
-                stop= this.filterStops(stoptime.stop_id),
-                stopMarkers=this.stopMarkers;
-                route = this.filterRoute(stoptime.route_id);
-                
+                stop= this.filterStops(stoptime.stop_id);
                 this.filterStoptimes(stoptime, trip);
             if (this.found) {
+               
+                 
                 stop.properties.sequence = stoptime.stop_sequence;
                 stop.properties.arrival = stoptime.arrival_time;
                 stop.properties.depature = stoptime.arrival_time;
-                //stop.properties.route=route.properties.name;
+                
                 stop.properties.headsign = stoptime.headsign;
-
                 stopMarkers.push(stop);
-                console.log("Found: "+ stop.properties.name )
+                console.log("Found: "+ stop.properties.name);
                 
             }
         }
         return stopMarkers;
+    },
+    //merges markers with stops all over the map, alongside with the polyline of the trip  WIP* Explosive
+    loadTrip: function(tripNumber){
+        var markers =this.getStops(tripNumber);
+        var road = this.filterRoute(markers[1].properties.id);
+        this.GeoJSON.features.concat.apply(markers, road);
+        debugger;
+        
+        
+        
     }
+    
+    
+    
 
 };
 
