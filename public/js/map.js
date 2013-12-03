@@ -4,6 +4,21 @@
 
 //feel free to laugh at it, or let me know if something can be done better
 //off course this isnt production yet, Its as explosive as you can imagine.
+
+//a couple array functions
+function forEach(array, action) {
+  for (var i = 0; i < array.length; i++)
+    action(array[i]);
+}
+
+function flatten(arrays) {
+    var result = [];
+    forEach(arrays, function (array) {
+      forEach(array, function (element){result.push(element);});
+    });
+    return result;
+  }
+    
     
     //< Leaflet map
     var map = L.map('map');
@@ -143,16 +158,14 @@
             }
         }
     }, 60000);
-   
-    //var bounds = [9.9329,-84.0752];
+
 
     //Routes geojson layers
   
     var Heredia = L.geoJson(routes[0]);
     var Belen = L.geoJson(routes[1]);
-    var Cartago = L.geoJson(routes[3]);
-    //testing var for stop marker loading *Explosive
     var Pavas = L.geoJson(routes[2]);
+    var Cartago = L.geoJson(routes[3]);
 
 
 var overlays = {
@@ -172,8 +185,8 @@ L.control.layers(overlays).addTo(map);
 
   //Loads routes and markers
 var showRoute= function(route) {
-    map.setView(bounds, 13); 
-    map.addLayer(route);
+    
+    map.addLayer(route).fitBounds(route.getBounds());
   
        };
        
@@ -272,7 +285,7 @@ var TREN = {
         }
     },
     
-    filtertrip : function(tripNumber){
+    filterTrip : function(tripNumber){
         var l = trips.length,
         trip,
             i;
@@ -304,37 +317,55 @@ var TREN = {
                 this.filterStoptimes(stoptime, trip);
             if (this.found) {
                
-                 
                 stop.properties.sequence = stoptime.stop_sequence;
                 stop.properties.arrival = stoptime.arrival_time;
                 stop.properties.depature = stoptime.arrival_time;
                 
                 stop.properties.headsign = stoptime.headsign;
                 stopMarkers.push(stop);
-                console.log("Found: "+ stop.properties.name);
+                
                 
             }
         }
+        console.log("Found: "+ stopMarkers.length + " stops");
         return stopMarkers;
     },
     //Fill GeoJSON with markers and stops for the given trip #,
     // then adds GeoJSON to the map and set the bounds to its first object coordinates. EXPLOSIVE
     loadTrip: function(tripNumber){
-        var trip= this.filterTrips(tripNumber),
+            
+        var trip= this.filterTrip(tripNumber),
             stopMarkers =this.getStops(tripNumber),
-            route=this.filterRoutes(trip.route_id),
+            route=this.filterRoute(trip.route_id),
             features=this.GeoJSON.features,
-            bounds= this.bounds;
+            //bounds= this.bounds,
+            trainTrip;
+            
         
         features.push(route);
-        features.concat.apply(stopMarkers, route);
-        
-        bounds= features.[0].properties.coordinates[0];
-        this.GeoJSON.addTo(map);
-        map.setView(bounds,16);
-        debugger;   
-        
+        features = flatten([stopMarkers, features]);
+        trainTrip = L.geoJson(this.GeoJSON);
+       // console.log("Route name: "+ route.properties.name);
+        //map.addLayer(trainTrip).fitBounds(trainTrip.getBounds());
+        return trainTrip;
     }
 
 };
-TREN.loadTrip(1);
+var trainTrip = L.geoJson(TREN.GeoJSON, {
+    style: function (feature) {
+        return { opacity: 0, fillOpacity: 0.5, fillColor: "#0f0" };
+    },
+    onEachFeature: function(feature, layer){
+        layer.bindPopup("Hello " + feature.properties.name);
+    }
+}).addTo(map);
+
+
+
+
+
+
+
+
+
+
