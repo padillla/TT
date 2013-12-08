@@ -1,246 +1,246 @@
-
-
 //some sort of way of getting an API and duct-tape the existing models.
-
 //feel free to laugh at it, or let me know if something can be done better
 //off course this isnt production yet, Its as explosive as you can imagine.
-
 //a couple array functions
 function forEach(array, action) {
-  for (var i = 0; i < array.length; i++)
-    action(array[i]);
+    for (var i = 0; i < array.length; i++)
+        action(array[i]);
 }
 
 function flatten(arrays) {
     var result = [];
     forEach(arrays, function (array) {
-      forEach(array, function (element){result.push(element);});
+        forEach(array, function (element) {
+            result.push(element);
+        });
     });
     return result;
-  }
-    
-    
-    //< Leaflet map
-    var map = L.map('map');
-    
-    // generate unique user id
-    var userId = Math.random().toString(16).substring(2, 15),
-        socket = io.connect("/"),
-        info = $("#infobox"),
-        doc = $(document);
+}
 
-    // custom marker's icon styles
-    var tinyIcon = L.Icon.extend({
-        options: {
-            shadowUrl: "../img/marker-shadow.png",
-            iconSize: [25, 39],
-            iconAnchor: [12, 36],
-            shadowSize: [41, 41],
-            shadowAnchor: [12, 38],
-            popupAnchor: [0, -30]
-        }
-    });
-    var redIcon = new tinyIcon({
-        iconUrl: "../img/marker-red.png"
-    });
-    var yellowIcon = new tinyIcon({
-        iconUrl: "../img/marker-yellow.png"
-    });
 
-    var sentData = {},
-        connects = {},
-        markers = {},
-        active = false;
+//< Leaflet map
+var map = L.map('map');
 
-    socket.on("load:coords", function(data) {
-        // remember users id to show marker only once
-        if (!(data.id in connects)) {
-            setMarker(data);
-        }
+// generate unique user id
+var userId = Math.random().toString(16).substring(2, 15),
+    socket = io.connect("/"),
+    info = $("#infobox"),
+    doc = $(document);
 
-        connects[data.id] = data;
-        connects[data.id].updated = $.now(); // shorthand for (new Date).getTime()
-    });
+// custom marker's icon styles
+var tinyIcon = L.Icon.extend({
+    options: {
+        shadowUrl: "../img/marker-shadow.png",
+        iconSize: [25, 39],
+        iconAnchor: [12, 36],
+        shadowSize: [41, 41],
+        shadowAnchor: [12, 38],
+        popupAnchor: [0, -30]
+    }
+});
+var redIcon = new tinyIcon({
+    iconUrl: "../img/marker-red.png"
+});
+var yellowIcon = new tinyIcon({
+    iconUrl: "../img/marker-yellow.png"
+});
 
-    // check whether browser supports geolocation api
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(positionSuccess, positionError, {
-            enableHighAccuracy: true,
-            watch: true
-        });
-    } else {
-        $(".map").text("Your browser is out of fashion, there\'s no geolocation!");
+
+var sentData = {},
+    connects = {},
+    markers = {},
+    active = false;
+
+socket.on("load:coords", function (data) {
+    // remember users id to show marker only once
+    if (!(data.id in connects)) {
+        setMarker(data);
     }
 
-    function positionSuccess(position) {
-        var lat = position.coords.latitude,
-            lng = position.coords.longitude,
-            acr = position.coords.accuracy;
+    connects[data.id] = data;
+    connects[data.id].updated = $.now(); // shorthand for (new Date).getTime()
+});
 
-        // mark user's position
-        var userMarker = L.marker([lat, lng], {
-            icon: redIcon
-        });
-    
-
-        // leaflet API key tiler
-        L.tileLayer("http://{s}.tile.cloudmade.com/5f60f5a8fd1f447b926d50284ef5397c/997/256/{z}/{x}/{y}.png", {
-            maxZoom: 18,
-            detectRetina: true
-        }).addTo(map);
-
-        // set map bounds
-        map.fitWorld();
-        userMarker.addTo(map);
-        userMarker.bindPopup("<p> ID :" + userId + "</p>\n" +
-            "<p> Latitude: " + lat + " </p>\n" +
-            "<p> Longitude: " + lng + "</p>\n" +
-            "<p> Acc: " + acr + "</p>")
-            .openPopup();
-        //zoom map to current location
-        map.setView([lat, lng], 12);
-    
-        // send coords on when user is active
-        doc.on("click", function() {
-            active = true;
-         
-            sentData = {
-                id: userId,
-                active: active,
-                coords: [{
-                    lat: lat,
-                    lng: lng,
-                    acr: acr
-                }]
-            };
-            socket.emit("send:coords", sentData);
-        });
-    }
- 
-    doc.bind("mouseup mouseleave", function() {
-        active = false;
+// check whether browser supports geolocation api
+if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(positionSuccess, positionError, {
+        enableHighAccuracy: true,
+        watch: true
     });
-    // showing markers for connections
+} else {
+    $(".map").text("Your browser is out of fashion, there\'s no geolocation!");
+}
 
-    function setMarker(data) {
-        
-        for (var i = 0; i < data.coords.length; i++) {
-            var marker = L.marker([data.coords[i].lat, data.coords[i].lng], {
-                icon: yellowIcon
-            }).addTo(map);
-            marker.bindPopup("<p>One more external user is here!</p>" + data.coords[i].userId);
-            markers[data.id] = marker;
-        }
-    }
+function positionSuccess(position) {
+    var lat = position.coords.latitude,
+        lng = position.coords.longitude,
+        acr = position.coords.accuracy;
 
-    // handle geolocation api errors
-    function positionError(error) {
-        var errors = {
-            1: "Authorization fails", // permission denied
-            2: "Can\'t detect your location", //position unavailable
-            3: "Connection timeout" // timeout
+    // mark user's position
+    var userMarker = L.marker([lat, lng], {
+        icon: redIcon
+    });
+
+    var userMarker = L.marker([lat, lng], {
+        icon: redIcon
+    });
+
+    // leaflet API key tiler
+    L.tileLayer("http://{s}.tile.cloudmade.com/5f60f5a8fd1f447b926d50284ef5397c/997/256/{z}/{x}/{y}.png", {
+        maxZoom: 18,
+        detectRetina: true
+    }).addTo(map);
+
+    // set map bounds
+    map.fitWorld();
+    userMarker.addTo(map);
+    userMarker.bindPopup("<p> ID :" + userId + "</p>\n" +
+        "<p> Latitude: " + lat + " </p>\n" +
+        "<p> Longitude: " + lng + "</p>\n" +
+        "<p> Acc: " + acr + "</p>")
+        .openPopup();
+    //zoom map to current location
+    map.setView([lat, lng], 12);
+
+    // send coords on when user is active
+    doc.on("click", function () {
+        active = true;
+
+        sentData = {
+            id: userId,
+            active: active,
+            coords: [{
+                lat: lat,
+                lng: lng,
+                acr: acr
+            }]
         };
-        showError("Error: " + errors[error.code]);
+        socket.emit("send:coords", sentData);
+    });
+}
+
+doc.bind("mouseup mouseleave", function () {
+    active = false;
+});
+// showing markers for connections 
+
+function setMarker(data) {
+    var properties = data.properties;
+    for (var i = 0; i < data.length; i++) {
+        var marker = L.marker(data.geometry.coordinates, {
+            icon: yellowIcon
+        }).addTo(map);
+        marker.bindPopup("<p> ID :" + properties.id + "</p>\n" +
+        "<p> LatLng " + properties.coordinates + " </p>\n" +
+        "<p> Name: " + properties.name + "</p>\n" +
+        "<p> Acc: " +  + "</p>");
+        markers[data.id] = marker;
     }
+}
 
-    function showError(msg) {
-        info.addClass("error").text(msg);
-    }
+// handle geolocation api errors
+function positionError(error) {
+    var errors = {
+        1: "Authorization fails", // permission denied
+        2: "Can\'t detect your location", //position unavailable
+        3: "Connection timeout" // timeout
+    };
+    showError("Error: " + errors[error.code]);
+}
+
+function showError(msg) {
+    info.addClass("error").text(msg);
+}
 
 
-    // delete inactive users every 60 sec
-    setInterval(function() {
-        for (var ident in connects) {
-            if ($.now() - connects[ident].updated > 60000) {
-                delete connects[ident];
-                map.removeLayer(markers[ident]);
-                console.log("Deleted User: - " + userId + " - due to inactivity during 60 seconds");
-            }
+// delete inactive users every 60 sec
+setInterval(function () {
+    for (var ident in connects) {
+        if ($.now() - connects[ident].updated > 60000) {
+            delete connects[ident];
+            map.removeLayer(markers[ident]);
+            console.log("Deleted User: - " + userId + " - due to inactivity during 60 seconds");
         }
-    }, 60000);
+    }
+}, 60000);
 
 
-    //Routes geojson layers
-  
-    var Heredia = L.geoJson(routes[0]);
-    var Belen = L.geoJson(routes[1]);
-    var Pavas = L.geoJson(routes[2]);
-    var Cartago = L.geoJson(routes[3]);
+//Routes geojson layers
+
+var Heredia = L.geoJson(routes[0]);
+var Belen = L.geoJson(routes[1]);
+var Pavas = L.geoJson(routes[2]);
+var Cartago = L.geoJson(routes[3]);
 
 
 var overlays = {
-            "Heredia": Heredia,
-            "Belen": Belen,
-            "Pavas": Pavas,
-            "Cartago":Cartago
-        };
+    "Heredia": Heredia,
+    "Belen": Belen,
+    "Pavas": Pavas,
+    "Cartago": Cartago
+};
 
 L.control.layers(overlays).addTo(map);
 
-
-
-
-
 //
-
-  //Loads routes and markers
-var showRoute= function(route) {
-    
+//Loads routes and markers
+var showRoute = function (route) {
     map.addLayer(route).fitBounds(route.getBounds());
-  
-       };
-       
+};
+
 /// removes all layers from map
-var clearRoutes= function(){
+var clearRoutes = function () {
     map.removeLayer(Belen);
     map.removeLayer(Heredia);
     map.removeLayer(Cartago);
-     map.removeLayer(Pavas);
+    map.removeLayer(Pavas);
 };
-      
-      ////Click handler for routes
-      
-     $(document).ready(function () {
-  
-    $("#heredia").click( function () 
-    {
+
+////Click handler for routes
+
+$(document).ready(function () {
+
+    $("#heredia").click(function () {
         console.log(Heredia);
         clearRoutes();
-        showRoute(Heredia);});
-  
+        showRoute(Heredia);
+    });
+
     $("#belen").click(function () {
         console.log('Belen Works!');
         clearRoutes();
-        showRoute(Belen);});
-    $("#cartago").click(function(){
+        showRoute(Belen);
+    });
+    $("#cartago").click(function () {
         clearRoutes();
         showRoute(Cartago);
         console.log("Cartago works!");
-        });
+    });
     $("#pavas").click(function () {
         clearRoutes();
         console.log('Pavas Works!');
         showRoute(Pavas);
-});});
+    });
+});
 
 
 
 var TREN = {
 
-    
-    GeoJSON:{
-            "type": "FeatureCollection",
-            "features": []
-        },
-        
-    bounds:[],
+
+    GeoJSON: {
+        "type": "FeatureCollection",
+        "features": []
+    },
+
+    bounds: [],
     //current train latlng. looking forward to add this to map.
     location: [],
-    
+
     found: false,
 
     //Filter stoptimes and give found a true when its trip property  match the trip number given
-    filterStoptimes: function(stoptime, trip) {
+    filterStoptimes: function (stoptime, trip) {
         var l = trips.length,
             j;
         this.found = false;
@@ -251,106 +251,105 @@ var TREN = {
         }
 
     },
-    
+
     //return al stops with the given ID
-    filterStops:function(stopId){
+    filterStops: function (stopId) {
         var l = AllStops.features.length,
             stop,
             j;
         for (j = 0; j < l; j++) {
-            stop=AllStops.features[j];
+            stop = AllStops.features[j];
             if (stopId === stop.properties.id) {
-                
-               return stop;
+
+                return stop;
             }
         }
     },
-    
+
     //returns route object with the given ID
-    filterRoute : function(routeId){
+    filterRoute: function (routeId) {
         var l = routes.length,
-        route,
+            route,
             r;
-           
-            for (r = 0; r < l; r++) {
-            route=routes[r];
-           
-            if (route){
+
+        for (r = 0; r < l; r++) {
+            route = routes[r];
+
+            if (route) {
                 if (routeId === route.properties.id) {
-                   
-                return route;
-                }
-                
+                    return route;
             }
-        }
-    },
-    
-    filterTrip : function(tripNumber){
+            }
+            }},
+
+    filterTrip: function (tripNumber) {
         var l = trips.length,
-        trip,
+            trip,
             i;
-           
-            for (i = 0; i < l; i++) {
-            trip=trips[i];
-           
-            if (trip){
-            
-            //this probably gets a number, so better no triple equals. I guess.
+
+        for (i = 0; i < l; i++) {
+            trip = trips[i];
+            if (trip) {
+                //this probably gets a number, so better no triple equals. I guess.
                 if (tripNumber == trip.number) {
-                   
-                return trip;
+                    return trip;
                 }
-                
             }
         }
     },
-   
-//GETSTOPS returns an array on geojson objects with the markers for the stop
-    getStops :function(trip) {
-        var stopMarkers= [],
+
+    //GETSTOPS returns an array on geojson objects with the markers for the stop
+    getStops: function (trip) {
+        var stopMarkers = [],
             len = stoptimes.length,
             i;
-            
-        for (i = 0; i < len; i++){ 
+
+        for (i = 0; i < len; i++) {
             var stoptime = stoptimes[i],
-                stop= this.filterStops(stoptime.stop_id);
-                this.filterStoptimes(stoptime, trip);
+                stop = this.filterStops(stoptime.stop_id);
+            this.filterStoptimes(stoptime, trip);
             if (this.found) {
-               
+
                 stop.properties.sequence = stoptime.stop_sequence;
                 stop.properties.arrival = stoptime.arrival_time;
                 stop.properties.depature = stoptime.arrival_time;
-                
+
                 stop.properties.headsign = stoptime.headsign;
                 stopMarkers.push(stop);
-                
-                
+
+
             }
         }
-        console.log("Found: "+ stopMarkers.length + " stops");
+        console.log("Found: " + stopMarkers.length + " stops");
         return stopMarkers;
     },
+
     //Fill GeoJSON with markers and stops for the given trip #,
     // then adds GeoJSON to the map and set the bounds to its first object coordinates. EXPLOSIVE
-    loadTrip: function(tripNumber){
-            
-        var trip= this.filterTrip(tripNumber),
-            stopMarkers =this.getStops(tripNumber),
-            route=this.filterRoute(trip.route_id),
-            features=this.GeoJSON.features,
-            //bounds= this.bounds,
+    loadTrip: function (tripNumber) {
+
+        var trip = this.filterTrip(tripNumber),
+            stopMarkers = this.getStops(tripNumber),
+            route = this.filterRoute(trip.route_id),
+            features = this.GeoJSON.features,
             trainTrip;
-            
-        
+debugger;
+            forEach(stopMarkers, setMarker(stopMarkers[i]))
+       
+
         features.push(route);
         features = flatten([stopMarkers, features]);
         trainTrip = L.geoJson(this.GeoJSON);
-       // console.log("Route name: "+ route.properties.name);
-        //map.addLayer(trainTrip).fitBounds(trainTrip.getBounds());
+         console.log("Route name: "+ route.properties.name);
+        map.addLayer(trainTrip).fitBounds(trainTrip.getBounds());
+        
         return trainTrip;
+        
     }
 
+    
 };
+/*
 var trainTrip = L.geoJson(TREN.GeoJSON, {
     style: function (feature) {
         return { opacity: 0, fillOpacity: 0.5, fillColor: "#0f0" };
@@ -361,11 +360,4 @@ var trainTrip = L.geoJson(TREN.GeoJSON, {
 }).addTo(map);
 
 
-
-
-
-
-
-
-
-
+*/
