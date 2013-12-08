@@ -20,6 +20,144 @@ function flatten(arrays) {
 
 //< Leaflet map
 var map = L.map('map');
+ // leaflet API key tiler
+L.tileLayer("http://{s}.tile.cloudmade.com/5f60f5a8fd1f447b926d50284ef5397c/997/256/{z}/{x}/{y}.png", {
+    maxZoom: 18,
+    detectRetina: true
+    }).addTo(map);
+
+var TREN = {
+    
+    geoJSON :{
+        "type": "FeatureCollection",
+        "features": []
+    },
+    
+    //current train latlng. looking forward to add this to map.
+    location: [],
+    found: false,
+    //Filter stoptimes with the property trip as an arg and returns an array of stoptimes.
+    filterStoptimes: function (trip) {
+        
+        var tripStops = stoptimes.filter(function (el) {
+            return el.trip == trip.number &&
+                    el.stop_sequence === trip.stop_sequence ;
+            });
+         if(tripStops.length !== 0){
+             console.log("Found stops :" + tripStops.length);
+            return tripStops;
+            }
+            else{return "No stoptimes found for Trip:"  + trip;}
+    },
+    //return al stops with the given ID
+    filterStops: function (stopId) {
+      
+        var stops=Stops.features.filter(function (el) {
+            
+            return el.properties.id === stopId;
+            });
+            if(stops.length !== 0){
+                console.log("Found stops :" + stops.length);
+            return stops[0];
+            }
+            else{return "No stop found for  ID:" + stopId;}
+    },
+
+    //returns route object with the given ID
+    filterRoute: function (routeId) {
+        var l = routes.length,
+            route,
+            r;
+
+        for (r = 0; r < l; r++) {
+            route = routes[r];
+
+            if (route) {
+                if (routeId === route.properties.id) {
+                    return route;
+            }
+            }
+            }},
+    
+    //returns an object with 
+    filterTrip: function (tripNumber) {
+        var l = trips.length,
+            trip,
+            i;
+
+        for (i = 0; i < l; i++) {
+            trip = trips[i];
+            if (trip) {
+                //this probably gets a number, so better no triple equals. I guess.
+                if (tripNumber == trip.number) {
+                    return trip;
+                }
+            }
+        }
+    },
+
+    //GETSTOPS returns an array on geojson objects with the markers for the stop
+    getStops: function (trip) {
+        var stopMarkers = [],
+            foundStoptimes = this.filterStoptimes(trip),
+            len = foundStoptimes.length,
+            i;
+debugger;
+        for (i = 0; i < len; i++) {
+            var stoptime = foundStoptimes[i],
+                stop = this.filterStops(stoptime.stop_id);
+                this.filterStoptimes(stoptime, trip);
+            if (this.found) {
+
+                stop.properties.sequence = stoptime.stop_sequence;
+                stop.properties.arrival = stoptime.arrival_time;
+                stop.properties.depature = stoptime.arrival_time;
+
+                stop.properties.headsign = stoptime.headsign;
+                stopMarkers.push(stop);
+            }
+        }
+        console.log("Found: " + stopMarkers.length + " stops");
+        return stopMarkers;
+    },
+
+    //Fill GeoJSON with markers and stops for the given trip #,
+    // then adds GeoJSON to the map *EXPLOSIVE
+    loadTrip: function (tripNumber) {
+            clearRoutes();
+            
+            
+        var trip = this.filterTrip(tripNumber),
+            stopMarkers = this.getStops(tripNumber),
+            route = this.filterRoute(trip.route_id),
+            features = this.geoJSON.features;
+        
+            setMarker(stopMarkers);
+       
+
+            features.push(route);
+        
+       
+        
+         console.log("Route name: "+ route.properties.name);
+       // map.addLayer(trainTrip).fitBounds(trainTrip.getBounds());
+       
+        tripLayer.addData(this.geoJSON);
+        
+       // tripLayer.fitBounds(tripLayer.getBounds());
+        //return ;
+        
+    }
+
+    
+};
+// geojson layer
+var tripLayer = L.geoJson( TREN.geoJSON, {
+			onEachFeature: function (feature, layer) {
+				layer.bindPopup(feature.properties.name);
+			}
+		}).addTo(map);
+
 
 // generate unique user id
 var userId = Math.random().toString(16).substring(2, 15),
@@ -81,16 +219,6 @@ function positionSuccess(position) {
         icon: redIcon
     });
 
-    var userMarker = L.marker([lat, lng], {
-        icon: redIcon
-    });
-
-    // leaflet API key tiler
-    L.tileLayer("http://{s}.tile.cloudmade.com/5f60f5a8fd1f447b926d50284ef5397c/997/256/{z}/{x}/{y}.png", {
-        maxZoom: 18,
-        detectRetina: true
-    }).addTo(map);
-
     // set map bounds
     map.fitWorld();
     userMarker.addTo(map);
@@ -124,17 +252,22 @@ doc.bind("mouseup mouseleave", function () {
 });
 // showing markers for connections 
 
-function setMarker(data) {
-    var properties = data.properties;
-    for (var i = 0; i < data.length; i++) {
-        var marker = L.marker(data.geometry.coordinates, {
+function setMarker(objArray) {
+    var len = objArray.length;
+        
+    
+    for (var i = 0; i < len; i++) {
+        var latLng = objArray[i].geometry.coordinates.reverse(),
+            properties = objArray[i].properties,
+            marker = L.marker(latLng, {
             icon: yellowIcon
-        }).addTo(map);
+        });
+        marker.addTo(map);
+        
         marker.bindPopup("<p> ID :" + properties.id + "</p>\n" +
-        "<p> LatLng " + properties.coordinates + " </p>\n" +
-        "<p> Name: " + properties.name + "</p>\n" +
-        "<p> Acc: " +  + "</p>");
-        markers[data.id] = marker;
+        "<p> LatLng " + objArray[i].geometry.coordinates + " </p>\n" +
+        "<p> Name: " + properties.name + "</p>\n" );
+       
     }
 }
 
@@ -167,13 +300,11 @@ setInterval(function () {
 
 //Routes geojson layers
 
-var Heredia = L.geoJson(routes[0]);
-var Belen = L.geoJson(routes[1]);
-var Pavas = L.geoJson(routes[2]);
-var Cartago = L.geoJson(routes[3]);
-
-
-var overlays = {
+var Heredia = L.geoJson(routes[0]),
+ Belen = L.geoJson(routes[1]),
+ Pavas = L.geoJson(routes[2]),
+ Cartago = L.geoJson(routes[3]),
+ overlays = {
     "Heredia": Heredia,
     "Belen": Belen,
     "Pavas": Pavas,
@@ -194,6 +325,7 @@ var clearRoutes = function () {
     map.removeLayer(Heredia);
     map.removeLayer(Cartago);
     map.removeLayer(Pavas);
+   
 };
 
 ////Click handler for routes
@@ -225,139 +357,8 @@ $(document).ready(function () {
 
 
 
-var TREN = {
 
 
-    GeoJSON: {
-        "type": "FeatureCollection",
-        "features": []
-    },
-
-    bounds: [],
-    //current train latlng. looking forward to add this to map.
-    location: [],
-
-    found: false,
-
-    //Filter stoptimes and give found a true when its trip property  match the trip number given
-    filterStoptimes: function (stoptime, trip) {
-        var l = trips.length,
-            j;
-        this.found = false;
-        for (j = 0; j < l; j++) {
-            if (stoptime.trip === trip) {
-                this.found = true;
-            }
-        }
-
-    },
-
-    //return al stops with the given ID
-    filterStops: function (stopId) {
-        var l = AllStops.features.length,
-            stop,
-            j;
-        for (j = 0; j < l; j++) {
-            stop = AllStops.features[j];
-            if (stopId === stop.properties.id) {
-
-                return stop;
-            }
-        }
-    },
-
-    //returns route object with the given ID
-    filterRoute: function (routeId) {
-        var l = routes.length,
-            route,
-            r;
-
-        for (r = 0; r < l; r++) {
-            route = routes[r];
-
-            if (route) {
-                if (routeId === route.properties.id) {
-                    return route;
-            }
-            }
-            }},
-
-    filterTrip: function (tripNumber) {
-        var l = trips.length,
-            trip,
-            i;
-
-        for (i = 0; i < l; i++) {
-            trip = trips[i];
-            if (trip) {
-                //this probably gets a number, so better no triple equals. I guess.
-                if (tripNumber == trip.number) {
-                    return trip;
-                }
-            }
-        }
-    },
-
-    //GETSTOPS returns an array on geojson objects with the markers for the stop
-    getStops: function (trip) {
-        var stopMarkers = [],
-            len = stoptimes.length,
-            i;
-
-        for (i = 0; i < len; i++) {
-            var stoptime = stoptimes[i],
-                stop = this.filterStops(stoptime.stop_id);
-            this.filterStoptimes(stoptime, trip);
-            if (this.found) {
-
-                stop.properties.sequence = stoptime.stop_sequence;
-                stop.properties.arrival = stoptime.arrival_time;
-                stop.properties.depature = stoptime.arrival_time;
-
-                stop.properties.headsign = stoptime.headsign;
-                stopMarkers.push(stop);
 
 
-            }
-        }
-        console.log("Found: " + stopMarkers.length + " stops");
-        return stopMarkers;
-    },
 
-    //Fill GeoJSON with markers and stops for the given trip #,
-    // then adds GeoJSON to the map and set the bounds to its first object coordinates. EXPLOSIVE
-    loadTrip: function (tripNumber) {
-
-        var trip = this.filterTrip(tripNumber),
-            stopMarkers = this.getStops(tripNumber),
-            route = this.filterRoute(trip.route_id),
-            features = this.GeoJSON.features,
-            trainTrip;
-debugger;
-            forEach(stopMarkers, setMarker(stopMarkers[i]))
-       
-
-        features.push(route);
-        features = flatten([stopMarkers, features]);
-        trainTrip = L.geoJson(this.GeoJSON);
-         console.log("Route name: "+ route.properties.name);
-        map.addLayer(trainTrip).fitBounds(trainTrip.getBounds());
-        
-        return trainTrip;
-        
-    }
-
-    
-};
-/*
-var trainTrip = L.geoJson(TREN.GeoJSON, {
-    style: function (feature) {
-        return { opacity: 0, fillOpacity: 0.5, fillColor: "#0f0" };
-    },
-    onEachFeature: function(feature, layer){
-        layer.bindPopup("Hello " + feature.properties.name);
-    }
-}).addTo(map);
-
-
-*/

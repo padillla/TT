@@ -1,6 +1,6 @@
 //Geojson formatted stop markers. WIP
 
-var AllStops = {
+var Stops = {
   "type": "FeatureCollection",
   "features": [
     {
