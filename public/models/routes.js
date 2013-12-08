@@ -120,7 +120,7 @@ var routes = [
 				[      -84.06929522752762,       9.93496095389518     ]    
 			]   
 		},
-		   "properties": {   
+		"properties": {
 			"id": 506411,
 			"name": "Heredia - San José",
 			"code": "2",

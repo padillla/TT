@@ -65,58 +65,33 @@ var TREN = {
 
     //returns route object with the given ID
     filterRoute: function (routeId) {
-        var l = routes.length,
-            route,
-            r;
-
-        for (r = 0; r < l; r++) {
-            route = routes[r];
-
-            if (route) {
-                if (routeId === route.properties.id) {
-                    return route;
+      var route=routes.filter(function (el) {
+            return el.properties.id === routeId;
+            });
+            if(route.length !== 0){
+                console.log("Route :" + route[0].properties.name);
+            return route[0];
             }
-            }
-            }},
+            else {return "No route found for  ID:" + routeId;}
+            },
+
     
     //returns an object with 
     filterTrip: function (tripNumber) {
-        var l = trips.length,
-            trip,
-            i;
-
-        for (i = 0; i < l; i++) {
-            trip = trips[i];
-            if (trip) {
-                //this probably gets a number, so better no triple equals. I guess.
-                if (tripNumber == trip.number) {
-                    return trip;
-                }
+        var trip=trips.filter(function (el) {
+            return el.number == tripNumber;
+            });
+         if(trip.length !== 0){
+            
+            return trip[0];
             }
-        }
-    },
+            else {return "No trip found for number:" + tripNumber;}
+            },
 
     //GETSTOPS returns an array on geojson objects with the markers for the stop
     getStops: function (trip) {
-        var stopMarkers = [],
-            foundStoptimes = this.filterStoptimes(trip),
-            len = foundStoptimes.length,
-            i;
-debugger;
-        for (i = 0; i < len; i++) {
-            var stoptime = foundStoptimes[i],
-                stop = this.filterStops(stoptime.stop_id);
-                this.filterStoptimes(stoptime, trip);
-            if (this.found) {
-
-                stop.properties.sequence = stoptime.stop_sequence;
-                stop.properties.arrival = stoptime.arrival_time;
-                stop.properties.depature = stoptime.arrival_time;
-
-                stop.properties.headsign = stoptime.headsign;
-                stopMarkers.push(stop);
-            }
-        }
+    stopMarkers= [];
+        
         console.log("Found: " + stopMarkers.length + " stops");
         return stopMarkers;
     },
