@@ -1,6 +1,6 @@
 //Geojson formatted stop markers. WIP
 
-var Stops = {
+var stops = {
   "type": "FeatureCollection",
   "features": [
     {
@@ -413,4 +413,5 @@ var Stops = {
     }
   ]
 };
-//module.exports.stops = stops;
+
+module.exports.stops = stops;

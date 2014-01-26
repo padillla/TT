@@ -357,4 +357,4 @@ var trips = [
     }
 ];
 
-//module.exports = trips;
+module.exports = trips;

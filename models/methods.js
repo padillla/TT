@@ -2,7 +2,7 @@
 // WIP
 //TODO: Set markers on map for each trip.
 //      Use the time and dates on stoptimes.
-//this is the playgrond, once a function do what its supposed to do, I'll throw it in map.js
+//this is the playgrond, once a function do what its supposed to do, I'll throw it in map.js 
 
 //Doesnt run on the main page . This is needed just for node.js ugly testing
 
@@ -11,81 +11,124 @@ var trips = require('../public/models/trips'),
     stoptimes = require('../public/models/stoptimes'),
     stops = require('../public/models/stops'),
     prettyjson = require("prettyjson");
+   // L = require("../public/js/leaflet.js");
 
 //This array stores the stoptimes objects for the current trip
 
 var TREN = {
-
-    stops: [],
-    found: false,
-
-    //Filter stoptimes and give found a true when its trip property  match the trip number given
-    filterStoptimes: function(stoptime, trip) {
-        var l = trips.length,
-            j;
-        this.found = false;
-        for (j = 0; j < l; j++) {
-            if (stoptime.trip === trip) {
-                this.found = true;
-            }
-        }
-
+    
+    geoJSON :{
+        "type": "FeatureCollection",
+        "features": []
     },
-    filterStops:function(stopId){
-        var l = stops.length,
-            j;
+    
+    //current train latlng. looking forward to add this to map.
+    location: [],
+    
+    //Filter stoptimes with the property trip as an arg and returns an array of stoptimes.
+    filterStoptimes: function (trip) {
         
-        for (j = 0; j < l; j++) {
-            stop=stops.features[j];
-            console.log(stop);
-            if (stopId ===stop.id) {
-                return stop;
+        var tripStops = stoptimes.filter(function (el) {
+            return el.trip == trip.number &&
+                    el.stop_sequence === trip.stop_sequence ;
+            });
+         if(tripStops.length !== 0){
+            console.log(prettyjson.render(tripStops));
+            return tripStops;
             }
-
-        }
+            else{return "No stoptimes found for Trip:"  + trip.number;}
     },
-    filterRoute : function(routeId){
-        var l = routes.length,
-            r;
-            for (r = 0; r < l; r++) {
-            route=routes[r];
-            if (routeID ===route.properties.id) {
-                return route;
-            }
-        }
-    },
-   
-//GETSTOPS
-    getStops :function(trip) {
-           var stops = this.stops,
-           len = stoptimes.length,
-            i;
+    //return al stops with the given ID
+    filterStops: function (stopId) {
+        console.log( stops );
+      var stop= stops.features.filter(function (el) {
             
-        for (i = 0; i < len; i++){ 
-            var stoptime = stoptimes[i];
-            console.log(this.filterStops(stoptime.stop_id));
-            var stop= this.filterStops(stoptime.stop_id);
-
-            var route = this.filterRoute(stoptime.route_id);
-            this.filterStoptimes(stoptime, trip);
-            if (this.found) {
-                console.log(stop);
-                stop.properties.sequence = stoptime.stop_sequence;
-                stop.properties.arrival = stoptime.arrival_time;
-                stop.properties.depature = stoptime.arrival_time;
-                stop.properties.route=route.name;
-                stop.properties.headsign = stoptime.headsign;
-
-                stops.push(stop);
-                console.log("Found: "+ stop.properties.name )
-                
+            return el.properties.id === stopId;
+            });
+            if(stop.length !== 0){
+                console.log(prettyjson.render(stop[0]));
+            return stop[0];
             }
-        }
-        return stops;
+            else{return "No stop found for  ID: " + stopId;}
+    },
+
+    //returns route object with the given ID
+    filterRoute: function (routeId) {
+      var route=routes.filter(function (el) {
+            return el.properties.id === routeId;
+            });
+            if(route.length !== 0){
+              console.log(prettyjson.render(route[0]));
+            return route[0];
+            }
+            else {return "No route found for  ID:" + routeId;}
+            },
+
+    
+    //returns an object with 
+    filterTrip: function (tripNumber) {
+        var trip=trips.filter(function (el) {
+            return el.number == tripNumber;
+            });
+         if(trip.length !== 0){
+            console.log(prettyjson.render(trip));
+            return trip[0];
+            }
+            else {return "No trip found for number:" + tripNumber;}
+            },
+
+    //GETSTOPS returns an array on geojson objects with the markers for the stop
+    getStopmarkers: function (trip) {
+    var stopMarkers= [],
+        trip= this.filterTrip(trip),
+        stopTimes= this.filterStoptimes(trip),
+        i,
+        len= stopTimes.length;
+    
+    for (i=0; i<len; i++){
+    var stoptime=stopTimes[i], 
+        stop= this.filterStops(stoptime.stop_id);
+        stop.properties.sequence = stoptime.stop_sequence; 
+        stop.properties.arrival = stoptime.arrival_time; 
+        stop.properties.depature = stoptime.arrival_time;
+        stop.properties.headsign = stoptime.headsign;
+        stopMarkers.push(stop);
+    }
+    console.log("Created " + stopMarkers.length + " stops");
+    console.log(prettyjson.render(stopMarkers));
+    return stopMarkers;
+    },
+
+    //Fill GeoJSON with markers and stops for the given trip #,
+    // then adds GeoJSON to the map *EXPLOSIVE
+    loadTrip: function (tripNumber) {
+          //  clearRoutes();
+            
+            
+        var trip = this.filterTrip(tripNumber),
+            stopMarkers = this.getStopmarkers(tripNumber),
+            route = this.filterRoute(trip.route_id),
+            features = this.geoJSON.features;
+        
+         //  setMarker(stopMarkers);
+       
+
+            features.push(route); 
+            features.flatten(stopMarkers, features);
+        
+       
+        
+         console.log("Route name: "+ route.properties.name);
+       console.log(prettyjson.render(features));
+       
+      //  tripLayer.addData(this.geoJSON).fitBounds(tripLayer.getBounds());
+        //return ;
+        
     }
 
+    
 };
+exports.TREN = TREN;
 
-var a = TREN.getStops(1);
-console.log(prettyjson.render(a));
-console.log("This route has : " +a.length + " Stops");
+
+TREN.loadTrip(15);

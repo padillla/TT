@@ -1068,5 +1068,4 @@ var routes = [
 			"styleHash": "a9aae82"   
 		}  
 	}];
-
-//module.exports.routes = routes;
+module.exports.routes = routes;

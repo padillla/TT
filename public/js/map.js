@@ -44,10 +44,10 @@ var TREN = {
                     el.stop_sequence === trip.stop_sequence ;
             });
          if(tripStops.length !== 0){
-             console.log("Found stops :" + tripStops.length);
+             console.log("Found stops :" + tripStops);
             return tripStops;
             }
-            else{return "No stoptimes found for Trip:"  + trip;}
+            else{return "No stoptimes found for Trip:"  + trip.number;}
     },
     //return al stops with the given ID
     filterStops: function (stopId) {
@@ -60,7 +60,7 @@ var TREN = {
                 console.log("Found stops :" + stops.length);
             return stops[0];
             }
-            else{return "No stop found for  ID:" + stopId;}
+            else{return "No stop found for  ID: " + stopId;}
     },
 
     //returns route object with the given ID
@@ -89,11 +89,24 @@ var TREN = {
             },
 
     //GETSTOPS returns an array on geojson objects with the markers for the stop
-    getStops: function (trip) {
-    stopMarkers= [];
-        
-        console.log("Found: " + stopMarkers.length + " stops");
-        return stopMarkers;
+    getStopmarkers: function (trip) {
+    var stopMarkers= [],
+        trip= this.filterTrip(trip),
+        stopTimes= this.filterStoptimes(trip),
+        i,
+        len= stopTimes.length;
+    
+    for (i=0; i<len; i++){
+    var stoptime=stopTimes[i], 
+        stop= this.filterStops(stoptime.stop_id);
+        stop.properties.sequence = stoptime.stop_sequence; 
+        stop.properties.arrival = stoptime.arrival_time; 
+        stop.properties.depature = stoptime.arrival_time;
+        stop.properties.headsign = stoptime.headsign;
+        stopMarkers.push(stop);
+    }
+    console.log("Created " + stopMarkers.length + " stops");
+    return stopMarkers;
     },
 
     //Fill GeoJSON with markers and stops for the given trip #,
@@ -103,7 +116,7 @@ var TREN = {
             
             
         var trip = this.filterTrip(tripNumber),
-            stopMarkers = this.getStops(tripNumber),
+            stopMarkers = this.getStopmarkers(tripNumber),
             route = this.filterRoute(trip.route_id),
             features = this.geoJSON.features;
         
@@ -115,11 +128,9 @@ var TREN = {
        
         
          console.log("Route name: "+ route.properties.name);
-       // map.addLayer(trainTrip).fitBounds(trainTrip.getBounds());
        
-        tripLayer.addData(this.geoJSON);
-        
-       // tripLayer.fitBounds(tripLayer.getBounds());
+       
+        tripLayer.addData(this.geoJSON).fitBounds(tripLayer.getBounds());
         //return ;
         
     }
