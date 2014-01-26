@@ -29,31 +29,22 @@ if ('development' == app.get('env')) {
   app.use(express.errorHandler());
 }
 
-//route
+//Some sort of API
 
 app.get('/', map.map);
 
-//KMLs
-app.get('/belen.kml',  function(req, res) {
-  res.sendfile('models/belen.kml');
+app.get('routes',  function(req, res) {
+  res.sendfile('public/models/routes.json');
   });
-app.get('/heredia.kml',  function(req, res) {
-  res.sendfile('models/heredia.kml');
+app.get('/stops',  function(req, res) {
+  res.sendfile('public/models/stops.json');
   });
-app.get('/cartago.kml',  function(req, res) {
-  res.sendfile('models/cartago.kml');
+app.get('/stoptimes',  function(req, res) {
+  res.sendfile('public/models/stoptimes.json');
   });
-app.get('/pavas.kml',  function(req, res) {
-  res.sendfile('models/pavas.kml');
+app.get('/trips',  function(req, res) {
+  res.sendfile('public/models/trips.json');
   });
-app.get('/traindb',  function(req, res) {
-  res.sendfile('models/traindb.js');
-  });
-app.get('/methods.js',  function(req, res) {
-  res.sendfile('models/methods.js');
-  });
-
-
 
 var server = http.createServer(app);
 server.listen(app.get('port'), function() {
