@@ -33,7 +33,7 @@ if ('development' == app.get('env')) {
 
 app.get('/', map.map);
 
-app.get('routes',  function(req, res) {
+app.get('/routes',  function(req, res) {
   res.sendfile('public/models/routes.json');
   });
 app.get('/stops',  function(req, res) {
