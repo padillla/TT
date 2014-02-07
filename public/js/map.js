@@ -19,8 +19,6 @@
      var stops = [];
      var routes = {};
 
-
-     //For some reason these icon ends up undefined
      var tinyIcon = L.Icon.extend({
        options: {
          shadowUrl: "../img/marker-shadow.png",
@@ -53,7 +51,7 @@
 
   
 
-     //Pull data to map
+     //push data to map
 
      $.ajax({
        url: '/trips',
@@ -66,10 +64,10 @@
      $.ajax({
        url: '/stops',
        success: function(data) {
-         console.log(data);
+        
          L.geoJson(data, {
            pointToLayer: function(f, latlng) {
-             console.log(f);
+            
              return new L.Marker(latlng, {
 
                icon: trainIcon
