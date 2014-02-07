@@ -70,7 +70,7 @@
             
              return new L.Marker(latlng, {
 
-               icon: trainIcon
+               icon: movingTrainIcon
              }).bindPopup('Nombre: ' + f.properties.long_name + '<br>Localidad: ' + f.properties.locality + '<br>Localizacion: ' + f.geometry.coordinates);
            }
          }).addTo(map);
