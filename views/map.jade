@@ -2,39 +2,26 @@ extends layout
 block head
                 link(href="./css/leaflet.css", rel="stylesheet")
 
-
 block content
      
        header
             h1= title
-            h3 Seleccione su ruta
+            h3 Presione iniciar para que haga feo
         
             nav
                     ul
+                         
                             li
-                                    button.btn.btn-primary.btn-block#heredia 
-                                        | Heredia 
-
-                            li
-                                    button.btn.btn-primary.btn-block#belen 
-                                        | Belen 
-                            li
-                                    button.btn.btn-primary.btn-block#cartago 
-                                        | Cartago
-                            li
-                                    button.btn.btn-primary.btn-block#pavas 
-                                        | Pavas
-
+                                    button.btn.btn-primary.btn-block#start 
+                                        | Iniciar
+                        
         div#map
 
 block footer
-                //script(src='./models/routes.js')
-                //script(src='./models/stops.js')
-                //script(src='./models/stoptimes.js')
-                //script(src='./models/trips.js')
                 script(src='./js/leaflet.js')
-                script(src='./js/socket.io.js')
+                 script(src='./js/socket.io.js')
                 script(src='./js/map.js')
+                script(src='./js/AnimatedMarker.js')
 
 
 
