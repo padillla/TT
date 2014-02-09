@@ -53,7 +53,7 @@ server.listen(app.get('port'), function() {
 
 
 
-// Bind socket.io to server
+/* Bind socket.io to server
 var serv_io = io.listen(server);
 serv_io.sockets.on('connection', function(socket) {
 
@@ -65,4 +65,4 @@ serv_io.sockets.on('connection', function(socket) {
     socket.broadcast.emit('load:coords', data);
 
   });
-});
+});*/

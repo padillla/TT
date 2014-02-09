@@ -4,22 +4,24 @@ block head
 
 block content
      
-       header
-            h1= title
-            h3 Presione iniciar para que haga feo
-        
+        header
             nav
-                    ul
-                         
+                    ul 
                             li
-                                    button.btn.btn-primary.btn-block#start 
+                                     button.btn.btn-primary.btn-block#start 
                                         | Iniciar
-                        
+                            li
+                                    button.btn.btn-primary.btn-block#stop 
+                                        | Detener
+                            li
+                                    button.btn.btn-primary.btn-block#reset 
+                                        | Reiniciar                                        
+
+                            
         div#map
 
 block footer
                 script(src='./js/leaflet.js')
-                 script(src='./js/socket.io.js')
                 script(src='./js/map.js')
                 script(src='./js/AnimatedMarker.js')
 

@@ -1,7 +1,7 @@
    $(document).ready(function() {
 
-     var cloudmadeUrl = 'http://{s}.tile.cloudmade.com/3a83164a47874169be4cabc2e8b8c449/43782/256/{z}/{x}/{y}.png';
-     var cloudmadeAttribution = '<a href="padillla.github.io">Github</a>, Map data &copy; 2011 OpenStreetMap contributors, Imagery &copy; 2011 CloudMade';
+     var cloudmadeUrl = 'http://{s}.tile.cloudmade.com/5f60f5a8fd1f447b926d50284ef5397c/997/256/{z}/{x}/{y}.png';
+     var cloudmadeAttribution = '<a href="padillla.github.io">Github</a>, Map data &copy; 2011 OSM 2011 CloudMade';
      var cloudmade = new L.TileLayer(
        cloudmadeUrl, {
          maxZoom: 18,
@@ -10,7 +10,7 @@
 
      var map = new L.Map('map', {
        center: new L.LatLng(9.9335, -84.0780),
-       zoom: 13,
+       zoom: 12,
        layers: [cloudmade],
        zoomControl: false
      });
@@ -46,7 +46,15 @@
      var yellowIcon = new tinyIcon({
        iconUrl: "../img/marker-yellow.png"
      });
+     var invertLatLngs = function(latLngs) {
+       var correctedArray = [];
+       $.each(latLngs, function(i, innerlatlng) {
+         var reversedLatlng = innerlatlng.reverse();
+         correctedArray.push(reversedLatlng);
 
+       });
+       return correctedArray;
+     }
 
 
      //push data to map
@@ -109,12 +117,8 @@
          var marker = L.animatedMarker(routeLine.getLatLngs(), {
            icon: movingTrainIcon,
            autoStart: false,
-           /*onEnd: function() {
-             $(this._shadow).fadeOut();
-             $(this._icon).fadeOut(3000, function() {
-               map.removeLayer(this);
-             });
-           }*/
+           interval: 40, //miliseconds
+           //onEnd: DoSomeNotificationOnSOCKETIO
          });
 
          map.addLayer(marker);
@@ -130,21 +134,22 @@
 
          });
        });
-     };
-
-     ///Ugly function to invert lat lng on routes, 
-     //when these are inverted and leaflet position the markers 
-     //in the south pole, I dont know why the hell it does that.
-     var invertLatLngs = function(latLngs) {
-       var correctedArray = [];
-       $.each(latLngs, function(i, innerlatlng) {
-         var reversedLatlng = innerlatlng.reverse();
-         correctedArray.push(reversedLatlng);
-
+       $(function() {
+         $('#stop').click(function() {
+           console.log('stop');
+           $.each(markers, function(i, marker) {
+             marker.stop();
+           });
+         })
        });
-       return correctedArray;
-     }
 
+       ///Ugly function to invert lat lng on routes, 
+       //when these are inverted and leaflet position the markers 
+       //in the south pole, I dont know why the hell it does that.
+
+
+
+     };
 
    });
     // TODO:  Add animated marker for moving train
