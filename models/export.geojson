@@ -1,0 +1,4301 @@
+{
+  "type": "FeatureCollection",
+  "generator": "overpass-turbo",
+  "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL.",
+  "timestamp": "2014-02-10T04:36:02Z",
+  "features": [
+    {
+      "type": "Feature",
+      "id": "node/178177831",
+      "properties": {
+        "@id": "node/178177831",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.0861725,
+          9.9253324
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/273110431",
+      "properties": {
+        "@id": "node/273110431",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.0874539,
+          9.9250114
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/273110432",
+      "properties": {
+        "@id": "node/273110432",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.0892351,
+          9.9252661
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/276020800",
+      "properties": {
+        "@id": "node/276020800",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.2138103,
+          9.9723034
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/276065521",
+      "properties": {
+        "@id": "node/276065521",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.2422411,
+          9.998734
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/276161174",
+      "properties": {
+        "@id": "node/276161174",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.0537519,
+          9.934543
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/276258566",
+      "properties": {
+        "@id": "node/276258566",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.0416315,
+          9.929941
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/276524393",
+      "properties": {
+        "@id": "node/276524393",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.1973961,
+          9.9766359
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/276524905",
+      "properties": {
+        "@id": "node/276524905",
+        "crossing": "unmarked",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.204233,
+          9.9752524
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/276529052",
+      "properties": {
+        "@id": "node/276529052",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -83.0332782,
+          9.9957988
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/276534648",
+      "properties": {
+        "@id": "node/276534648",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -83.0431984,
+          9.9846619
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/277951051",
+      "properties": {
+        "@id": "node/277951051",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.0322563,
+          9.921409
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/277992908",
+      "properties": {
+        "@id": "node/277992908",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.0424217,
+          9.9316804
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/277993196",
+      "properties": {
+        "@id": "node/277993196",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.0391439,
+          9.9273253
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/277993199",
+      "properties": {
+        "@id": "node/277993199",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.034867,
+          9.9229399
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/278470758",
+      "properties": {
+        "@id": "node/278470758",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.1132768,
+          9.994191
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/279103331",
+      "properties": {
+        "@id": "node/279103331",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.0708412,
+          9.93776
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/279103332",
+      "properties": {
+        "@id": "node/279103332",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.0705929,
+          9.9381018
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/279103335",
+      "properties": {
+        "@id": "node/279103335",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.0677768,
+          9.9342669
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/279103336",
+      "properties": {
+        "@id": "node/279103336",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.0670599,
+          9.9339412
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/279103337",
+      "properties": {
+        "@id": "node/279103337",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.0635454,
+          9.9338684
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/279103338",
+      "properties": {
+        "@id": "node/279103338",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.0635213,
+          9.9338253
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/279103339",
+      "properties": {
+        "@id": "node/279103339",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.0612672,
+          9.9345683
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/279103340",
+      "properties": {
+        "@id": "node/279103340",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.0630702,
+          9.9317495
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/279103341",
+      "properties": {
+        "@id": "node/279103341",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.0638123,
+          9.9317112
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/279103342",
+      "properties": {
+        "@id": "node/279103342",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.0668969,
+          9.9312211
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/279103343",
+      "properties": {
+        "@id": "node/279103343",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.068198,
+          9.9313952
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/279103344",
+      "properties": {
+        "@id": "node/279103344",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.0691953,
+          9.9319031
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/279103352",
+      "properties": {
+        "@id": "node/279103352",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.0695825,
+          9.9320824
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/279103364",
+      "properties": {
+        "@id": "node/279103364",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.0700079,
+          9.93216
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/279103383",
+      "properties": {
+        "@id": "node/279103383",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.0710465,
+          9.9320399
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/279103384",
+      "properties": {
+        "@id": "node/279103384",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.0718833,
+          9.9315564
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/279103385",
+      "properties": {
+        "@id": "node/279103385",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.0727673,
+          9.9311047
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/279103386",
+      "properties": {
+        "@id": "node/279103386",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.0731157,
+          9.9301375
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/279103388",
+      "properties": {
+        "@id": "node/279103388",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.0732044,
+          9.9282983
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/279103389",
+      "properties": {
+        "@id": "node/279103389",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.0732451,
+          9.9273337
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/279103390",
+      "properties": {
+        "@id": "node/279103390",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.0732686,
+          9.9267701
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/279103391",
+      "properties": {
+        "@id": "node/279103391",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.0734349,
+          9.9257877
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/279103392",
+      "properties": {
+        "@id": "node/279103392",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.0735091,
+          9.9256254
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/279103398",
+      "properties": {
+        "@id": "node/279103398",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.07774,
+          9.925218
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/279103399",
+      "properties": {
+        "@id": "node/279103399",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.0790663,
+          9.9253419
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/279103400",
+      "properties": {
+        "@id": "node/279103400",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.0797143,
+          9.9254032
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/279103401",
+      "properties": {
+        "@id": "node/279103401",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.0836061,
+          9.9257214
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/279103402",
+      "properties": {
+        "@id": "node/279103402",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.0844447,
+          9.9258019
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/279103403",
+      "properties": {
+        "@id": "node/279103403",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.0910015,
+          9.9258051
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/279103404",
+      "properties": {
+        "@id": "node/279103404",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.0910761,
+          9.9259157
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/279103405",
+      "properties": {
+        "@id": "node/279103405",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.0930259,
+          9.9288585
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/279103406",
+      "properties": {
+        "@id": "node/279103406",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.0982298,
+          9.9323326
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/279103408",
+      "properties": {
+        "@id": "node/279103408",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.1235259,
+          9.9402396
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/279103409",
+      "properties": {
+        "@id": "node/279103409",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.1273616,
+          9.9400888
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/279103410",
+      "properties": {
+        "@id": "node/279103410",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.1315596,
+          9.9399471
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/279103411",
+      "properties": {
+        "@id": "node/279103411",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.1361243,
+          9.9408006
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/279103412",
+      "properties": {
+        "@id": "node/279103412",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.1361241,
+          9.9416921
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/279103413",
+      "properties": {
+        "@id": "node/279103413",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.1360198,
+          9.9425865
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/279103414",
+      "properties": {
+        "@id": "node/279103414",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.1359176,
+          9.9434539
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/279103415",
+      "properties": {
+        "@id": "node/279103415",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.1358105,
+          9.9448979
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/279103416",
+      "properties": {
+        "@id": "node/279103416",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.137467,
+          9.9461367
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/279103417",
+      "properties": {
+        "@id": "node/279103417",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.1875148,
+          9.9780751
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/279103418",
+      "properties": {
+        "@id": "node/279103418",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.1902791,
+          9.9781712
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/279103419",
+      "properties": {
+        "@id": "node/279103419",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.1914422,
+          9.9781227
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/281864743",
+      "properties": {
+        "@id": "node/281864743",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.0701768,
+          9.9321477
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/286049078",
+      "properties": {
+        "@id": "node/286049078",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.2578566,
+          9.9790219
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/286049105",
+      "properties": {
+        "@id": "node/286049105",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.2573028,
+          9.9787954
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/286052002",
+      "properties": {
+        "@id": "node/286052002",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.2231571,
+          9.9724471
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/288562125",
+      "properties": {
+        "@id": "node/288562125",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.0521854,
+          9.9339889
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/289556475",
+      "properties": {
+        "@id": "node/289556475",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.0731491,
+          9.9293742
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/289556932",
+      "properties": {
+        "@id": "node/289556932",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.0553624,
+          9.9349569
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/289556941",
+      "properties": {
+        "@id": "node/289556941",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.0450633,
+          9.932674
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/289556942",
+      "properties": {
+        "@id": "node/289556942",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.044767,
+          9.9326985
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/293235042",
+      "properties": {
+        "@id": "node/293235042",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.0654074,
+          9.9319764
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/307913779",
+      "properties": {
+        "@id": "node/307913779",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.2482384,
+          9.9769818
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/350407115",
+      "properties": {
+        "@id": "node/350407115",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.0656789,
+          9.9335021
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/355242038",
+      "properties": {
+        "@id": "node/355242038",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.0731869,
+          9.9288166
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/424233869",
+      "properties": {
+        "@id": "node/424233869",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.2141123,
+          9.9722752
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/428797254",
+      "properties": {
+        "@id": "node/428797254",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.3147795,
+          9.9628075
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/428797401",
+      "properties": {
+        "@id": "node/428797401",
+        "crossing": "uncontrolled",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.3177621,
+          9.962599
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/429357158",
+      "properties": {
+        "@id": "node/429357158",
+        "crossing": "unmarked",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.2098296,
+          9.9731122
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/431367852",
+      "properties": {
+        "@id": "node/431367852",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.2544673,
+          9.9836511
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/431613915",
+      "properties": {
+        "@id": "node/431613915",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.233583,
+          10.0061235
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/433027408",
+      "properties": {
+        "@id": "node/433027408",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.2151862,
+          9.9721751
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/455569130",
+      "properties": {
+        "@id": "node/455569130",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -83.5108548,
+          10.1019778
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/455569131",
+      "properties": {
+        "@id": "node/455569131",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -83.5056567,
+          10.0991376
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/455569132",
+      "properties": {
+        "@id": "node/455569132",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -83.50472,
+          10.0986258
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/455569133",
+      "properties": {
+        "@id": "node/455569133",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -83.5034834,
+          10.0979501
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/455582945",
+      "properties": {
+        "@id": "node/455582945",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -83.683328,
+          10.2115005
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/455582946",
+      "properties": {
+        "@id": "node/455582946",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -83.6813985,
+          10.2101993
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/455582950",
+      "properties": {
+        "@id": "node/455582950",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -83.6797931,
+          10.2091166
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/457067497",
+      "properties": {
+        "@id": "node/457067497",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.0724324,
+          9.9456763
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/457076269",
+      "properties": {
+        "@id": "node/457076269",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.0784341,
+          9.9252833
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/457095475",
+      "properties": {
+        "@id": "node/457095475",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.0754624,
+          9.947573
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/457109910",
+      "properties": {
+        "@id": "node/457109910",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.0786771,
+          9.9493353
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/457109912",
+      "properties": {
+        "@id": "node/457109912",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.0775396,
+          9.9491858
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/457110652",
+      "properties": {
+        "@id": "node/457110652",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.0806402,
+          9.9501373
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/459981397",
+      "properties": {
+        "@id": "node/459981397",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.1086449,
+          9.9869492
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/459981398",
+      "properties": {
+        "@id": "node/459981398",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.1077323,
+          9.9857245
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/459981399",
+      "properties": {
+        "@id": "node/459981399",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.0986125,
+          9.9724849
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/459981400",
+      "properties": {
+        "@id": "node/459981400",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.0894811,
+          9.95991
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/459981401",
+      "properties": {
+        "@id": "node/459981401",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.0860879,
+          9.9546612
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/459981404",
+      "properties": {
+        "@id": "node/459981404",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.1158106,
+          9.9945099
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/459981405",
+      "properties": {
+        "@id": "node/459981405",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.1166939,
+          9.9946617
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/459981406",
+      "properties": {
+        "@id": "node/459981406",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.115017,
+          9.9941953
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/462068666",
+      "properties": {
+        "@id": "node/462068666",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.2485415,
+          9.9935186
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/464783854",
+      "properties": {
+        "@id": "node/464783854",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.0244803,
+          9.9196153
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/464783855",
+      "properties": {
+        "@id": "node/464783855",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.0151359,
+          9.9148014
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/464783856",
+      "properties": {
+        "@id": "node/464783856",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -83.9960366,
+          9.9114421
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/464783857",
+      "properties": {
+        "@id": "node/464783857",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -83.9871136,
+          9.9103986
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/464783858",
+      "properties": {
+        "@id": "node/464783858",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -83.9852573,
+          9.9111728
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/464783859",
+      "properties": {
+        "@id": "node/464783859",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -83.9846865,
+          9.9115826
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/464783860",
+      "properties": {
+        "@id": "node/464783860",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -83.9768336,
+          9.9147764
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/464787640",
+      "properties": {
+        "@id": "node/464787640",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.069615,
+          9.9431063
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/464787642",
+      "properties": {
+        "@id": "node/464787642",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.0695504,
+          9.9423657
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/465204278",
+      "properties": {
+        "@id": "node/465204278",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.095552,
+          9.9696621
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/465204279",
+      "properties": {
+        "@id": "node/465204279",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.1113456,
+          9.9910999
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/465204280",
+      "properties": {
+        "@id": "node/465204280",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.1112698,
+          9.9908846
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/469500967",
+      "properties": {
+        "@id": "node/469500967",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.4430644,
+          9.93085
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/469501042",
+      "properties": {
+        "@id": "node/469501042",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.4481144,
+          9.9288686
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/469501044",
+      "properties": {
+        "@id": "node/469501044",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.4476052,
+          9.928647
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/495470073",
+      "properties": {
+        "@id": "node/495470073",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.3213138,
+          9.9620722
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/497202280",
+      "properties": {
+        "@id": "node/497202280",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.2205765,
+          10.003842
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/565029382",
+      "properties": {
+        "@id": "node/565029382",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.0260656,
+          9.919678
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/582695759",
+      "properties": {
+        "@id": "node/582695759",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -83.0947137,
+          9.9884652
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/634777608",
+      "properties": {
+        "@id": "node/634777608",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.2417057,
+          9.9733833
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/663085373",
+      "properties": {
+        "@id": "node/663085373",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -83.4311989,
+          10.0996959
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/786657223",
+      "properties": {
+        "@id": "node/786657223",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.0747582,
+          9.9249153
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/786657224",
+      "properties": {
+        "@id": "node/786657224",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.0765608,
+          9.9250988
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/791612250",
+      "properties": {
+        "@id": "node/791612250",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -83.0464716,
+          9.9826168
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/792690351",
+      "properties": {
+        "@id": "node/792690351",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.2332906,
+          10.0062613
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/792690352",
+      "properties": {
+        "@id": "node/792690352",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.2439266,
+          9.9746149
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/792690353",
+      "properties": {
+        "@id": "node/792690353",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.2487275,
+          9.994127
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/792690357",
+      "properties": {
+        "@id": "node/792690357",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.2136648,
+          9.9723155
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/794155082",
+      "properties": {
+        "@id": "node/794155082",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -83.8666812,
+          9.8438464
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/794155085",
+      "properties": {
+        "@id": "node/794155085",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -83.8667644,
+          9.8438253
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/794285257",
+      "properties": {
+        "@id": "node/794285257",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -83.869683,
+          9.8430842
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/794602616",
+      "properties": {
+        "@id": "node/794602616",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -83.9862073,
+          9.910737
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/794609958",
+      "properties": {
+        "@id": "node/794609958",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.0084267,
+          9.910613
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/795237507",
+      "properties": {
+        "@id": "node/795237507",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.0114415,
+          9.9128196
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/795873320",
+      "properties": {
+        "@id": "node/795873320",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.0701136,
+          9.9388485
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/796512020",
+      "properties": {
+        "@id": "node/796512020",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.0910884,
+          9.9624961
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/801782959",
+      "properties": {
+        "@id": "node/801782959",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.0948,
+          9.9689758
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/801782964",
+      "properties": {
+        "@id": "node/801782964",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.0973788,
+          9.9713823
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/801832784",
+      "properties": {
+        "@id": "node/801832784",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.0999869,
+          9.9742696
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/812975069",
+      "properties": {
+        "@id": "node/812975069",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -83.0323473,
+          9.9961582
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/812975074",
+      "properties": {
+        "@id": "node/812975074",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -83.0327547,
+          9.990839
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/812975091",
+      "properties": {
+        "@id": "node/812975091",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -83.0329637,
+          9.9897642
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/812975100",
+      "properties": {
+        "@id": "node/812975100",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -83.0336272,
+          9.9935962
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/812975108",
+      "properties": {
+        "@id": "node/812975108",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -83.0313442,
+          9.996254
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/812975188",
+      "properties": {
+        "@id": "node/812975188",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -83.0330228,
+          9.9917439
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/812975217",
+      "properties": {
+        "@id": "node/812975217",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -83.0333239,
+          9.9926656
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/827186378",
+      "properties": {
+        "@id": "node/827186378",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.1438474,
+          9.949451
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/827186411",
+      "properties": {
+        "@id": "node/827186411",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.1440943,
+          9.9498709
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/835667967",
+      "properties": {
+        "@id": "node/835667967",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -83.8596965,
+          9.8408694
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/835667988",
+      "properties": {
+        "@id": "node/835667988",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -83.8618097,
+          9.8426251
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/835668020",
+      "properties": {
+        "@id": "node/835668020",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -83.8620041,
+          9.8430186
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/838277172",
+      "properties": {
+        "@id": "node/838277172",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.016337,
+          9.9155293
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/871836172",
+      "properties": {
+        "@id": "node/871836172",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -83.6951321,
+          10.2195781
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/1096349591",
+      "properties": {
+        "@id": "node/1096349591",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -83.4121342,
+          10.0958833
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/1126005228",
+      "properties": {
+        "@id": "node/1126005228",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -83.9295496,
+          9.8865816
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/1126005254",
+      "properties": {
+        "@id": "node/1126005254",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -83.9311349,
+          9.8893967
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/1126005386",
+      "properties": {
+        "@id": "node/1126005386",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -83.9296118,
+          9.8879441
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/1237339195",
+      "properties": {
+        "@id": "node/1237339195",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -83.9437001,
+          9.8970969
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/1237548985",
+      "properties": {
+        "@id": "node/1237548985",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -83.0383094,
+          9.9874831
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/1237549007",
+      "properties": {
+        "@id": "node/1237549007",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -83.0454515,
+          9.9830361
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/1237549014",
+      "properties": {
+        "@id": "node/1237549014",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -83.0449594,
+          9.9833645
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/1237549016",
+      "properties": {
+        "@id": "node/1237549016",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -83.0371921,
+          9.9878716
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/1237549036",
+      "properties": {
+        "@id": "node/1237549036",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -83.0536191,
+          9.9870759
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/1237549057",
+      "properties": {
+        "@id": "node/1237549057",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -83.0333258,
+          9.9895288
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/1317327412",
+      "properties": {
+        "@id": "node/1317327412",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.3800659,
+          9.9421115
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/1318710961",
+      "properties": {
+        "@id": "node/1318710961",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.2617517,
+          9.9777955
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/1318710984",
+      "properties": {
+        "@id": "node/1318710984",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.3322573,
+          9.9589441
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/1318710993",
+      "properties": {
+        "@id": "node/1318710993",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.2625783,
+          9.9775596
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/1318711015",
+      "properties": {
+        "@id": "node/1318711015",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.4343742,
+          9.9348213
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/1318711033",
+      "properties": {
+        "@id": "node/1318711033",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.4352718,
+          9.9348736
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/1318711040",
+      "properties": {
+        "@id": "node/1318711040",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.3302072,
+          9.9617117
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/1318718319",
+      "properties": {
+        "@id": "node/1318718319",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.3271417,
+          9.9599229
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/1318718324",
+      "properties": {
+        "@id": "node/1318718324",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.3435022,
+          9.9574156
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/1326520822",
+      "properties": {
+        "@id": "node/1326520822",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.1333552,
+          9.93992
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/1326520824",
+      "properties": {
+        "@id": "node/1326520824",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.1351623,
+          9.9401176
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/1326520825",
+      "properties": {
+        "@id": "node/1326520825",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.1342455,
+          9.9399933
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/1326520827",
+      "properties": {
+        "@id": "node/1326520827",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.1324677,
+          9.9399101
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/1327785674",
+      "properties": {
+        "@id": "node/1327785674",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.5179567,
+          9.9126325
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/1327785900",
+      "properties": {
+        "@id": "node/1327785900",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.5194412,
+          9.9120057
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/1327786193",
+      "properties": {
+        "@id": "node/1327786193",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.5194277,
+          9.9121505
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/1327786208",
+      "properties": {
+        "@id": "node/1327786208",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.5039078,
+          9.9179109
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/1327822103",
+      "properties": {
+        "@id": "node/1327822103",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.5230377,
+          9.9120499
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/1327822120",
+      "properties": {
+        "@id": "node/1327822120",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.5264773,
+          9.9125987
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/1327822121",
+      "properties": {
+        "@id": "node/1327822121",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.5221705,
+          9.9118726
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/1327822125",
+      "properties": {
+        "@id": "node/1327822125",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.5280842,
+          9.9131104
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/1327822128",
+      "properties": {
+        "@id": "node/1327822128",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.094718,
+          9.9308677
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/1327822136",
+      "properties": {
+        "@id": "node/1327822136",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.5247402,
+          9.9124044
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/1327822139",
+      "properties": {
+        "@id": "node/1327822139",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.0961951,
+          9.9316415
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/1327822143",
+      "properties": {
+        "@id": "node/1327822143",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.5238844,
+          9.9122348
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/1328525306",
+      "properties": {
+        "@id": "node/1328525306",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.3085382,
+          9.9642018
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/1340523035",
+      "properties": {
+        "@id": "node/1340523035",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.1796459,
+          10.002706
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/1350030011",
+      "properties": {
+        "@id": "node/1350030011",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.226937,
+          10.0051602
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/1350030040",
+      "properties": {
+        "@id": "node/1350030040",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.2297064,
+          10.0057482
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/1350030043",
+      "properties": {
+        "@id": "node/1350030043",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.2185605,
+          10.00714
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/1436030639",
+      "properties": {
+        "@id": "node/1436030639",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.1694032,
+          10.0035662
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/1436030734",
+      "properties": {
+        "@id": "node/1436030734",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.1379037,
+          9.9989196
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/1436031671",
+      "properties": {
+        "@id": "node/1436031671",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.1265196,
+          9.9950307
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/1436031675",
+      "properties": {
+        "@id": "node/1436031675",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.1235189,
+          9.9952248
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/1599075229",
+      "properties": {
+        "@id": "node/1599075229",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -83.9405906,
+          9.8923058
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/1623257141",
+      "properties": {
+        "@id": "node/1623257141",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -83.4982283,
+          10.0968048
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/1623264939",
+      "properties": {
+        "@id": "node/1623264939",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -83.5236196,
+          10.1087339
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/1623289214",
+      "properties": {
+        "@id": "node/1623289214",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -83.378051,
+          10.0902854
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/1623289308",
+      "properties": {
+        "@id": "node/1623289308",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -83.3734598,
+          10.0895796
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/1623289314",
+      "properties": {
+        "@id": "node/1623289314",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -83.3754594,
+          10.0898927
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/1623289315",
+      "properties": {
+        "@id": "node/1623289315",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -83.3910373,
+          10.0922906
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/1623289336",
+      "properties": {
+        "@id": "node/1623289336",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -83.3812335,
+          10.0907817
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/1623330326",
+      "properties": {
+        "@id": "node/1623330326",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -83.2971153,
+          10.0776328
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/1623330515",
+      "properties": {
+        "@id": "node/1623330515",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -83.3236208,
+          10.081876
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/1623330645",
+      "properties": {
+        "@id": "node/1623330645",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -83.3244542,
+          10.0819811
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/1623330911",
+      "properties": {
+        "@id": "node/1623330911",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -83.3375065,
+          10.0839631
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/1623330916",
+      "properties": {
+        "@id": "node/1623330916",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -83.3381359,
+          10.0840736
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/1623330985",
+      "properties": {
+        "@id": "node/1623330985",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -83.3432424,
+          10.0848559
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/1623331090",
+      "properties": {
+        "@id": "node/1623331090",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -83.34459,
+          10.0850702
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/1623369850",
+      "properties": {
+        "@id": "node/1623369850",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -83.4815136,
+          10.0963995
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/1623369949",
+      "properties": {
+        "@id": "node/1623369949",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -83.4564725,
+          10.1020928
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/1623384319",
+      "properties": {
+        "@id": "node/1623384319",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -83.3400388,
+          10.0843781
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/1744014966",
+      "properties": {
+        "@id": "node/1744014966",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.1925069,
+          10.0017906
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/1827273871",
+      "properties": {
+        "@id": "node/1827273871",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -83.3415767,
+          10.0846025
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/1827273874",
+      "properties": {
+        "@id": "node/1827273874",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -83.3426548,
+          10.0847596
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/1827273891",
+      "properties": {
+        "@id": "node/1827273891",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -83.3476661,
+          10.0855124
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/1827286052",
+      "properties": {
+        "@id": "node/1827286052",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -83.5021717,
+          10.0972699
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/1827289096",
+      "properties": {
+        "@id": "node/1827289096",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -83.4934539,
+          10.0936798
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/1830540452",
+      "properties": {
+        "@id": "node/1830540452",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.1116775,
+          9.9919078
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/1832831460",
+      "properties": {
+        "@id": "node/1832831460",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.0725339,
+          9.9457474
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/1832950550",
+      "properties": {
+        "@id": "node/1832950550",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.0675984,
+          9.9312018
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/1834410286",
+      "properties": {
+        "@id": "node/1834410286",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -83.9328047,
+          9.8893945
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/1834410287",
+      "properties": {
+        "@id": "node/1834410287",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -83.9421506,
+          9.894144
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/1834410288",
+      "properties": {
+        "@id": "node/1834410288",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -83.9437981,
+          9.8973096
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/1834517664",
+      "properties": {
+        "@id": "node/1834517664",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -83.8705475,
+          9.8428646
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/1834517695",
+      "properties": {
+        "@id": "node/1834517695",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -83.8676241,
+          9.843607
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/1834518472",
+      "properties": {
+        "@id": "node/1834518472",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -83.8967883,
+          9.856217
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/1834685861",
+      "properties": {
+        "@id": "node/1834685861",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -83.8398269,
+          9.8413676
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/1950179948",
+      "properties": {
+        "@id": "node/1950179948",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -83.9132402,
+          9.8650206
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/2051101271",
+      "properties": {
+        "@id": "node/2051101271",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.1506836,
+          9.9569459
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/2054433594",
+      "properties": {
+        "@id": "node/2054433594",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.055251,
+          9.9349269
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/2054437157",
+      "properties": {
+        "@id": "node/2054437157",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.185954,
+          10.0033552
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/2054437158",
+      "properties": {
+        "@id": "node/2054437158",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.1877333,
+          10.0036511
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/2092283827",
+      "properties": {
+        "@id": "node/2092283827",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.111607,
+          9.9917361
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/2102929685",
+      "properties": {
+        "@id": "node/2102929685",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.1175122,
+          9.9947298
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/2102929696",
+      "properties": {
+        "@id": "node/2102929696",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.117511,
+          9.9947046
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/2102931613",
+      "properties": {
+        "@id": "node/2102931613",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.1166942,
+          9.99463
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/2102931614",
+      "properties": {
+        "@id": "node/2102931614",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.1183994,
+          9.9947907
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/2102946117",
+      "properties": {
+        "@id": "node/2102946117",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.1192288,
+          9.9948741
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/2102950412",
+      "properties": {
+        "@id": "node/2102950412",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.12008,
+          9.9949507
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/2102956079",
+      "properties": {
+        "@id": "node/2102956079",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.1209052,
+          9.9950165
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/2102956081",
+      "properties": {
+        "@id": "node/2102956081",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.1226237,
+          9.9951535
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/2102956082",
+      "properties": {
+        "@id": "node/2102956082",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.1218143,
+          9.9950856
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/2102956083",
+      "properties": {
+        "@id": "node/2102956083",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.1241347,
+          9.995089
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/2102958138",
+      "properties": {
+        "@id": "node/2102958138",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.1324321,
+          9.9962442
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/2102958139",
+      "properties": {
+        "@id": "node/2102958139",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.1338166,
+          9.9970355
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/2102961795",
+      "properties": {
+        "@id": "node/2102961795",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.136658,
+          9.9985799
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/2102965361",
+      "properties": {
+        "@id": "node/2102965361",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.1416918,
+          9.9994798
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/2102983568",
+      "properties": {
+        "@id": "node/2102983568",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.1549832,
+          10.0036525
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/2102983571",
+      "properties": {
+        "@id": "node/2102983571",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.1519188,
+          10.003058
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/2102983574",
+      "properties": {
+        "@id": "node/2102983574",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.1495822,
+          10.0026671
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/2102983577",
+      "properties": {
+        "@id": "node/2102983577",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.1527817,
+          10.0031925
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/2102983579",
+      "properties": {
+        "@id": "node/2102983579",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.1536644,
+          10.0034443
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/2102983582",
+      "properties": {
+        "@id": "node/2102983582",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.1484126,
+          10.0024798
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/2102983585",
+      "properties": {
+        "@id": "node/2102983585",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.1510411,
+          10.0028992
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/2102983587",
+      "properties": {
+        "@id": "node/2102983587",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.1543807,
+          10.0035574
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/2102983590",
+      "properties": {
+        "@id": "node/2102983590",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.1501559,
+          10.00276
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/2102985892",
+      "properties": {
+        "@id": "node/2102985892",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.1555798,
+          10.0037468
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/2102988391",
+      "properties": {
+        "@id": "node/2102988391",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.1608507,
+          10.0045792
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/2102991999",
+      "properties": {
+        "@id": "node/2102991999",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.1708399,
+          10.0027749
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/2102996464",
+      "properties": {
+        "@id": "node/2102996464",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.1855804,
+          10.003231
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/2102996466",
+      "properties": {
+        "@id": "node/2102996466",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.1827597,
+          10.0023058
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/2103001209",
+      "properties": {
+        "@id": "node/2103001209",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.1896556,
+          10.0029806
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/2103001709",
+      "properties": {
+        "@id": "node/2103001709",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.1910668,
+          10.0024692
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/2103001710",
+      "properties": {
+        "@id": "node/2103001710",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.1906233,
+          10.002631
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/2103001711",
+      "properties": {
+        "@id": "node/2103001711",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.1915461,
+          10.0023007
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/2103004375",
+      "properties": {
+        "@id": "node/2103004375",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.1979404,
+          10.0023091
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/2103004376",
+      "properties": {
+        "@id": "node/2103004376",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.1947045,
+          10.0014865
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/2103004377",
+      "properties": {
+        "@id": "node/2103004377",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.1956063,
+          10.0016116
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/2103007316",
+      "properties": {
+        "@id": "node/2103007316",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.111543,
+          9.9915804
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/2104370158",
+      "properties": {
+        "@id": "node/2104370158",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.0282222,
+          9.9197302
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/2111620377",
+      "properties": {
+        "@id": "node/2111620377",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.1103168,
+          9.9335336
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/2111627971",
+      "properties": {
+        "@id": "node/2111627971",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.1157908,
+          9.9368
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/2145537629",
+      "properties": {
+        "@id": "node/2145537629",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.124787,
+          9.994961
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/2324981966",
+      "properties": {
+        "@id": "node/2324981966",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.156122,
+          10.0038324
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/2356828921",
+      "properties": {
+        "@id": "node/2356828921",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.1102883,
+          9.9335308
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/2362563998",
+      "properties": {
+        "@id": "node/2362563998",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.2386092,
+          10.0035506
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/2365230332",
+      "properties": {
+        "@id": "node/2365230332",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.0880984,
+          9.9577711
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/2385985866",
+      "properties": {
+        "@id": "node/2385985866",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.1881839,
+          9.9780987
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/2639210434",
+      "properties": {
+        "@id": "node/2639210434",
+        "railway": "level_crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.0756644,
+          9.9250073
+        ]
+      }
+    }
+  ]
+}
