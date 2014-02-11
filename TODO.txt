@@ -1,8 +1,14 @@
-- Make the damn marker appears correctly. -- Done
+- automate the build.
 
 - make a better layout 
 
 - make animated marker for train on the road.  Done.
 		>> now make it work at realtime speed with a more appealing look.
+
+- Make each marker to show a link to a detailed view of trains that will pass there.
+- get a proper marker icon for stops.
+
+
+		>>
 
 If you have any idea, or know how to make this a reality, let me know, please. 
