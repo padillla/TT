@@ -82,7 +82,7 @@
                  return new L.Marker(latlng, {
 
                    icon: yellowIcon
-                 }).bindPopup('Nombre: ' + f.properties.long_name + '<br>Localidad: ' + f.properties.locality + '<br>Localizacion: ' + f.geometry.coordinates + ' <br> <button id='loadtrips'.btn-small> Que trenes pasan aqui?<button>'  );
+                 }).bindPopup('Nombre: ' + f.properties.long_name + '<br>Localidad: ' + f.properties.locality + '<br>Localizacion: ' + f.geometry.coordinates + ' <br> <button id="loadtrips".btn-small> Que trenes pasan aqui?<button>'  );
                }
              }).addTo(map);
            }
@@ -153,11 +153,10 @@
          });
          $(function() {
            $('#loadtrips').click(function() {
-           console.log('I work on baloons')
+           console.log('I work on baloons');
            
            });
 
-         TREN.loadMapElements();
-
-
+   });
+   TREN.loadMapElements();
    });
