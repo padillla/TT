@@ -3,24 +3,37 @@ block head
                 link(href="./css/leaflet.css", rel="stylesheet")
 
 block content
-     
-        header
-            nav
-                    ul 
-                            li
-                                     button.btn.btn-primary.btn-block#start 
-                                        | Iniciar
-                            li
-                                    button.btn.btn-primary.btn-block#stop 
-                                        | Detener
-                            li
-                                    button.btn.btn-primary.btn-block#reset 
-                                        | Reiniciar                                        
-
-                            
+   div#wrapper  
+              
+        .container
+         .row.clearfix
+        .col-md-12.column
+          ul.nav.nav-tabs
+            li.active
+              a(href='#') Tren
+            li
+              a(href='#') Me
+                   
+          .page-header
+            h1
+              | Ruta  
+              
+            h3
+              |  Tren Urbano Costa Rica
+          .btn-group
+            button.btn.btn-default(type='button')#start
+              
+              | Iniciar
+            button.btn.btn-default(type='button')#stop
+              
+              | Pausar
+            button.btn.btn-default(type='button')#reset
+              
+              | Reiniciar
+           
         div#map
-
 block footer
+                
                 script(src='./js/leaflet.js')
                 script(src='./js/map.js')
                 script(src='./js/AnimatedMarker.js')

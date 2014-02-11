@@ -46,7 +46,9 @@
      var yellowIcon = new tinyIcon({
        iconUrl: "../img/marker-yellow.png"
      });
-     var invertLatLngs = function(latLngs) {
+
+
+      var invertLatLngs = function(latLngs) {
        var correctedArray = [];
        $.each(latLngs, function(i, innerlatlng) {
          var reversedLatlng = innerlatlng.reverse();
@@ -54,102 +56,103 @@
 
        });
        return correctedArray;
-     }
-
-
-     //push data to map
-
-     $.ajax({
-       url: '/trips',
-       success: function(data) {
-         trips = data;
-       }
-
-     });
-
-     $.ajax({
-       url: '/stops',
-       success: function(data) {
-
-         L.geoJson(data, {
-           pointToLayer: function(f, latlng) {
-
-             return new L.Marker(latlng, {
-
-               icon: yellowIcon
-             }).bindPopup('Nombre: ' + f.properties.long_name + '<br>Localidad: ' + f.properties.locality + '<br>Localizacion: ' + f.geometry.coordinates);
-           }
-         }).addTo(map);
-       }
-     });
-
-     $.ajax({
-       url: '/routes',
-       success: function(data) {
-
-         for (var i in data) {
-           if (data.hasOwnProperty(i)) {
-             L.geoJson(data[i]).addTo(map);
-             routes.push(data[i].geometry.coordinates);
-
-           }
-         }
-         animateTrains(routes)
-       }
-     });
-
-     var animateTrains = function(latLngs) {
-
-
-       var routeLines = [],
-         markers = [];
-
-       $.each(latLngs, function(i, line) {
-
-         line = invertLatLngs(line);
-         var polyline = L.polyline(line);
-         routeLines.push(polyline);
-       });
-
-
-
-       $.each(routeLines, function(i, routeLine) {
-         var marker = L.animatedMarker(routeLine.getLatLngs(), {
-           icon: movingTrainIcon,
-           autoStart: false,
-           interval: 40, //miliseconds
-           //onEnd: DoSomeNotificationOnSOCKETIO
-         });
-
-         map.addLayer(marker);
-         markers.push(marker);
-       });
-
-       $(function() {
-         $('#start').click(function() {
-           console.log('start');
-           $.each(markers, function(i, marker) {
-             marker.start();
-           });
-
-         });
-       });
-       $(function() {
-         $('#stop').click(function() {
-           console.log('stop');
-           $.each(markers, function(i, marker) {
-             marker.stop();
-           });
-         })
-       });
-
-       ///Ugly function to invert lat lng on routes, 
-       //when these are inverted and leaflet position the markers 
-       //in the south pole, I dont know why the hell it does that.
-
-
-
      };
 
+
+     var TREN = {
+
+        markers : [],
+
+       loadMapElements: function() {
+         $.ajax({
+           url: '/trips',
+           success: function(data) {
+             trips = data;
+           }
+
+         });
+
+         $.ajax({
+           url: '/stops',
+           success: function(data) {
+            var markers = [];
+             L.geoJson(data, {
+               pointToLayer: function(f, latlng) {
+
+                 return new L.Marker(latlng, {
+
+                   icon: yellowIcon
+                 }).bindPopup('Nombre: ' + f.properties.long_name + '<br>Localidad: ' + f.properties.locality + '<br>Localizacion: ' + f.geometry.coordinates);
+               }
+             }).addTo(map);
+           }
+         });
+
+         $.ajax({
+           url: '/routes',
+           success: function(data) {
+
+             for (var i in data) {
+               if (data.hasOwnProperty(i)) {
+                 L.geoJson(data[i]).addTo(map);
+                 routes.push(data[i].geometry.coordinates);
+
+               }
+             }
+             TREN.animateTrains(routes);
+           }
+         });
+       },
+
+       animateTrains: function(latLngs) {
+
+
+         var routeLines = [];
+
+         $.each(latLngs, function(i, line) {
+
+           line = invertLatLngs(line);
+           var polyline = L.polyline(line);
+           routeLines.push(polyline);
+         });
+
+
+
+         $.each(routeLines, function(i, routeLine) {
+           var marker = L.animatedMarker(routeLine.getLatLngs(), {
+             icon: movingTrainIcon,
+             autoStart: false,
+             interval: 400, //miliseconds
+             //onEnd: DoSomeNotificationOnSOCKETIO
+           });
+
+           map.addLayer(marker);
+           
+           TREN.markers.push(marker);
+         });
+
+       }
+     };
+
+         $(function() {
+           $('#start').click(function() {
+             console.log('start');
+             $.each(TREN.markers, function(i, marker) {
+               marker.start();
+             });
+
+           });
+         });
+         $(function() {
+           $('#stop').click(function() {
+             console.log('stop');
+             $.each(TREN.markers, function(i, marker) {
+               marker.stop();
+             });
+           })
+         });
+
+         TREN.loadMapElements();
+
+
    });
-    // TODO:  Add animated marker for moving train
