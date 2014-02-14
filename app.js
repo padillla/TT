@@ -1,7 +1,6 @@
 /**
  * Module dependencies.
  */
-
 var express = require('express'),
   routes = require('./routes'),
   map = require('./routes/map'),
@@ -25,13 +24,15 @@ app.use(app.router);
 app.use(express.static(path.join(__dirname, 'public')));
 
 // development only
-if ('development' == app.get('env')) {
+if ('development' === app.get('env')) {
   app.use(express.errorHandler());
 }
 
 //Some sort of API
 
 app.get('/', map.map);
+
+app.get('/viewtrip', map.trip);
 
 app.get('/routes',  function(req, res) {
   res.sendfile('public/models/routes.json');
@@ -50,6 +51,8 @@ var server = http.createServer(app);
 server.listen(app.get('port'), function() {
   console.log('Express server listening on port ' + app.get('port'));
 });
+
+
 
 
 

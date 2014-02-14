@@ -8,6 +8,8 @@
 - Make each marker to show a link to a detailed view of trains that will pass there.
 - get a proper marker icon for stops.
 
+- add a button to go to top of page, or make it easy to go to top.
+
 
 		>>
 
