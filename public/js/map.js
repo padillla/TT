@@ -1,4 +1,5 @@
 
+
 $(document).ready(function () {
 
     var cloudmadeUrl = 'http://{s}.tile.cloudmade.com/5f60f5a8fd1f447b926d50284ef5397c/997/256/{z}/{x}/{y}.png',
@@ -28,11 +29,22 @@ $(document).ready(function () {
             }
         }),
 
+        StopIcon = L.Icon.extend({
+            options: {
+                shadowUrl: "../img/marker-shadow.png",
+                iconSize: [20, 20],
+                //iconAnchor: [12, 36],
+                shadowSize: [41, 41],
+                //shadowAnchor: [12, 38],
+                popupAnchor: [0, -30]
+            }
+        }),
+
         TrainIcon = new TinyIcon({
             iconUrl: "../img/train.png"
         }),
 
-        RailIcon = new TinyIcon({
+        RailIcon = new StopIcon({
             iconUrl: "../img/levelcrossing.png"
         }),
 
@@ -45,6 +57,10 @@ $(document).ready(function () {
         }),
         YellowIcon = new TinyIcon({
             iconUrl: "../img/marker-yellow.png"
+        }),
+
+        StopIconA = new StopIcon({
+            iconUrl: "../img/trainstop.jpg"
         }),
 
 
@@ -80,7 +96,7 @@ $(document).ready(function () {
                         L.geoJson(data, {
                             pointToLayer: function (f, latlng) {
                                 return new L.Marker(latlng, {
-                                    icon: YellowIcon
+                                    icon: RailIcon
                                 }).bindPopup('Nombre: ' + f.properties.long_name + '<br>Localidad: ' + f.properties.locality + '<br>Localizacion: ' + f.geometry.coordinates + ' <br> <button id="loadtrips".btn-small> Que trenes pasan aqui?</button>');
                             }
                         }).addTo(map);
@@ -124,7 +140,7 @@ $(document).ready(function () {
                         interval: 400 //miliseconds
                         //onEnd: DoSomeNotificationOnSOCKETIO
                     });
-                    marker.bindPopup("A moving train");
+                    
                     map.addLayer(marker);
 
                     TREN.markers.push(marker);

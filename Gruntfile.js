@@ -1,23 +1,22 @@
 module.exports = function(grunt) {
   grunt.initConfig({
-      pkg: grunt.file.readJSON('package.json'),
+    pkg: grunt.file.readJSON('package.json'),
 
-      jshint: {
-        files: ['Gruntfile.js', 'app.js', 'public/js/map.js', 'public/models/*.*', 'routes/*.*'],
-        options: {
-          node: true,
-          curly: true,
-          eqeqeq: true,
-          immed: true,
-          latedef: true,
-          newcap: true,
-          noarg: true,
-          sub: true,
-          //undef: true,
-          boss: true,
-          eqnull: true,
-          browser: true,
-        },
+    jshint: {
+      files: ['Gruntfile.js', 'app.js', 'public/js/map.js', 'public/models/*.*', 'routes/*.*'],
+      options: {
+        node: true,
+        curly: true,
+        eqeqeq: true,
+        immed: true,
+        latedef: true,
+        newcap: true,
+        noarg: true,
+        sub: true,
+        undef: true,
+        boss: true,
+        eqnull: true,
+        browser: true,
         globals: {
           // AMD
           module: true,
@@ -44,14 +43,15 @@ module.exports = function(grunt) {
           afterEach: true
         }
 
-      }
-    });
+      },
+
+    }
+  });
 
 
 
-      grunt.loadNpmTasks('grunt-contrib-jshint');
+  grunt.loadNpmTasks('grunt-contrib-jshint');
 
 
-
-      grunt.registerTask('default', ['jshint']);
-    };
+  grunt.registerTask('default', ['jshint']);
+};

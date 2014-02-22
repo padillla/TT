@@ -1,3 +1,5 @@
+
+
 /**
  * Module dependencies.
  */
@@ -31,6 +33,8 @@ if ('development' === app.get('env')) {
 //Some sort of API
 
 app.get('/', map.map);
+
+
 
 app.get('/viewtrip', map.trip);
 
