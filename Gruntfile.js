@@ -1,80 +1,57 @@
-
-
 module.exports = function(grunt) {
   grunt.initConfig({
-    pkg: grunt.file.readJSON('package.json'),
+      pkg: grunt.file.readJSON('package.json'),
 
-    jshint: {
-      files: ['Gruntfile.js', 'app.js', 'public/js/map.js', 'public/models/*.json'],
-      options: {
-        node : true,
-       globals: {
-          jQuery: true,
-          console: true,
-          module: true,
-          document: true,
+      jshint: {
+        files: ['Gruntfile.js', 'app.js', 'public/js/map.js', 'public/models/*.*', 'routes/*.*'],
+        options: {
+          node: true,
+          curly: true,
+          eqeqeq: true,
+          immed: true,
+          latedef: true,
+          newcap: true,
+          noarg: true,
+          sub: true,
+          //undef: true,
+          boss: true,
+          eqnull: true,
           browser: true,
-          "L" : true
-        }
-      }
-    },
-    watch: {
-      files: ['<%= jshint.files %>'],
-      tasks: ['jshint']
-    }
-
-
-// Git tasks I dont want to do by hand
-/*
-    gitpush: {
-      your_target: {
-        options: {
-          
-      }
-    },
-
-    gitcommit: {
-      task: {
-        options: {
-          message: 'Automated'
         },
-        files: {
-          src: ['test.txt']
+        globals: {
+          // AMD
+          module: true,
+          require: true,
+          requirejs: true,
+          define: true,
+
+          // Environments
+          console: true,
+          document: true,
+
+
+          // General Purpose Libraries
+          $: true,
+          jQuery: true,
+          "L": true,
+
+          // Testing
+          sinon: true,
+          describe: true,
+          it: true,
+          expect: true,
+          beforeEach: true,
+          afterEach: true
         }
+
       }
-    },
-
-    gitstash: {
-      your_target: {
-        options: {
-          // Target-specific options go here.
-        }
-      }
-    },
-
-    gitcheckout: {
-      task: {
-        options: {
-          branch: 'testing',
-          create: true
-        }
-      }
-    },
-*/
-  });
-
-  grunt.loadNpmTasks('grunt-contrib-jshint');
-
-  grunt.loadNpmTasks('grunt-contrib-watch');
-
-  /*grunt.loadNpmTasks('grunt-git');*/
+    });
 
 
-  grunt.registerTask('watch', ['watch']);
 
-  grunt.registerTask('default', ['jshint']);
+      grunt.loadNpmTasks('grunt-contrib-jshint');
 
- // grunt.registerTask('deploy', ['TEST', 'GIT ADD ', ' GIT COMMIT', 'GIT PUSH ORIGIN MASTER', 'GIT PUSH HEROKU MASTER']);
 
-  //grunt.registerTask('test', ['THIS WILL RUN TESTS, soon])
-};
+
+      grunt.registerTask('default', ['jshint']);
+    };

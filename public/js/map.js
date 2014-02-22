@@ -124,7 +124,7 @@ $(document).ready(function () {
                         interval: 400 //miliseconds
                         //onEnd: DoSomeNotificationOnSOCKETIO
                     });
-
+                    marker.bindPopup("A moving train");
                     map.addLayer(marker);
 
                     TREN.markers.push(marker);
