@@ -17,8 +17,10 @@ module.exports = function(grunt) {
         boss: true,
         eqnull: true,
         browser: true,
+        //quotmark: "single", TODO: clean the messy quotmarks for single.
         globals: {
           // AMD
+          
           module: true,
           require: true,
           requirejs: true,
@@ -27,7 +29,7 @@ module.exports = function(grunt) {
           // Environments
           console: true,
           document: true,
-
+          prompt: true, // TODO: I'd like to know of a way to avoid this (isn't prompt part of window?)
 
           // General Purpose Libraries
           $: true,

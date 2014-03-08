@@ -1,7 +1,6 @@
-
-
-$(document).ready(function () {
-
+$(document).ready(function() {
+    // map attributes TODO Chnge tile provider CLOUDMADE WILL close tile API
+    
     var cloudmadeUrl = 'http://{s}.tile.cloudmade.com/5f60f5a8fd1f447b926d50284ef5397c/997/256/{z}/{x}/{y}.png',
         cloudmadeAttribution = '<a href="padillla.github.io">Github</a>, Map data &copy; 2011 OSM 2011 CloudMade',
         cloudmade = new L.TileLayer(
@@ -17,25 +16,14 @@ $(document).ready(function () {
             zoomControl: false
         }),
 
-
+        //Icon definition TODO: make better icons for stops
         TinyIcon = L.Icon.extend({
             options: {
                 shadowUrl: "../img/marker-shadow.png",
-                iconSize: [25, 35],
+                iconSize: [30, 40],
                 iconAnchor: [12, 36],
                 shadowSize: [41, 41],
                 shadowAnchor: [12, 38],
-                popupAnchor: [0, -30]
-            }
-        }),
-
-        StopIcon = L.Icon.extend({
-            options: {
-                shadowUrl: "../img/marker-shadow.png",
-                iconSize: [20, 20],
-                //iconAnchor: [12, 36],
-                shadowSize: [41, 41],
-                //shadowAnchor: [12, 38],
                 popupAnchor: [0, -30]
             }
         }),
@@ -44,12 +32,10 @@ $(document).ready(function () {
             iconUrl: "../img/train.png"
         }),
 
-        RailIcon = new StopIcon({
-            iconUrl: "../img/levelcrossing.png"
-        }),
-
         MovingTrainIcon = new TinyIcon({
-            iconUrl: "../img/steamtrain.png"
+            iconUrl: "../img/steamtrain.png",
+            //TODO: Remove this when I have better icon that do not cover stop icons when on the stop
+            iconAnchor: [30, 36]
         }),
 
         RedIcon = new TinyIcon({
@@ -59,53 +45,69 @@ $(document).ready(function () {
             iconUrl: "../img/marker-yellow.png"
         }),
 
-        StopIconA = new StopIcon({
-            iconUrl: "../img/trainstop.jpg"
-        }),
+        //Returns the array with every lat lon reversed, so it wont mark the moving routes in Antartica. 
+        //TODO: Find a way around this
 
 
-        invertLatLngs = function (latLngs) {
+        invertLatLngs = function(latLngs) {
             var correctedArray = [];
-            $.each(latLngs, function (i, innerlatlng) {
+            $.each(latLngs, function(i, innerlatlng) {
                 var reversedLatlng = innerlatlng.reverse();
                 correctedArray.push(reversedLatlng);
 
             });
             return correctedArray;
         },
-
+        //Returns a date object receiving only a "HH:MM" string
+        //Stoptimes has that format. I think its ugly
+        parseTime = function(time) {
+            var dat = new Date();
+            time.split(/\:|\-/g);
+            dat.setHours(time[0]);
+            dat.setMinutes(time[1]);
+            return dat;
+        },
 
         TREN = {
 
-            markers: [],
+            stops: [],
             routes: [],
             trips: [],
+            stoptimes: [],
+            markers: [],
+            //Make stop markers and road line magically appear on the map
+            loadMapElements: function() {
 
-            loadMapElements: function () {
+                //Pulls trips  
                 $.ajax({
                     url: '/trips',
-                    success: function (data) {
-                        TREN.trips = data;
+                    success: function(data) {
+                        $.each(data, function(i, val) {
+                            TREN.trips.push(val);
+                        });
                     }
-
                 });
-
+                //Pulls Stop objets and place the markers with a button whith the stop ID as an ID Attribute 
                 $.ajax({
                     url: '/stops',
-                    success: function (data) {
+                    success: function(data) {
+                        var stopId;
                         L.geoJson(data, {
-                            pointToLayer: function (f, latlng) {
+                            pointToLayer: function(f, latlng) {
+                                var stop = f.properties;
+                                stopId = f.properties.id;
+                                TREN.stops.push(f);
                                 return new L.Marker(latlng, {
-                                    icon: RailIcon
-                                }).bindPopup('Nombre: ' + f.properties.long_name + '<br>Localidad: ' + f.properties.locality + '<br>Localizacion: ' + f.geometry.coordinates + ' <br> <button id="loadtrips".btn-small> Que trenes pasan aqui?</button>');
+                                    icon: TrainIcon
+                                }).bindPopup('Nombre: ' + stop.long_name + '<br>Localidad: ' + stop.locality + '<br>Localizacion: ' + f.geometry.coordinates + ' <br> <button class= "btn" ' + 'id=' + stopId + ' href= "#info"> Que trenes pasan aqui?</button>');
                             }
                         }).addTo(map);
                     }
                 });
-
+                //Pulls routes
                 $.ajax({
                     url: '/routes',
-                    success: function (data) {
+                    success: function(data) {
                         var i;
                         for (i in data) {
                             if (data.hasOwnProperty(i)) {
@@ -117,14 +119,45 @@ $(document).ready(function () {
                         TREN.animateTrains(TREN.routes);
                     }
                 });
+                //Pulls stoptimes 
+                $.ajax({
+                    url: '/stoptimes',
+                    success: function(data) {
+                        $.each(data, function(i, val) {
+                            TREN.stoptimes.push(val);
+                        });
+
+
+                    }
+
+                });
+
             },
 
-            animateTrains: function (latLngs) {
+            // receives a stop Id and returns the matching stop object
+            getStopById: function(stopId) {
+                var stop;
+
+                function filterStop(i) {
+                    //TODO: somplify all these ugliness for ternary op's
+                    if (i.properties.id === stopId) {
+                        return true;
+                    } else {
+                        return false;
+                    }
+                }
+                stop = TREN.stops.filter(filterStop);
+                return stop.shift();
+
+            },
+            // just moves the train maker on the map.
+            // TODO: Make this to listen to server with socket.io, for example.
+            animateTrains: function(latLngs) {
 
 
                 var routeLines = [];
 
-                $.each(latLngs, function (i, line) {
+                $.each(latLngs, function(i, line) {
 
                     line = invertLatLngs(line);
                     var polyline = L.polyline(line);
@@ -133,38 +166,123 @@ $(document).ready(function () {
 
 
 
-                $.each(routeLines, function (i, routeLine) {
+                $.each(routeLines, function(i, routeLine) {
                     var marker = L.animatedMarker(routeLine.getLatLngs(), {
                         icon: MovingTrainIcon,
                         autoStart: false,
-                        interval: 400 //miliseconds
+                        interval: 4000 //miliseconds
                         //onEnd: DoSomeNotificationOnSOCKETIO
                     });
-                    
-                    map.addLayer(marker);
 
+                    map.addLayer(marker);
                     TREN.markers.push(marker);
+
                 });
 
+            },
+            //This gets which trains will arrive  in the selected stop.
+            //receives an stop id number and returns an array of stoptimes with the stop as a property of each passing train object 
+            getPassingTrains: function(Id) {
+
+                //in case you wonder, this makes the string a number.
+                var stopId = +Id;
+
+                var passingTrains = [];
+
+                function filterStoptime(i) {
+
+                    if (i.stop_id === stopId) {
+                        
+                        i.stop = TREN.getStopById(stopId);
+                        passingTrains.push(i);
+                        return true;
+                    } else {
+                        return false;
+                    }
+                }
+                TREN.stoptimes.filter(filterStoptime);
+                makeList(passingTrains);
+                return passingTrains;
             }
         };
 
-    $(function () {
-        $('#start').click(function () {
-            console.log('start');
-            $.each(TREN.markers, function (i, marker) {
+
+    /* function sortByProperty(property) {
+        'use strict';
+        return function(a, b) {
+            var sortStatus = 0;
+            if (a[property] < b[property]) {
+                sortStatus = -1;
+            } else if (a[property] > b[property]) {
+                sortStatus = 1;
+            }
+
+            return sortStatus;
+        };
+    };*/
+
+
+
+    // attach a <li> with information on each passing train 
+    //this need to be beautified, it diplays each train that passes and where it goes. TODO MAKE this a floating info window, or just something that looks better
+    function makeList(json) {
+        var info = $('#info');
+   
+        info.append('<h4>' + json[1].stop.properties.long_name + '</h4>');
+
+        var ul = $('<ul>').appendTo('#info');
+
+        $(json).each(function(index, item) {
+
+            //If it has Arrival time but no depature, its the last train of the route.
+            if (item.arrival_time && !item.departure_time) {
+                ul.append(
+                    $(document.createElement('li')).html('Llega a  ' + item.headsign + ' a las  ' + item.arrival_time)
+                );
+                //If it has depature time but no arrival, its the first train.
+            } else if (item.departure_time && !item.arrival_time) {
+                ul.append(
+                    $(document.createElement('li')).html('Sale hacia ' + item.headsign + ' a las ' + item.departure_time));
+            } else {
+
+                //if it has both arrival and depature, its just passing by
+                ul.append(
+                    $(document.createElement('li')).html('Llega a las ' + item.arrival_time + ' y sale hacia ' + item.headsign + " a las " + item.departure_time)
+                );
+
+            }
+        });
+
+
+
+    }
+    // Bind Click listerners to buttons
+    $(function() {
+        $('#start').click(function() {
+
+            $.each(TREN.markers, function(i, marker) {
                 marker.start();
+                console.log('start');
             });
 
         });
     });
-    $(function () {
-        $('#stop').click(function () {
-            console.log('stop');
-            $.each(TREN.markers, function (i, marker) {
+    $(function() {
+        $('#stop').click(function() {
+
+            $.each(TREN.markers, function(i, marker) {
                 marker.stop();
+                console.log('stop');
             });
         });
+    });
+
+    
+
+    $(document).on('click', '.btn', function(e) {
+        var id = e.target.id;
+        $('#info').empty();
+        console.log(TREN.getPassingTrains(id));
     });
 
     TREN.loadMapElements();

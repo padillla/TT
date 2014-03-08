@@ -1,14 +1,26 @@
-- automate the build.
+- automate the build.   Use Jake or Grunt?
 
-- make a better layout 
+- make a better layout, or make a badass interface in Angular.
 
 - make animated marker for train on the road.  Done.
 		>> now make it work at realtime speed with a more appealing look.
 
-- Make each marker to show a link to a detailed view of trains that will pass there.
-- get a proper marker icon for stops.
+- Make each marker to show a link to a detailed view of trains that will pass there. ONGIONG
+
+- get a proper marker icon for stops.SEARCH HARDER
 
 - add a button to go to top of page, or make it easy to go to top.
+
+-Sort stops in a proper logical way for each route
+
+DONE- resolve error on TREN.getPassingTrains  which receives a correct ID 
+but does not fill the passing trains array for a second time for the same stop.
+
+
+make the movin train near boundaries to be the las and next stop.
+
+
+-Change the tile layer. Cloud made will not longer be available after May 1ST
 
 
 		>>
