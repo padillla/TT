@@ -1,4 +1,4 @@
-- automate the build.   Use Jake or Grunt?
+- automate the build.  Jake or Grunt?
 
 - make a better layout, or make a badass interface in Angular.
 
@@ -11,7 +11,8 @@
 
 - add a button to go to top of page, or make it easy to go to top.
 
--Sort stops in a proper logical way for each route
+-Sort stops in a proper logical way for each route.
+it must receievean route number 
 
 DONE- resolve error on TREN.getPassingTrains  which receives a correct ID 
 but does not fill the passing trains array for a second time for the same stop.
@@ -21,6 +22,8 @@ make the movin train near boundaries to be the las and next stop.
 
 
 -Change the tile layer. Cloud made will not longer be available after May 1ST
+
+
 
 
 		>>

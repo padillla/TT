@@ -185,9 +185,11 @@ $(document).ready(function() {
             getPassingTrains: function(Id) {
 
                 //in case you wonder, this makes the string a number.
-                var stopId = +Id;
+                var stopId = +Id,
 
-                var passingTrains = [];
+                passingTrains = [],
+
+                time;
 
                 function filterStoptime(i) {
 
@@ -195,19 +197,23 @@ $(document).ready(function() {
                         
                         i.stop = TREN.getStopById(stopId);
                         passingTrains.push(i);
+                        i.arrival_time = parseTime(i.arrival_time);
+                        i.departure_time = parseTime(i.departure_time);
+
                         return true;
                     } else {
                         return false;
                     }
                 }
                 TREN.stoptimes.filter(filterStoptime);
+                //passingTrains.sortByProperty()
                 makeList(passingTrains);
                 return passingTrains;
             }
         };
 
 
-    /* function sortByProperty(property) {
+    function sortByProperty(property) {
         'use strict';
         return function(a, b) {
             var sortStatus = 0;
@@ -219,7 +225,7 @@ $(document).ready(function() {
 
             return sortStatus;
         };
-    };*/
+    };
 
 
 
