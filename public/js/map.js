@@ -1,6 +1,6 @@
 $(document).ready(function() {
     // map attributes TODO Chnge tile provider CLOUDMADE WILL close tile API
-    
+
     var cloudmadeUrl = 'http://{s}.tile.cloudmade.com/5f60f5a8fd1f447b926d50284ef5397c/997/256/{z}/{x}/{y}.png',
         cloudmadeAttribution = '<a href="padillla.github.io">Github</a>, Map data &copy; 2011 OSM 2011 CloudMade',
         cloudmade = new L.TileLayer(
@@ -187,18 +187,18 @@ $(document).ready(function() {
                 //in case you wonder, this makes the string a number.
                 var stopId = +Id,
 
-                passingTrains = [],
+                    passingTrains = [],
 
-                time;
+                    time;
 
                 function filterStoptime(i) {
 
                     if (i.stop_id === stopId) {
-                        
+
                         i.stop = TREN.getStopById(stopId);
                         passingTrains.push(i);
-                        i.arrival_time = parseTime(i.arrival_time);
-                        i.departure_time = parseTime(i.departure_time);
+                        //i.arrival_time = parseTime(i.arrival_time);
+                        //i.departure_time = parseTime(i.departure_time);
 
                         return true;
                     } else {
@@ -225,42 +225,53 @@ $(document).ready(function() {
 
             return sortStatus;
         };
-    };
+    }
 
 
 
     // attach a <li> with information on each passing train 
     //this need to be beautified, it diplays each train that passes and where it goes. TODO MAKE this a floating info window, or just something that looks better
     function makeList(json) {
-        var info = $('#info');
-   
-        info.append('<h4>' + json[1].stop.properties.long_name + '</h4>');
+        var table = $('#table');
+        table.append('<h4 #h4-title>' + json[1].stop.properties.long_name + '</h4>');
 
-        var ul = $('<ul>').appendTo('#info');
+        $(function() {
+            $('#headings th').click(function() {
+                var id = $(this).attr('id');
+                var asc = (!$(this).attr('asc')); // switch the order, true if not set
 
-        $(json).each(function(index, item) {
+                // set asc="asc" when sorted in ascending order
+                $('#headings th').each(function() {
+                    $(this).removeAttr('asc');
+                });
+                if (asc) {
+                    $(this).attr('asc', 'asc');
+                }
 
-            //If it has Arrival time but no depature, its the last train of the route.
-            if (item.arrival_time && !item.departure_time) {
-                ul.append(
-                    $(document.createElement('li')).html('Llega a  ' + item.headsign + ' a las  ' + item.arrival_time)
-                );
-                //If it has depature time but no arrival, its the first train.
-            } else if (item.departure_time && !item.arrival_time) {
-                ul.append(
-                    $(document.createElement('li')).html('Sale hacia ' + item.headsign + ' a las ' + item.departure_time));
-            } else {
-
-                //if it has both arrival and depature, its just passing by
-                ul.append(
-                    $(document.createElement('li')).html('Llega a las ' + item.arrival_time + ' y sale hacia ' + item.headsign + " a las " + item.departure_time)
-                );
-
-            }
+                sortResults(id, asc);
+            });
+            showResults();
         });
 
+        function sortResults(prop, asc) {
+            json = json.sort(function(a, b) {
+                if (asc) {
+                    return (a[prop] > b[prop]);
+                } else {
+                    return (b[prop] > a[prop]);
+                }
+            });
+            showResults();
+        }
 
-
+        function showResults() {
+            var row = '';
+            var html = '';
+            for (var e in json) {
+                html += '<tr>' + '<td>' + json[e].arrival_time + '</td>' + '<td>' + json[e].headsign + '</td>' + '<td>' + json[e].departure_time + '</td>' + '</tr>';
+            }
+            $('#results').html(html);
+        }
     }
     // Bind Click listerners to buttons
     $(function() {
@@ -283,14 +294,18 @@ $(document).ready(function() {
         });
     });
 
-    
+
 
     $(document).on('click', '.btn', function(e) {
         var id = e.target.id;
-        $('#info').empty();
+        $('#results, #table>h4').empty();
         console.log(TREN.getPassingTrains(id));
     });
 
     TREN.loadMapElements();
 
 });
+
+
+/*
+ */

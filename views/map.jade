@@ -3,33 +3,41 @@ block head
                 link(href="./css/leaflet.css", rel="stylesheet")
 
 block content
-   div#wrapper  
-        ul.nav.nav-tabs
-            li.active
-              a(href='#') Tren
-            li
-              a(href='#') Me
-        .col-md-12.column
-        
-          .page-header
-            h1
-              | Ruta  
-              
-            h3
-              |  Tren Urbano Costa Rica
-          .btn-group
-            button.btn.btn-default(type='button')#start
-              
-              | Iniciar
-            button.btn.btn-default(type='button')#stop
-              
-              | Pausar
-            button.btn.btn-default(type='button')#reset
-              
-              | Reiniciar
-        #info.colspan-2
-            | 
-        #map
+    #wrapper  
+            ul.nav.nav-tabs
+                li.active
+                  a(href='#') Tren
+                li
+                  a(href='#') Me
+            .col-md-12.column
+            
+              .page-header
+                h1
+                  | Ruta  
+                  
+                h3
+                  |  Tren Urbano Costa Rica
+              .btn-group
+                button.btn.btn-default(type='button')#start
+                  
+                  | Iniciar
+                button.btn.btn-default(type='button')#stop
+                  
+                  | Pausar
+                button.btn.btn-default(type='button')#reset
+                  
+                  | Reiniciar
+            #table
+              h4
+              table.table.table-striped.table-bordered.table-hover.table-responsive
+                thead#headings
+                    tr
+                      th#arrival_time Llegada
+                      th#headsign Destino
+                      th#departure_time Salida
+                  tbody#results
+
+            #map
 block footer
                 
                 script(src='./js/leaflet.js')

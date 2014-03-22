@@ -103,22 +103,7 @@ ul li {
   padding-left: 10px;
 }
 
-#info>ul>li {
-  padding: 10px;
-  line-height:1.5em;
-  border:1px solid #ccc;
-  float:left;
-  display:inline;
-  width:25%;
-  border-collapse: collapse;
-}
-#info>ul{
 
- width:70%;
-  margin-bottom:20px;
-  overflow:hidden;
-  border-top:1px solid #ccc;
-}
 ol li {
   list-style: decimal inside;
   padding-left: 20px;
@@ -450,6 +435,7 @@ html, body, #map, #wrapper {
     width: 100%
 
 }
+
 #map{
   
   min-width: 300px;
