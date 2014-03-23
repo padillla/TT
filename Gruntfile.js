@@ -3,7 +3,7 @@ module.exports = function(grunt) {
     pkg: grunt.file.readJSON('package.json'),
 
     jshint: {
-      files: ['Gruntfile.js', 'app.js', 'public/js/map.js', 'public/models/*.*', 'routes/*.*'],
+      files: ['Gruntfile.js', 'app.js', 'public/js/map.js', 'public/models/*.*', 'routes/*.*', 'test/*.*'],
       options: {
         node: true,
         curly: true,
