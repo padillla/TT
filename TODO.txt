@@ -1,6 +1,7 @@
 - automate the build.  Jake or Grunt?
 
-- test drive the whole thing. SQLite3 meeds mocha
+- test drive the whole thing. WIP
+		>>set it on Grunt
 
 - rewrite API for more sense on loading each trip.
 		>> It will make a GET request including trip number and route ID
