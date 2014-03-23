@@ -1,3 +1,9 @@
 Sort Json by props
 
 http://stackoverflow.com/questions/881510/jquery-sorting-json-by-properties
+
+Use SQLite on Node
+https://github.com/mapbox/node-sqlite3
+
+RESTful API
+http://carlosazaustre.es/blog/como-crear-una-api-rest-usando-node-js/
