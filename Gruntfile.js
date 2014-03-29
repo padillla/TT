@@ -2,8 +2,18 @@ module.exports = function(grunt) {
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
 
+    mochaTest: {
+      test: {
+        options: {
+          reporter: 'spec',
+          colors: true
+        },
+        src: ['test/*.js']
+      }
+    },
+
     jshint: {
-      files: ['Gruntfile.js', 'app.js', 'public/js/map.js', 'public/models/*.*', 'routes/*.*', 'test/*.*'],
+      files: ['Gruntfile.js', 'app.js', 'public/js/map.js', 'public/models/*.*', 'routes/*.*', 'test/*.js'],
       options: {
         node: true,
         curly: true,
@@ -17,10 +27,11 @@ module.exports = function(grunt) {
         boss: true,
         eqnull: true,
         browser: true,
+        expr : true,
         //quotmark: "single", TODO: clean the messy quotmarks for single.
         globals: {
           // AMD
-          
+
           module: true,
           require: true,
           requirejs: true,
@@ -50,10 +61,9 @@ module.exports = function(grunt) {
     }
   });
 
-
-
   grunt.loadNpmTasks('grunt-contrib-jshint');
+  grunt.loadNpmTasks('grunt-mocha-test');
 
-
-  grunt.registerTask('default', ['jshint']);
+  grunt.registerTask('default', ['jshint', 'mochaTest']);
+  grunt.registerTask('test', ['mochaTest']);
 };

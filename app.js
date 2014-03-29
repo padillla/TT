@@ -1,4 +1,4 @@
-/**
+/*
  * Module dependencies.
  */
 var express = require('express'),
@@ -34,20 +34,22 @@ app.get('/', map.map);
 
 
 
-app.get('/viewtrip', map.trip);
+app.get('/viewtrip/:id/:route', map.trip);
 
-app.get('/routes',  function(req, res) {
+app.get('/routes', function(req, res) {
   res.sendfile('public/models/routes.json');
-  });
-app.get('/stops',  function(req, res) {
+});
+app.get('/stops', function(req, res) {
   res.sendfile('public/models/stops.json');
-  });
-app.get('/stoptimes',  function(req, res) {
+});
+app.get('/stoptimes', function(req, res) {
   res.sendfile('public/models/stoptimes.json');
-  });
-app.get('/trips',  function(req, res) {
+});
+app.get('/trips', function(req, res) {
   res.sendfile('public/models/trips.json');
-  });
+});
+
+
 
 var server = http.createServer(app);
 server.listen(app.get('port'), function() {
@@ -55,19 +57,22 @@ server.listen(app.get('port'), function() {
 });
 
 
+var trip = require("./routes/map.js").trip;
+
+trip(506110, 6);
 
 
+//  Bind socket.io to server
+// var serv_io = io.listen(server);
+// serv_io.sockets.on('connection', function(socket) {
 
-/* Bind socket.io to server
-var serv_io = io.listen(server);
-serv_io.sockets.on('connection', function(socket) {
+//   // start listening for coords
+//   socket.on('send:coords', function(data) {
+//     console.log(prettyjson.render(data));
 
-  // start listening for coords
-  socket.on('send:coords', function(data) {
-    console.log(prettyjson.render(data));
+//     // broadcast coordinates to everyone except you
+//     socket.broadcast.emit('load:coords', data);
 
-    // broadcast coordinates to everyone except you
-    socket.broadcast.emit('load:coords', data);
+//   });
+// });
 
-  });
-});*/
