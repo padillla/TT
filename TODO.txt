@@ -1,9 +1,10 @@
 - automate the build.  Jake or Grunt?
+GRUNT
 
 - test drive the whole thing. WIP
-		>>set it on Grunt
+		>>set it on Grunt. DONE
 
-- rewrite API for more sense on loading each trip.
+- [DONE]rewrite API for more sense on loading each trip.
 		>> It will make a GET request including trip number and route ID
 		>> Express will return a GeoJSON feature collection
 		>> response has to be structured like this:
@@ -13,7 +14,7 @@
 			Response:
 				{type: "Feature Collection",
 					Features:[
-						{Routeline},
+						{Routeline},>>> MAKE THIS a Geojson Polyline 
 						{stop},
 						{stop},
 						{stop},
@@ -22,21 +23,24 @@
 					]
 				}
 
+
+
 - make a better layout, or make a badass interface in Angular.
    		>> add a button to go to top of page, or make it easy to go to top.
+		>> make animated marker for train on the road.  DONE.
+		>> now make it work at realtime speed with a more appealing look. 
+		>>Then make it server updated using websockets.
 
-- make animated marker for train on the road.  Done.
-		>> now make it work at realtime speed with a more appealing look.
-
-- Make each marker to show a link to a detailed view of trains that will pass there. 	ONGOING
+- Make each marker to show a link to a detailed view of trains that will pass there. ONGOING, very ugly tho.
+      >>>Make the API to return all passing trains for a certain stop, excluding the ones that have already passed.
 
 -make the moving train view boundaries to be the last and next stop.
 
 -Change the tile layer. Cloud made will not longer be available after May 1ST
+		>>Google maps
+		>>OSM
+		>>Mapbox
 
 
-
-
-		>>
 
 If you have any idea, or know how to make this a reality, let me know, please. 
