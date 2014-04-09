@@ -52,7 +52,7 @@ module.exports = function(grunt) {
           describe: true,
           it: true,
           expect: true,
-          beforeEach: true,
+          before: true,
           afterEach: true
         }
 

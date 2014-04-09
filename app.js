@@ -33,9 +33,6 @@ if ('development' === app.get('env')) {
 app.get('/', map.map);
 
 
-
-app.get('/viewtrip/:id/:route', map.trip);
-
 app.get('/routes', function(req, res) {
   res.sendfile('public/models/routes.json');
 });
@@ -49,6 +46,16 @@ app.get('/trips', function(req, res) {
   res.sendfile('public/models/trips.json');
 });
 
+app.get('/ruta/:route/:trip_n', function(req, res) {
+  map.trip(req.params.route, req.params.trip_n, function(data, num, err) {
+    if (err) {
+      console.log(err);
+      res.send('Invalid request :' + err);
+    } else {
+      res.send(data);
+    }
+  });
+});
 
 
 var server = http.createServer(app);
@@ -56,10 +63,6 @@ server.listen(app.get('port'), function() {
   console.log('Express server listening on port ' + app.get('port'));
 });
 
-
-var trip = require("./routes/map.js").trip;
-
-trip(506110, 6);
 
 
 //  Bind socket.io to server
@@ -75,4 +78,3 @@ trip(506110, 6);
 
 //   });
 // });
-
