@@ -3,11 +3,11 @@ $(document).ready(function() {
 
     var cloudmadeUrl = 'http://{s}.tile.cloudmade.com/5f60f5a8fd1f447b926d50284ef5397c/997/256/{z}/{x}/{y}.png',
         cloudmadeAttribution = '<a href="padillla.github.io">Github</a>, Map data &copy; 2011 OSM 2011 CloudMade',
-        cloudmade = new L.TileLayer(
-            cloudmadeUrl, {
-                maxZoom: 18,
-                attribution: cloudmadeAttribution
-            }),
+        cloudmade = new  L.tileLayer('http://openmapsurfer.uni-hd.de/tiles/roads/x={x}&y={y}&z={z}', {
+          minZoom: 0,
+          maxZoom: 20,
+          attribution: 'Imagery from <a href="http://giscience.uni-hd.de/">GIScience Research Group @ University of Heidelberg</a> &mdash; Map data &copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+        }),
 
         map = new L.Map('map', {
             center: new L.LatLng(9.9335, -84.0780),
@@ -15,6 +15,7 @@ $(document).ready(function() {
             layers: [cloudmade],
             zoomControl: false
         }),
+
 
         //Icon definition TODO: make better icons for stops
         TinyIcon = L.Icon.extend({
@@ -45,7 +46,7 @@ $(document).ready(function() {
             iconUrl: "../img/marker-yellow.png"
         }),
 
-        //Returns the array with every lat lon reversed, so it wont mark the moving routes in Antartica. 
+        //Returns the array with every lat lon reversed, so it wont mark the moving routes in Antartica.
         //TODO: Find a way around this
 
 
@@ -78,7 +79,7 @@ $(document).ready(function() {
             //Make stop markers and road line magically appear on the map
             loadMapElements: function() {
 
-                //Pulls trips  
+                //Pulls trips
                 $.ajax({
                     url: '/trips',
                     success: function(data) {
@@ -87,7 +88,7 @@ $(document).ready(function() {
                         });
                     }
                 });
-                //Pulls Stop objets and place the markers with a button whith the stop ID as an ID Attribute 
+                //Pulls Stop objets and place the markers with a button whith the stop ID as an ID Attribute
                 $.ajax({
                     url: '/stops',
                     success: function(data) {
@@ -119,7 +120,7 @@ $(document).ready(function() {
                         TREN.animateTrains(TREN.routes);
                     }
                 });
-                //Pulls stoptimes 
+                //Pulls stoptimes
                 $.ajax({
                     url: '/stoptimes',
                     success: function(data) {
@@ -181,7 +182,7 @@ $(document).ready(function() {
 
             },
             //This gets which trains will arrive  in the selected stop.
-            //receives an stop id number and returns an array of stoptimes with the stop as a property of each passing train object 
+            //receives an stop id number and returns an array of stoptimes with the stop as a property of each passing train object
             getPassingTrains: function(Id) {
 
                 //in case you wonder, this makes the string a number.
@@ -229,7 +230,7 @@ $(document).ready(function() {
 
 
 
-    // attach a <li> with information on each passing train 
+    // attach a <li> with information on each passing train
     //this need to be beautified, it diplays each train that passes and where it goes. TODO MAKE this a floating info window, or just something that looks better
     function makeList(json) {
         var table = $('#table');
